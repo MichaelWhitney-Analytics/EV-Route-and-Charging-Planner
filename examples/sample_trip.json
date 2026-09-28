@@ -1,0 +1,13 @@
+{
+  "vehicle": {
+    "name": "Example custom EV (illustrative inputs only)",
+    "usable_battery_kwh": 75.0,
+    "driving_kwh_per_100_miles": 30.0,
+    "max_dc_charge_kw": 150.0,
+    "connector": "CCS",
+    "minimum_arrival_percent": 10.0
+  },
+  "leg_distances_miles": [100, 100],
+  "start_percent": 80,
+  "effective_stop_powers_kw": [75]
+}
