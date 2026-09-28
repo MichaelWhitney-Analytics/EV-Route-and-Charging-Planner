@@ -7,31 +7,19 @@ from pathlib import Path
 
 from src.planning.route_itinerary import build_itinerary
 from src.planning.vehicle_profile import VehicleProfile
+from src.validation.trip_request import validate_trip_request
 
 
 def run_trip(request: dict) -> dict:
-    """Validate JSON structure and return a serializable itinerary estimate."""
-    if not isinstance(request, dict):
-        raise ValueError("trip request must be a JSON object")
-    try:
-        vehicle = request["vehicle"]
-        legs = request["leg_distances_miles"]
-        powers = request["effective_stop_powers_kw"]
-        start = request["start_percent"]
-    except KeyError as exc:
-        raise ValueError(f"missing trip field: {exc.args[0]}") from exc
-
-    if not isinstance(vehicle, dict):
-        raise ValueError("vehicle must be a JSON object")
-    if not isinstance(legs, list) or not isinstance(powers, list):
-        raise ValueError("legs and stop powers must be JSON arrays")
-
-    try:
-        profile = VehicleProfile(**vehicle)
-    except TypeError as exc:
-        raise ValueError(f"invalid vehicle fields: {exc}") from exc
-
-    result = build_itinerary(profile, tuple(legs), start, tuple(powers))
+    """Validate the JSON request and return a serializable itinerary estimate."""
+    validate_trip_request(request)
+    profile = VehicleProfile(**request["vehicle"])
+    result = build_itinerary(
+        profile,
+        tuple(request["leg_distances_miles"]),
+        request["start_percent"],
+        tuple(request["effective_stop_powers_kw"]),
+    )
     return {
         "vehicle_name": profile.name,
         "estimate_only": True,
