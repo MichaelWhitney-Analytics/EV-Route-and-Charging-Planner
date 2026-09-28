@@ -1,0 +1,1438 @@
+vehicle_id,year,make,model,electricity_kwh_per_100_miles,epa_range_miles
+50024,2026,Acura,ZDX AWD,37.7006,323
+50025,2026,Acura,ZDX AWD Type S,40.5722,296
+50023,2026,Acura,ZDX RWD,36.8622,327
+49612,2026,Audi,Q4 45 e-tron,29.4031,288
+50182,2026,Audi,Q4 55 e-tron quattro,34.626,251
+50183,2026,Audi,Q4 Sportback 55 e-tron quattro,34.626,251
+50184,2026,Audi,RS e-tron GT Performance,40.1788,278
+50185,2026,Audi,S e-tron GT (20 inch wheels),37.6493,300
+50186,2026,Audi,S e-tron GT (21 inch wheels),38.5,294
+50190,2026,BMW,i4 M60 xDrive Gran Coupe (19 inch Wheels),34.3964,278
+50191,2026,BMW,i4 M60 xDrive Gran Coupe (20 inch Wheels),41.4376,232
+50187,2026,BMW,i4 eDrive35 Gran Coupe (19 inch Wheels),30.8327,251
+50188,2026,BMW,i4 eDrive40 Gran Coupe (18 inch wheels),28.527,333
+50189,2026,BMW,i4 eDrive40 Gran Coupe (19 inch Wheels),31.0961,307
+50192,2026,BMW,i4 xDrive40 Gran Coupe (18 inch Wheels),33.4089,287
+50193,2026,BMW,i4 xDrive40 Gran Coupe (19 inch Wheels),35.9861,268
+50194,2026,BMW,i5 M60 xDrive Sedan (19 inch Wheels),34.1426,277
+50195,2026,BMW,i5 M60 xDrive Sedan (20 inch Wheels),35.8185,266
+50196,2026,BMW,i5 M60 xDrive Sedan (21 inch Wheels),37.1253,259
+49613,2026,BMW,i5 eDrive40 Sedan (19 inch Wheels),30.6096,310
+49614,2026,BMW,i5 eDrive40 Sedan (20 inch Wheels),31.7381,300
+49615,2026,BMW,i5 eDrive40 Sedan (21 inch Wheels),34.4815,278
+49616,2026,BMW,i5 xDrive40 Sedan (19 inch Wheels),34.3752,278
+49617,2026,BMW,i5 xDrive40 Sedan (20 inch Wheels),35.2224,272
+49618,2026,BMW,i5 xDrive40 Sedan (21 inch Wheels),37.2045,259
+49943,2026,BMW,i7 M70 xDrive Sedan (20 inch Wheels),45.0571,267
+49944,2026,BMW,i7 M70 xDrive Sedan (21 inch Wheels),42.4501,285
+49940,2026,BMW,i7 eDrive50 Sedan (19 inch Wheels),38.1958,314
+49941,2026,BMW,i7 eDrive50 Sedan (20 inch Wheels),39.8738,301
+49942,2026,BMW,i7 eDrive50 Sedan (21 inch Wheels),38.949,307
+49945,2026,BMW,i7 xDrive60 Sedan (19 inch Wheels),38.4128,311
+49946,2026,BMW,i7 xDrive60 Sedan (20 inch Wheels),40.754,296
+49947,2026,BMW,i7 xDrive60 Sedan (21 inch Wheels),38.7685,308
+49627,2026,BMW,iX M70 (21 inch Wheels),41.9857,303
+49628,2026,BMW,iX M70 (22 inch Wheels),44.4809,284
+49629,2026,BMW,iX M70 (23 inch Wheels),44.8149,283
+49619,2026,BMW,iX xDrive45 (20 inch Wheels),35.9932,312
+49620,2026,BMW,iX xDrive45 (21 inch Wheels),37.7189,297
+49621,2026,BMW,iX xDrive45 (22 inch Wheels),40.266,279
+49622,2026,BMW,iX xDrive45 (23 inch Wheels),38.6474,290
+49623,2026,BMW,iX xDrive60 (20 inch Wheels),34.7115,364
+49624,2026,BMW,iX xDrive60 (21 inch Wheels),37.2214,341
+49625,2026,BMW,iX xDrive60 (22 inch Wheels),38.5172,327
+49626,2026,BMW,iX xDrive60 (23 inch Wheels),39.5629,318
+49630,2026,Bugatti Rimac,Nevera R,66.4549,174
+50197,2026,Cadillac,CELESTIQ,41.6988,303
+49631,2026,Cadillac,LYRIQ (11 kW Charger),36.8206,326
+49632,2026,Cadillac,LYRIQ (19 kW Charger),36.8364,326
+49948,2026,Cadillac,LYRIQ AWD,39.7147,303
+49635,2026,Cadillac,LYRIQ PAWD,37.9814,319
+49633,2026,Cadillac,LYRIQ PAWD V SERIES (11 kW Charger),42.359,285
+49634,2026,Cadillac,LYRIQ PAWD V SERIES (19 kW Charger),42.359,285
+49951,2026,Cadillac,OPTIQ AWD (11 kW Charger),34.0237,303
+49952,2026,Cadillac,OPTIQ AWD (19 kW Charger),34.0237,303
+50026,2026,Cadillac,OPTIQ AWD V SERIES 11 kW Charger,36.6617,278
+50027,2026,Cadillac,OPTIQ AWD V SERIES 19 kW charger,41.0,250
+49949,2026,Cadillac,OPTIQ RWD (11 kW Charger),32.0831,317
+49950,2026,Cadillac,OPTIQ RWD (19 kW Charger),32.0831,317
+49636,2026,Cadillac,VISTIQ (11 kW Charger),39.3469,305
+49637,2026,Cadillac,VISTIQ (19 kW Charger),39.3469,300
+49646,2026,Chevrolet,Blazer EV AWD,35.7361,283
+49954,2026,Chevrolet,Blazer EV AWD SS,39.6711,302
+49644,2026,Chevrolet,Blazer EV FWD,32.2898,312
+49645,2026,Chevrolet,Blazer EV FWD 22 inch tire,35.6443,283
+49955,2026,Chevrolet,Equinox EV AWD (11 kW Charger),32.6179,307
+49956,2026,Chevrolet,Equinox EV AWD (19 kW Charger),35.1127,288
+49953,2026,Chevrolet,Equinox EV FWD,31.0762,319
+49640,2026,Chevrolet,Silverado EV Ext Range (11kW Charger),49.5493,410
+49641,2026,Chevrolet,Silverado EV Ext Range (19kW Charger),52.4183,385
+49638,2026,Chevrolet,Silverado EV Ext Range WT,47.8421,424
+49639,2026,Chevrolet,Silverado EV Max Range WT (19kW Charger),49.4829,493
+49643,2026,Chevrolet,Silverado EV Std Range (11kW Charger),50.2832,283
+49642,2026,Chevrolet,Silverado EV Std Range WT (11kW Charger),49.5517,286
+49957,2026,Dodge,Charger Daytona R/T AWD 245/55ZR18,40.0,263
+49958,2026,Dodge,Charger Daytona R/T AWD 255/45R20,35.5778,295
+49959,2026,Dodge,Charger Daytona R/T AWD 275/40R20,41.0,258
+49647,2026,Dodge,Charger Daytona R/T AWD 305/35ZR20,39.1428,267
+49648,2026,Dodge,Charger Daytona Scat Pack AWD 305/35ZR20,39.1428,267
+49649,2026,Dodge,Charger Daytona Scat Pack AWD 325/35ZR20 Rear,46.5919,223
+49650,2026,Dodge,Charger Daytona Scat Pack AWD 325/35ZR20 Rear A/S,43.3733,241
+50198,2026,Fiat,500e,29.1808,149
+50199,2026,Fiat,500e All Season,30.5327,141
+50200,2026,Ford,Mustang Mach-E AWD,33.6352,240
+50201,2026,Ford,Mustang Mach-E AWD Extended,32.2577,300
+50202,2026,Ford,Mustang Mach-E GT,37.393,280
+50204,2026,Ford,Mustang Mach-E RWD,31.4375,260
+50205,2026,Ford,Mustang Mach-E RWD Extended,30.6702,320
+50203,2026,Ford,Mustang Mach-E Rally,40.1534,255
+49658,2026,GMC,SIERRA EV Ext Range (11kW Charger),49.5493,410
+49659,2026,GMC,SIERRA EV Ext Range (19kW Charger),52.4183,385
+49660,2026,GMC,SIERRA EV Std Range (11kW Charger),50.2832,283
+49651,2026,Genesis,Electrified G80,35.0,300
+49656,2026,Genesis,Electrified GV70 AWD (19 inch Wheels),35.0,263
+49657,2026,Genesis,Electrified GV70 AWD (20 inch Wheels),38.0,243
+49653,2026,Genesis,GV60 AWD (19 inch Wheels),33.5879,282
+49654,2026,Genesis,GV60 AWD Advanced (20 inch Wheels),35.1749,267
+49655,2026,Genesis,GV60 AWD Performance,37.0265,252
+49652,2026,Genesis,GV60 RWD,30.5687,306
+50207,2026,Honda,Prologue AWD Elite,35.2951,283
+50206,2026,Honda,Prologue AWD Touring,34.0725,294
+50208,2026,Honda,Prologue FWD,32.5465,308
+49962,2026,Hyundai,Ioniq 5 AWD (19inch Wheels),31.6676,290
+49963,2026,Hyundai,Ioniq 5 AWD (20inch Wheels),34.497,269
+49964,2026,Hyundai,Ioniq 5 AWD XRT,35.7633,259
+49965,2026,Hyundai,Ioniq 5 N,43.0,221
+49960,2026,Hyundai,Ioniq 5 RWD,30.0,318
+50028,2026,Hyundai,Ioniq 5 Robo taxi,47.5266,168
+49961,2026,Hyundai,Ioniq 5 Standard range,29.0,245
+49662,2026,Hyundai,Ioniq 9 AWD,38.0,320
+49663,2026,Hyundai,Ioniq 9 AWD Performance,40.0,311
+49661,2026,Hyundai,Ioniq 9 RWD,37.0,335
+50449,2026,Jeep,Recon MOAB 4WD,47.562,222
+50209,2026,Jeep,Wagoneer S AWD (Falken tire),36.2004,294
+50210,2026,Jeep,Wagoneer S AWD (Pirelli tire),39.1118,268
+50211,2026,Kia,EV6 AWD GT,41.0,231
+50212,2026,Kia,EV6 Long Range AWD (19 inch Wheels),31.5813,295
+50213,2026,Kia,EV6 Long Range AWD (20 inch Wheels),34.5856,270
+50214,2026,Kia,EV6 Long Range RWD,29.5817,319
+50215,2026,Kia,EV6 Standard Range RWD,29.2248,237
+49669,2026,Kia,EV9 GT,43.0,260
+49667,2026,Kia,EV9 Long Range AWD,40.0,283
+49668,2026,Kia,EV9 Long Range AWD GT-Line,41.0,280
+49666,2026,Kia,EV9 Long Range RWD,38.0,305
+49665,2026,Kia,EV9 Standard Range RWD,38.0,230
+49664,2026,Kia,Niro Electric,30.0,253
+50450,2026,Lexus,ES 350e (19 inch Wheels),27.0,307
+50451,2026,Lexus,ES 350e (21 inch Wheels),27.5209,292
+50452,2026,Lexus,ES 500e AWD (19 inch Wheels),30.0,276
+50453,2026,Lexus,ES 500e AWD (21 inch Wheels),30.0,272
+50291,2026,Lexus,RZ 350e FWD (18 inch wheels),26.5957,301
+50216,2026,Lexus,RZ 350e FWD (20 inch wheels),28.1333,284
+50217,2026,Lexus,RZ 450e AWD (18 inch wheels),30.532,264
+50218,2026,Lexus,RZ 450e AWD (20 inch wheels - 235/50R20),31.1651,257
+50219,2026,Lexus,"RZ 450e AWD (20 inch wheels - 235/50R20,255/45R20)",35.2268,228
+50220,2026,Lexus,RZ 550e AWD,35.3129,229
+49967,2026,Lucid,Air G Touring XR AWD with 20 inch wheels,28.1608,480
+49968,2026,Lucid,Air G Touring XR AWD with 21 inch wheels,30.1254,446
+49966,2026,Lucid,Air G Touring XR AWD with19 inch wheels,26.4283,512
+49969,2026,Lucid,Air Pure RWD with 19 inch wheels,23.141,420
+49970,2026,Lucid,Air Pure RWD with 20 inch wheels,26.1017,372
+49971,2026,Lucid,Air Sapphire AWD,32.1321,427
+49972,2026,Lucid,Air Touring AWD with 19 inch wheels,25.1902,431
+49973,2026,Lucid,Air Touring AWD with 20 inch wheels,27.3055,396
+49675,2026,Lucid,Gravity Dream w/20F21R wheels (3R),33.8831,420
+49676,2026,Lucid,Gravity Dream w/21F22R wheels (3R),37.641,378
+49677,2026,Lucid,Gravity Dream w/22F23R wheels (3R),37.641,378
+49670,2026,Lucid,Gravity GT w/20F21R wheels (2R),31.0948,450
+50029,2026,Lucid,Gravity GT w/20F21R wheels (3R),32.4302,437
+49671,2026,Lucid,Gravity GT w/21F22R wheels (2R),34.3333,407
+49673,2026,Lucid,Gravity GT w/21F22R wheels (3R),36.4512,386
+49672,2026,Lucid,Gravity GT w/22F23R wheels (2R),34.3333,407
+49674,2026,Lucid,Gravity GT w/22F23R wheels (3R),36.4512,386
+50221,2026,Lucid,Gravity Touring w/20F21R wheels,30.3355,337
+50222,2026,MINI,Countryman SE ALL4 (18 inch Wheels),34.9904,212
+50223,2026,MINI,Countryman SE ALL4 (19 inch Wheels),36.8577,204
+50454,2026,Maserati,Grancabrio Folgore,40.7187,231
+50292,2026,Maserati,Grecale Folgore (19 inch wheels),41.7231,268
+50455,2026,Maserati,Grecale Folgore (20 inch Wheels),41.7231,268
+50293,2026,Maserati,Grecale Folgore (21 inch wheels),46.6576,239
+49678,2026,Mercedes-Benz,AMG EQE 4matic Plus,48.0,220
+49686,2026,Mercedes-Benz,AMG EQE 4matic Plus (SUV),45.5282,230
+50030,2026,Mercedes-Benz,CLA250 Plus with EQ Tech,31.0,317
+50031,2026,Mercedes-Benz,CLA250 Plus with EQ Tech (R22),27.0,374
+50032,2026,Mercedes-Benz,CLA350 4matic with EQ Tech,29.0,312
+49680,2026,Mercedes-Benz,EQE 320 4matic,39.0,267
+49685,2026,Mercedes-Benz,EQE 320 4matic (SUV),42.0,253
+49679,2026,Mercedes-Benz,EQE 320 Plus,35.6258,308
+49684,2026,Mercedes-Benz,EQE 320 Plus (SUV),36.0755,302
+49688,2026,Mercedes-Benz,EQS 400 4matic (SUV),43.0,312
+49683,2026,Mercedes-Benz,EQS 450 4matic,37.0,367
+49681,2026,Mercedes-Benz,EQS 450 Plus,34.0127,390
+49689,2026,Mercedes-Benz,EQS 550 4matic (SUV),42.0,317
+49682,2026,Mercedes-Benz,EQS 580 4matic,35.622,371
+49690,2026,Mercedes-Benz,EQS 680 4matic Maybach (SUV),39.823,300
+49687,2026,Mercedes-Benz,G 580 with EQ Technology,54.0,239
+50226,2026,Nissan,ARIYA FWD 63kWh,33.2574,216
+50227,2026,Nissan,ARIYA FWD 87kWh,34.3726,289
+50228,2026,Nissan,ARIYA PLATINUM+ e-4ORCE 87kWh 19in. Wheels,37.3979,267
+50224,2026,Nissan,ARIYA e-4ORCE 63kWh,35.2939,205
+50225,2026,Nissan,ARIYA e-4ORCE 87kWh,36.6389,272
+49974,2026,Nissan,LEAF 75kWh (18 inch alloy Wheels),30.0,288
+49975,2026,Nissan,LEAF 75kWh (18 inch steel Wheels),27.8215,303
+49976,2026,Nissan,LEAF 75kWh (19 inch Wheels),32.7274,259
+50229,2026,Polestar,3 Long Range Dual Motor (21 Inch Wheels),37.5261,312
+50230,2026,Polestar,3 Long Range Dual Motor (22 Inch Wheels),41.5494,281
+50231,2026,Polestar,3 Long Range Dual Motor Performance Pack,41.5494,281
+50232,2026,Polestar,3 Long Range Single Motor (20 Inch Wheels),35.4976,286
+50233,2026,Polestar,3 Long Range Single Motor (21 Inch Wheels),34.7334,291
+50034,2026,Polestar,4 Long Range Dual Motor,40.0,280
+50035,2026,Polestar,4 Long Range Dual Motor Performance,44.0,255
+50033,2026,Polestar,4 Long Range Single Motor,35.0,310
+50294,2026,Porsche,Macan 4 Electric,35.3093,304
+50459,2026,Porsche,Macan 4 Electric 20in Wheels,33.0508,324
+50295,2026,Porsche,Macan 4S Electric,36.7931,290
+50296,2026,Porsche,Macan Electric,34.5857,309
+50458,2026,Porsche,Macan Electric 20in Wheels,32.1011,332
+50297,2026,Porsche,Macan GTS Electric,36.7101,294
+50298,2026,Porsche,Macan Turbo Electric,36.8515,293
+50234,2026,Porsche,Taycan 4 Cross Turismo,41.5097,277
+50235,2026,Porsche,Taycan 4 Perf Battery Plus,38.7298,294
+50456,2026,Porsche,Taycan 4 Perf Battery Plus 19in All-Season (M+S),36.2403,315
+50457,2026,Porsche,Taycan 4 Performance Battery,38.5743,251
+50236,2026,Porsche,Taycan 4S Cross Turismo,42.2417,272
+50237,2026,Porsche,Taycan 4S Perf Battery Plus,38.5437,295
+50238,2026,Porsche,Taycan 4S Perf Battery Plus 19in All-Season (M+S),36.2403,315
+50239,2026,Porsche,Taycan 4S Performance Battery,38.4498,252
+50240,2026,Porsche,Taycan GTS,38.977,293
+50241,2026,Porsche,Taycan GTS Sport Turismo,41.0496,279
+50242,2026,Porsche,Taycan Performance Battery,37.0713,274
+50243,2026,Porsche,Taycan Turbo,39.3432,292
+50244,2026,Porsche,Taycan Turbo Cross Turismo,42.9487,265
+50245,2026,Porsche,Taycan Turbo GT,40.8761,276
+50246,2026,Porsche,Taycan Turbo GT with Weissach Package,41.7469,269
+50247,2026,Porsche,Taycan Turbo S,42.7654,266
+50248,2026,Porsche,Taycan Turbo S Cross Turismo,43.6145,261
+49734,2026,Rivian,R1S All-Terrain Dual Large (20in),44.3622,289
+49725,2026,Rivian,R1S All-Terrain Dual Large Plus (20in),46.8874,292
+49720,2026,Rivian,R1S All-Terrain Dual Max (20in),43.2248,370
+49723,2026,Rivian,R1S All-Terrain Performance  Dual Max (20in),43.2248,370
+49737,2026,Rivian,R1S All-Terrain Performance Dual Large (20in),44.3622,289
+49727,2026,Rivian,R1S All-Terrain Performance Dual Large Plus (20in),46.8874,292
+49731,2026,Rivian,R1S All-Terrain Tri Max (20in),49.8346,329
+49733,2026,Rivian,R1S Dual Large (20in),42.8711,300
+49732,2026,Rivian,R1S Dual Large (22in),39.4726,329
+49728,2026,Rivian,R1S Dual Large Plus (20in),43.1237,317
+49724,2026,Rivian,R1S Dual Large Plus (22in),40.9029,330
+49718,2026,Rivian,R1S Dual Max (20in),41.9729,380
+49719,2026,Rivian,R1S Dual Max (22in),39.9385,410
+49717,2026,Rivian,R1S Dual Standard (20in),42.8683,258
+49716,2026,Rivian,R1S Dual Standard (22in),39.8854,270
+49736,2026,Rivian,R1S Performance Dual Large (20in),42.8711,300
+49735,2026,Rivian,R1S Performance Dual Large (22in),39.4726,329
+49729,2026,Rivian,R1S Performance Dual Large Plus (20in),43.1237,317
+49726,2026,Rivian,R1S Performance Dual Large Plus (22in),40.9029,330
+49721,2026,Rivian,R1S Performance Dual Max (20in),41.9729,380
+49722,2026,Rivian,R1S Performance Dual Max (22in),39.9385,410
+49739,2026,Rivian,R1S Quad Max (20in AT),50.1027,325
+49738,2026,Rivian,R1S Quad Max (22in UHP),47.3466,338
+49740,2026,Rivian,R1S Quad Max (22in),44.3718,374
+49730,2026,Rivian,R1S Tri Max (22in),44.5717,371
+49709,2026,Rivian,R1T All-Terrain Dual Large (20in),44.3622,289
+49700,2026,Rivian,R1T All-Terrain Dual Large Plus (20in),46.8874,292
+49695,2026,Rivian,R1T All-Terrain Dual Max (20in),43.2248,370
+49712,2026,Rivian,R1T All-Terrain Performance Dual Large (20in),44.3622,289
+49702,2026,Rivian,R1T All-Terrain Performance Dual Large Plus (20in),46.8874,292
+49698,2026,Rivian,R1T All-Terrain Performance Dual Max (20in),43.2248,370
+49706,2026,Rivian,R1T All-Terrain Tri Max (20in),49.8346,329
+49708,2026,Rivian,R1T Dual Large (20in),42.8711,300
+49707,2026,Rivian,R1T Dual Large (22in),39.4726,329
+49703,2026,Rivian,R1T Dual Large Plus (20in),43.1237,317
+49699,2026,Rivian,R1T Dual Large Plus (22in),40.9029,330
+49693,2026,Rivian,R1T Dual Max (20in),41.9729,380
+49694,2026,Rivian,R1T Dual Max (22in),38.8406,420
+49692,2026,Rivian,R1T Dual Standard (20in),42.8683,258
+49691,2026,Rivian,R1T Dual Standard (22in),39.8854,270
+49711,2026,Rivian,R1T Performance Dual Large (20in),42.8711,300
+49710,2026,Rivian,R1T Performance Dual Large (22in),39.4726,329
+49704,2026,Rivian,R1T Performance Dual Large Plus (20in),43.1237,317
+49701,2026,Rivian,R1T Performance Dual Large Plus (22in),40.9029,330
+49696,2026,Rivian,R1T Performance Dual Max (20in),41.9729,380
+49697,2026,Rivian,R1T Performance Dual Max (22in),38.8406,420
+49714,2026,Rivian,R1T Quad Max (20in AT),50.1027,325
+49713,2026,Rivian,R1T Quad Max (22in UHP),47.3466,338
+49715,2026,Rivian,R1T Quad Max (22in),44.3718,374
+49705,2026,Rivian,R1T Tri Max (22in),44.5717,371
+49979,2026,Rolls-Royce,Spectre (22 inch Wheels),43.6454,277
+49980,2026,Rolls-Royce,Spectre (23 inch Wheels),47.8369,253
+49977,2026,Rolls-Royce,Spectre Black Badge (22 inch Wheels),45.4265,266
+49978,2026,Rolls-Royce,Spectre Black Badge (23 inch Wheels),48.2792,251
+49981,2026,Subaru,Solterra 20 AWD,28.9223,278
+49982,2026,Subaru,Solterra AWD,27.9567,288
+50299,2026,Subaru,Trailseeker 20 inch AWD,30.0,274
+50300,2026,Subaru,Trailseeker AWD,29.0,281
+50301,2026,Subaru,Uncharted,25.6644,308
+50302,2026,Subaru,Uncharted 20 inch AWD,29.5015,273
+50303,2026,Subaru,Uncharted AWD,29.0,287
+50039,2026,Tesla,Cybertruck AWD,42.9059,325
+50460,2026,Tesla,Cybertruck Dual Motor AWD,42.9469,325
+50249,2026,Tesla,Cybertruck Long Range (20in Cyber wheels),43.3555,335
+50036,2026,Tesla,Model 3 Performance,29.585,309
+50250,2026,Tesla,Model 3 Performance AWD,30.2452,314
+50037,2026,Tesla,Model 3 Premium AWD,26.3757,346
+50038,2026,Tesla,Model 3 Premium RWD,24.6398,363
+50251,2026,Tesla,Model 3 Standard RWD,24.3033,321
+49741,2026,Tesla,Model S,27.1309,410
+49742,2026,Tesla,Model S Plaid,30.587,368
+50252,2026,Tesla,Model S Plaid (21in wheels),36.2115,309
+49745,2026,Tesla,Model X,32.2022,352
+49746,2026,Tesla,Model X Plaid,33.6949,335
+49744,2026,Tesla,Model Y Long Range AWD,27.4959,327
+49743,2026,Tesla,Model Y Long Range RWD,25.2252,357
+50253,2026,Tesla,Model Y Performance AWD,31.977,306
+50304,2026,Tesla,Model Y Standard AWD,26.499,294
+50040,2026,Tesla,Model Y Standard RWD (18in Wheels),24.3451,321
+50041,2026,Tesla,Model Y Standard RWD (19in Wheels),25.6907,303
+50307,2026,Toyota,C-HR AWD 18inch,29.0,287
+50308,2026,Toyota,C-HR AWD 20inch,29.5837,273
+50042,2026,Toyota,bZ (energy capacity 191 Ah),25.5044,314
+49983,2026,Toyota,bZ (energy capacity 200 Ah),25.8352,236
+49985,2026,Toyota,bZ AWD,27.9956,288
+49986,2026,Toyota,bZ AWD LIMITED,28.9223,278
+50043,2026,Toyota,bZ LIMITED (energy capacity 191 Ah),26.8632,299
+49984,2026,Toyota,bZ LIMITED (energy capacity 200 Ah),27.488,296
+50305,2026,Toyota,bZ Woodland AWD 235/60R18,29.0,281
+50306,2026,Toyota,bZ Woodland AWD 235/65R18,30.5844,260
+49987,2026,Volkswagen,ID.4,29.783,291
+49988,2026,Volkswagen,ID.4 AWD,32.9685,263
+49748,2026,Volvo,EC40,31.6837,298
+49750,2026,Volvo,EC40 Twin,34.8397,268
+49990,2026,Volvo,EX30 Cross Country (18 Inch Wheels),37.8118,203
+49991,2026,Volvo,EX30 Cross Country (19 Inch Wheels),34.0919,227
+49989,2026,Volvo,EX30 Single motor extended range,29.1651,261
+49992,2026,Volvo,EX30 Twin Performance,31.0632,253
+49747,2026,Volvo,EX40,31.7016,296
+49749,2026,Volvo,EX40 Twin,35.9765,260
+50254,2026,Volvo,EX90,36.8057,276
+50255,2026,Volvo,EX90 (21 Inch Wheels),34.4647,291
+50256,2026,Volvo,EX90 Twin Motor,39.1609,298
+50257,2026,Volvo,EX90 Twin Motor (21 Inch Wheels),38.3164,305
+50258,2026,Volvo,EX90 Twin Motor Performance,39.1609,298
+50259,2026,Volvo,EX90 Twin Motor Performance (21 Inch Wheels),38.3164,305
+48296,2025,Audi,Q4 45 e-tron,29.4031,288
+48681,2025,Audi,Q4 55 e-tron quattro,33.7331,258
+48682,2025,Audi,Q4 Sportback 55 e-tron quattro,33.7331,258
+48686,2025,Audi,Q6 Sportback e-tron quattro (19 inch wheels),32.6976,319
+48687,2025,Audi,Q6 Sportback e-tron quattro (20 inch wheels),34.2764,305
+48683,2025,Audi,Q6 e-tron (19 inch wheels),33.7501,310
+48684,2025,Audi,Q6 e-tron (20 inch wheels),35.2131,298
+48297,2025,Audi,Q6 e-tron quattro (19 inch wheels),34.0414,307
+48298,2025,Audi,Q6 e-tron quattro (20 inch wheels),35.3024,295
+48685,2025,Audi,Q6 e-tron ultra,32.4863,321
+48301,2025,Audi,Q8 Sportback e-tron quattro (20 inch wheels),43.1758,272
+48302,2025,Audi,Q8 Sportback e-tron quattro (21 inch wheels),45.5353,254
+48299,2025,Audi,Q8 e-tron quattro (20 inch wheels),43.1758,272
+48300,2025,Audi,Q8 e-tron quattro (21 inch wheels),45.5353,254
+48993,2025,Audi,RS e-tron GT Performance,40.1762,278
+48688,2025,Audi,S e-tron GT (20 inch wheels),37.6493,300
+48689,2025,Audi,S e-tron GT (21 inch wheels),38.5,294
+48690,2025,Audi,SQ6 Sportback e-tron,36.8708,283
+48303,2025,Audi,SQ6 e-tron,37.8055,275
+48306,2025,Audi,SQ8 Sportback e-tron (20 inch wheels),48.1489,242
+48307,2025,Audi,SQ8 Sportback e-tron (21/22 inch wheels),56.2587,208
+48304,2025,Audi,SQ8 e-tron (20 inch wheels),48.1489,242
+48305,2025,Audi,SQ8 e-tron (21/22 inch wheels),56.2587,208
+48312,2025,BMW,i4 M50 Gran Coupe (19 inch wheels),35.8724,267
+48313,2025,BMW,i4 M50 Gran Coupe (20 inch wheels),42.1631,227
+48308,2025,BMW,i4 eDrive35 Gran Coupe (18 inch Wheels),29.1671,266
+48309,2025,BMW,i4 eDrive35 Gran Coupe (19 inch Wheels),31.7304,244
+48310,2025,BMW,i4 eDrive40 Gran Coupe (18 inch wheels),30.1552,318
+48311,2025,BMW,i4 eDrive40 Gran Coupe (19 inch Wheels),32.3112,295
+48314,2025,BMW,i4 xDrive40 Gran Coupe (18 inch Wheels),33.4089,287
+48315,2025,BMW,i4 xDrive40 Gran Coupe (19 inch Wheels),35.9861,268
+48319,2025,BMW,i5 M60 xDrive Sedan (19 inch Wheels),37.5255,253
+48320,2025,BMW,i5 M60 xDrive Sedan (20 inch Wheels),38.2436,250
+48321,2025,BMW,i5 M60 xDrive Sedan (21 inch Wheels),40.1239,239
+48316,2025,BMW,i5 eDrive40 Sedan (19 inch Wheels),32.2089,295
+48317,2025,BMW,i5 eDrive40 Sedan (20 inch Wheels),34.2082,278
+48318,2025,BMW,i5 eDrive40 Sedan (21 inch Wheels),35.2736,271
+48322,2025,BMW,i5 xDrive40 Sedan (19 inch Wheels),36.1443,266
+48323,2025,BMW,i5 xDrive40 Sedan (20 inch Wheels),36.2955,262
+48324,2025,BMW,i5 xDrive40 Sedan (21 inch Wheels),38.8179,248
+48328,2025,BMW,i7 M70 xDrive Sedan (20 inch Wheels),44.9556,268
+48329,2025,BMW,i7 M70 xDrive Sedan (21 inch Wheels),42.4501,285
+48325,2025,BMW,i7 eDrive50 Sedan (19 inch Wheels),38.1958,314
+48326,2025,BMW,i7 eDrive50 Sedan (20 inch Wheels),39.8738,301
+48327,2025,BMW,i7 eDrive50 Sedan (21 inch Wheels),38.949,307
+48330,2025,BMW,i7 xDrive60 Sedan (19 inch wheels),38.4128,311
+48331,2025,BMW,i7 xDrive60 Sedan (20 inch wheels),40.754,296
+48332,2025,BMW,i7 xDrive60 Sedan (21inch wheels),38.7685,308
+48333,2025,BMW,iX M60 (21 inch Wheels),44.3995,284
+48334,2025,BMW,iX M60 (22 inch Wheels),43.742,285
+48335,2025,BMW,iX xDrive40 (20 inch Wheels),39.2541,217
+48336,2025,BMW,iX xDrive40 (21 inch Wheels),40.6422,211
+48337,2025,BMW,iX xDrive40 (22 inch Wheels),38.578,219
+48338,2025,BMW,iX xDrive50 (20 inch wheels),40.5945,309
+48339,2025,BMW,iX xDrive50 (21 inch wheels),41.4396,303
+48340,2025,BMW,iX xDrive50 (22 inch wheels),41.4915,302
+48341,2025,Bugatti Rimac,Nevera,63.2681,204
+49150,2025,Bugatti Rimac,Nevera R,66.4549,174
+49067,2025,Cadillac,CELESTIQ,41.6988,303
+48691,2025,Cadillac,LYRIQ,36.008,326
+48692,2025,Cadillac,LYRIQ AWD (11 kW Charger),37.6053,319
+48693,2025,Cadillac,LYRIQ AWD (19 kW Charger),39.7563,303
+48342,2025,Chevrolet,Blazer EV AWD,35.639,283
+49068,2025,Chevrolet,Blazer EV AWD SS,39.6711,303
+49069,2025,Chevrolet,Blazer EV FWD,32.2898,312
+49070,2025,Chevrolet,Blazer EV FWD 22 inch tire,35.6443,283
+48694,2025,Chevrolet,Blazer EV RWD,35.3391,334
+48695,2025,Chevrolet,Equinox EV AWD (11 kW Charger),32.6179,307
+48696,2025,Chevrolet,Equinox EV AWD (19 kW Charger),35.1701,307
+48697,2025,Chevrolet,Equinox EV FWD,31.2399,319
+48700,2025,Chevrolet,Silverado EV (11 kW Charger),49.9059,408
+48701,2025,Chevrolet,Silverado EV (19 kW Charger),52.3625,390
+49071,2025,Chevrolet,Silverado EV 2WT,50.7794,282
+48699,2025,Chevrolet,Silverado EV 5WT (11 kW Charger),48.3284,422
+48702,2025,Chevrolet,Silverado EV 5WT (19 kW Charger),48.3284,422
+48698,2025,Chevrolet,Silverado EV 8WT,49.881,492
+49072,2025,Dodge,Charger Daytona R/T AWD 245/55ZR18,35.0,274
+48994,2025,Dodge,Charger Daytona R/T AWD 255/45R20,34.5239,308
+49073,2025,Dodge,Charger Daytona R/T AWD 275/40R20,35.0,268
+49074,2025,Dodge,Charger Daytona R/T AWD 305/35ZR20,35.0,279
+49075,2025,Dodge,Charger Daytona Scat Pack AWD 305/35ZR20,38.0,279
+49076,2025,Dodge,Charger Daytona Scat Pack AWD 325/35ZR20 Rear,43.0,216
+48995,2025,Dodge,Charger Daytona Scat Pack AWD 325/35ZR20 Rear A/S,43.3733,241
+48703,2025,Fiat,500e,29.1808,149
+48704,2025,Fiat,500e All Season,30.5327,141
+48705,2025,Ford,F-150 Lightning 4WD ER1,47.9143,320
+49077,2025,Ford,F-150 Lightning 4WD ER2,46.9714,300
+48706,2025,Ford,F-150 Lightning 4WD PRO ER1,47.9143,320
+48707,2025,Ford,F-150 Lightning 4WD SR,49.3643,240
+48708,2025,Ford,F-150 Lightning Platinum 4WD,50.7071,300
+49078,2025,Ford,Mustang Mach-E AWD,33.6352,240
+49079,2025,Ford,Mustang Mach-E AWD Extended,32.2577,300
+49080,2025,Ford,Mustang Mach-E GT,37.3929,280
+49082,2025,Ford,Mustang Mach-E RWD,31.4375,260
+49083,2025,Ford,Mustang Mach-E RWD Extended,30.6701,320
+49081,2025,Ford,Mustang Mach-E Rally,39.3847,265
+48343,2025,GMC,Hummer EV Pickup 2X,63.8996,318
+48344,2025,GMC,Hummer EV Pickup 3X,65.1464,312
+48345,2025,GMC,Hummer EV Pickup MT Tires 2X,71.709,282
+48346,2025,GMC,Hummer EV Pickup MT Tires 3X,70.2768,289
+48347,2025,GMC,Hummer EV SUV 2X,63.935,315
+48348,2025,GMC,Hummer EV SUV 3X,65.1464,312
+48349,2025,GMC,Hummer EV SUV MT Tires 2X,71.709,282
+48350,2025,GMC,Hummer EV SUV MT Tires 3X,70.2768,289
+48709,2025,GMC,Sierra EV,52.3625,390
+48351,2025,Genesis,Electrified G80,35.0,282
+48353,2025,Genesis,Electrified GV70,37.1566,236
+48356,2025,Genesis,GV60 AWD (19 inch Wheels),34.0,264
+48354,2025,Genesis,GV60 AWD Advanced (20 inch Wheels),35.4988,248
+48355,2025,Genesis,GV60 AWD Performance,36.8341,235
+48352,2025,Genesis,GV60 RWD,30.0,294
+49090,2025,Honda,Prologue AWD Elite,35.2951,283
+49089,2025,Honda,Prologue AWD Touring,33.7777,294
+49091,2025,Honda,Prologue FWD,32.5465,308
+48710,2025,Hyundai,Ioniq 5 AWD (19 inch Wheels),31.6676,290
+48711,2025,Hyundai,Ioniq 5 AWD (20 inch Wheels),34.497,269
+48712,2025,Hyundai,Ioniq 5 AWD XRT,35.7633,259
+48360,2025,Hyundai,Ioniq 5 N,43.0,221
+48713,2025,Hyundai,Ioniq 5 RWD,30.0,318
+49092,2025,Hyundai,Ioniq 5 Robo taxi,47.5266,168
+48714,2025,Hyundai,Ioniq 5 Standard range,29.0,245
+48361,2025,Hyundai,Ioniq 6 AWD (18 inch Wheels),28.0,316
+48365,2025,Hyundai,Ioniq 6 AWD (20 inch Wheels),32.5202,270
+48362,2025,Hyundai,Ioniq 6 RWD (18 inch Wheels),26.0,342
+48363,2025,Hyundai,Ioniq 6 RWD (20 inch Wheels),29.7709,291
+48364,2025,Hyundai,Ioniq 6 Standard Range,25.0,240
+48357,2025,Hyundai,Kona Electric (17 inch Wheels),29.0825,261
+48358,2025,Hyundai,Kona Electric (19 inch Wheels),31.0,230
+48359,2025,Hyundai,Kona Electric Standard Range,28.5326,200
+49093,2025,Jeep,Wagoneer S AWD (Falken tire),36.2004,294
+49151,2025,Jeep,Wagoneer S AWD (Pirelli tire),41.0,262
+49094,2025,Kia,EV6 AWD GT,40.0,231
+49095,2025,Kia,EV6 Long Range AWD (19 inch Wheels),32.0,295
+49096,2025,Kia,EV6 Long Range AWD (20 inch Wheels),34.5856,270
+49097,2025,Kia,EV6 Long Range RWD,29.5817,319
+49098,2025,Kia,EV6 Standard Range RWD,29.2248,237
+48368,2025,Kia,EV9 Long Range AWD,41.0,280
+48369,2025,Kia,EV9 Long Range AWD GT-Line,42.0,270
+48366,2025,Kia,EV9 Long Range RWD,38.0,304
+48367,2025,Kia,EV9 Standard Range RWD,38.0,230
+48370,2025,Kia,Niro Electric,30.0,253
+49099,2025,Lexus,RZ 300e (18 inch wheels),26.7583,266
+49100,2025,Lexus,RZ 300e (20 inch wheels),31.0,224
+49101,2025,Lexus,RZ 450e AWD (18 inch wheels),31.0,220
+49102,2025,Lexus,RZ 450e AWD (20 inch wheels),35.0,196
+48371,2025,Lucid,Air G Touring XR AWD with 19 inch wheels,26.4283,512
+48372,2025,Lucid,Air G Touring XR AWD with 20 inch wheels,28.1608,480
+48373,2025,Lucid,Air G Touring XR AWD with 21 inch wheels,30.1254,446
+48374,2025,Lucid,Air Pure RWD with 19 inch wheels,23.141,420
+48375,2025,Lucid,Air Pure RWD with 20 inch wheels,26.1017,372
+48376,2025,Lucid,Air Sapphire AWD,32.1321,427
+48377,2025,Lucid,Air Touring AWD with 19 inch wheels,25.5849,406
+48378,2025,Lucid,Air Touring AWD with 20 inch wheels,27.7525,377
+48379,2025,Lucid,Air Touring AWD with 21 inch wheels,28.9425,361
+49110,2025,Lucid,Gravity GT w/20F21R wheels (2R),31.0845,450
+49111,2025,Lucid,Gravity GT w/20F21R wheels (3R),32.4302,437
+49112,2025,Lucid,Gravity GT w/21F22R wheels (2R),34.3333,407
+49113,2025,Lucid,Gravity GT w/21F22R wheels (3R),36.4512,386
+49114,2025,Lucid,Gravity GT w/22F23R wheels (2R),34.3333,407
+49115,2025,Lucid,Gravity GT w/22F23R wheels (3R),36.4512,386
+48398,2025,MINI,Countryman SE ALL4 (18 inch Wheels),34.9904,212
+48399,2025,MINI,Countryman SE ALL4 (19 inch Wheels),36.8577,204
+48715,2025,Maserati,Grancabrio Folgore,41.0835,229
+48716,2025,Maserati,Granturismo Folgore,40.5097,233
+48380,2025,Maserati,Grecale Folgore (20 inch Wheels),44.906,245
+48381,2025,Maserati,Grecale Folgore (21 inch Wheels),54.0273,206
+48382,2025,Mercedes-Benz,AMG EQE 4matic Plus,48.0,220
+48393,2025,Mercedes-Benz,AMG EQE 4matic Plus (SUV),45.5282,230
+48386,2025,Mercedes-Benz,AMG EQS 4matic Plus,42.8479,315
+49116,2025,Mercedes-Benz,EQB 250 Plus,31.4691,251
+49117,2025,Mercedes-Benz,EQB 300 4matic,38.6807,205
+49118,2025,Mercedes-Benz,EQB 350 4matic,38.7794,207
+48383,2025,Mercedes-Benz,EQE 350 4matic,39.0,267
+48394,2025,Mercedes-Benz,EQE 350 4matic (SUV),42.0,253
+48384,2025,Mercedes-Benz,EQE 350 Plus,36.0,308
+48390,2025,Mercedes-Benz,EQE 350 Plus (SUV),36.0755,302
+48385,2025,Mercedes-Benz,EQE 500 4matic,40.0,266
+48391,2025,Mercedes-Benz,EQE 500 4matic (SUV),42.0,264
+48387,2025,Mercedes-Benz,EQS 450 4matic,37.0,367
+48395,2025,Mercedes-Benz,EQS 450 4matic (SUV),43.0,312
+48388,2025,Mercedes-Benz,EQS 450 Plus,34.0,390
+48392,2025,Mercedes-Benz,EQS 450 Plus (SUV),41.0,323
+48389,2025,Mercedes-Benz,EQS 580 4matic,36.0,371
+48396,2025,Mercedes-Benz,EQS 580 4matic (SUV),42.0,317
+48397,2025,Mercedes-Benz,EQS 680 4matic Maybach (SUV),43.559,302
+48717,2025,Mercedes-Benz,G 580 with EQ Technology,54.0,239
+48719,2025,Nissan,ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh,36.6389,272
+48720,2025,Nissan,ARIYA EVOLVE+ FWD 87kWh,34.3726,289
+48721,2025,Nissan,ARIYA FWD 63kWh,33.2574,216
+48722,2025,Nissan,ARIYA PLATINUM+ e-4ORCE 87kWh 19in. Wheels,37.3979,267
+48723,2025,Nissan,ARIYA PLATINUM+ e-4ORCE 87kWh 20in. Wheels,38.8396,257
+48718,2025,Nissan,ARIYA e-4ORCE 63kWh,35.2939,205
+48400,2025,Nissan,LEAF,30.4264,149
+48401,2025,Nissan,LEAF SV,30.7824,212
+48402,2025,Polestar,2 Dual Motor (19 Inch Wheels),33.5166,278
+48403,2025,Polestar,2 Dual Motor (20 Inch Wheels),35.0,268
+48404,2025,Polestar,2 Dual Motor Performance Pack,36.8773,254
+48405,2025,Polestar,2 Single Motor (19 Inch Wheels),29.6426,314
+48406,2025,Polestar,2 Single Motor (20 Inch Wheels),30.827,300
+48408,2025,Polestar,3 Long Range Dual Motor (20 Inch Wheels),39.0,310
+48409,2025,Polestar,3 Long Range Dual Motor (21 Inch Wheels),38.3624,315
+48410,2025,Polestar,3 Long Range Dual Motor (22 Inch Wheels),42.0,287
+48411,2025,Polestar,3 Long Range Dual Motor Performance Pack,43.7426,279
+48724,2025,Polestar,3 Long Range Single Motor (20 Inch Wheels),36.0134,342
+48725,2025,Polestar,3 Long Range Single Motor (21 Inch Wheels),35.3013,350
+48726,2025,Polestar,3 Long Range Single Motor (22 Inch Wheels),36.9495,333
+48412,2025,Polestar,4 Long Range Dual Motor,41.0,272
+48407,2025,Polestar,4 Long Range Single Motor,37.0,300
+48727,2025,Porsche,Macan 4 Electric,34.4628,308
+48728,2025,Porsche,Macan 4S Electric,37.1664,288
+49119,2025,Porsche,Macan Electric,34.0545,315
+48729,2025,Porsche,Macan Turbo Electric,36.9137,288
+48730,2025,Porsche,Taycan 4 Cross Turismo,41.5097,277
+49120,2025,Porsche,Taycan 4 Perf Battery Plus,38.7298,294
+48731,2025,Porsche,Taycan 4S Cross Turismo,42.2417,272
+48732,2025,Porsche,Taycan 4S Perf Battery Plus,38.5437,295
+48413,2025,Porsche,Taycan 4S Perf Battery Plus 19 inch Wheels,36.2403,315
+48733,2025,Porsche,Taycan 4S Performance Battery,38.4498,252
+49121,2025,Porsche,Taycan GTS,38.977,293
+49122,2025,Porsche,Taycan GTS Sport Turismo,41.0496,279
+48414,2025,Porsche,Taycan Perf Battery Plus,36.6041,318
+48415,2025,Porsche,Taycan Performance Battery,37.0713,274
+48734,2025,Porsche,Taycan Turbo,39.3432,292
+48735,2025,Porsche,Taycan Turbo 21in Aero-Design wheel (285/35),36.188,317
+48736,2025,Porsche,Taycan Turbo Cross Turismo,42.9487,265
+48737,2025,Porsche,Taycan Turbo GT,40.8761,276
+48738,2025,Porsche,Taycan Turbo GT with Weissach Package,41.7469,269
+48739,2025,Porsche,Taycan Turbo S,42.7654,266
+48740,2025,Porsche,Taycan Turbo S 21in Aero-Design wheel (285/35),37.5527,298
+48741,2025,Porsche,Taycan Turbo S Cross Turismo,43.6145,261
+48742,2025,Rivian,R1S All-Terrain Dual Large (20in),44.3622,289
+48428,2025,Rivian,R1S All-Terrain Dual Large Plus (20in),46.8874,292
+48429,2025,Rivian,R1S All-Terrain Dual Max (20in),43.2248,370
+48430,2025,Rivian,R1S All-Terrain Performance  Dual Max (20in),43.2248,370
+48743,2025,Rivian,R1S All-Terrain Performance Dual Large (20in),44.3622,289
+48431,2025,Rivian,R1S All-Terrain Performance Dual Large Plus (20in),46.8874,292
+48744,2025,Rivian,R1S All-Terrain Tri Max (20in),49.8346,329
+48745,2025,Rivian,R1S Dual Large (20in),42.8711,300
+48746,2025,Rivian,R1S Dual Large (22in),39.4726,329
+48747,2025,Rivian,R1S Dual Large Plus (20in),43.1237,317
+48432,2025,Rivian,R1S Dual Large Plus (22in),40.9029,330
+48433,2025,Rivian,R1S Dual Max (20in),41.9729,380
+48434,2025,Rivian,R1S Dual Max (22in),39.9385,410
+48435,2025,Rivian,R1S Dual Standard (20in),42.8683,258
+48436,2025,Rivian,R1S Dual Standard (22in),39.8854,270
+48748,2025,Rivian,R1S Performance Dual Large (20in),42.8711,300
+48749,2025,Rivian,R1S Performance Dual Large (22in),39.4726,329
+48750,2025,Rivian,R1S Performance Dual Large Plus (20in),43.1237,317
+48437,2025,Rivian,R1S Performance Dual Large Plus (22in),40.9029,330
+48438,2025,Rivian,R1S Performance Dual Max (20in),41.9729,380
+48439,2025,Rivian,R1S Performance Dual Max (22in),39.9385,410
+48751,2025,Rivian,R1S Tri Max (22in),44.5717,371
+48752,2025,Rivian,R1T All-Terrain Dual Large (20in),44.3622,289
+48416,2025,Rivian,R1T All-Terrain Dual Large Plus (20in),46.8874,292
+48417,2025,Rivian,R1T All-Terrain Dual Max (20in),43.2248,370
+48753,2025,Rivian,R1T All-Terrain Performance Dual Large (20in),44.3622,289
+48418,2025,Rivian,R1T All-Terrain Performance Dual Large Plus (20in),46.8874,292
+48419,2025,Rivian,R1T All-Terrain Performance Dual Max (20in),43.2248,370
+48754,2025,Rivian,R1T All-Terrain Tri Max (20in),49.8346,329
+48755,2025,Rivian,R1T Dual Large (20in),42.8711,300
+48756,2025,Rivian,R1T Dual Large (22in),39.4726,329
+48757,2025,Rivian,R1T Dual Large Plus (20in),43.1237,317
+48420,2025,Rivian,R1T Dual Large Plus (22in),40.9029,330
+48421,2025,Rivian,R1T Dual Max (20in),41.9729,380
+48422,2025,Rivian,R1T Dual Max (22in),38.8406,420
+48423,2025,Rivian,R1T Dual Standard (20in),42.8683,258
+48424,2025,Rivian,R1T Dual Standard (22in),39.8854,270
+48758,2025,Rivian,R1T Performance Dual Large (20in),42.8711,300
+48759,2025,Rivian,R1T Performance Dual Large (22in),39.4726,329
+48760,2025,Rivian,R1T Performance Dual Large Plus (20in),43.1237,317
+48425,2025,Rivian,R1T Performance Dual Large Plus (22in),40.9029,330
+48426,2025,Rivian,R1T Performance Dual Max (20in),41.9729,380
+48427,2025,Rivian,R1T Performance Dual Max (22in),38.8406,420
+48761,2025,Rivian,R1T Tri Max (22in),44.5717,371
+48442,2025,Rolls-Royce,Spectre (22 inch wheels),43.6454,277
+48443,2025,Rolls-Royce,Spectre (23 inch Wheels),47.8369,253
+48440,2025,Rolls-Royce,Spectre Black Badge (22 inch wheels),45.4265,266
+48441,2025,Rolls-Royce,Spectre Black Badge (23 inch wheels),48.2792,251
+48762,2025,Subaru,Solterra AWD,32.0,227
+48763,2025,Subaru,Solterra Limited/Touring AWD,33.0,222
+49123,2025,Tesla,Cybertruck AWD,42.9059,325
+49152,2025,Tesla,Cybertruck Long Range,40.8735,335
+49153,2025,Tesla,Cybertruck Long Range (20in Cyber wheels),43.3555,335
+48764,2025,Tesla,Model 3 Long Range AWD,26.3757,346
+48765,2025,Tesla,Model 3 Long Range RWD,24.6398,363
+49154,2025,Tesla,Model 3 Long Range RWD-I (19in wheels),25.6484,346
+48996,2025,Tesla,Model 3 Performance AWD,30.9191,298
+49124,2025,Tesla,Model S,27.1309,410
+48766,2025,Tesla,Model S Plaid (19in wheels),32.4868,348
+48767,2025,Tesla,Model S Plaid (21in wheels),36.1407,312
+49125,2025,Tesla,Model X,34.2466,329
+48768,2025,Tesla,Model X Plaid (20in wheels),35.8667,314
+48769,2025,Tesla,Model X Plaid (22in wheels),38.1191,294
+48770,2025,Tesla,Model Y Long Range AWD,28.7946,311
+48771,2025,Tesla,Model Y Long Range RWD,26.8631,337
+48772,2025,Tesla,Model Y Performance AWD,32.4121,277
+49126,2025,Toyota,bZ4X,28.317,252
+49127,2025,Toyota,bZ4X AWD (18inch Wheels),31.0,228
+49128,2025,Toyota,bZ4X AWD (20inch Wheels),32.0,222
+48997,2025,Toyota,bZ4X LIMITED,30.1384,236
+49129,2025,Toyota,bZ4X LIMITED AWD,32.0,222
+49084,2025,Vinfast,VF 6 Plus,39.5833,176
+49085,2025,Vinfast,VF 7 Plus,44.3737,209
+49086,2025,Vinfast,VF 8 Eco,46.2475,256
+49087,2025,Vinfast,VF 8 Plus,44.294,235
+49088,2025,Vinfast,VF 9 Plus,49.7751,287
+48444,2025,Volkswagen,ID. Buzz,40.7703,234
+48445,2025,Volkswagen,ID. Buzz 4motion,41.9661,231
+49155,2025,Volkswagen,ID.4,31.5973,206
+48773,2025,Volkswagen,ID.4 AWD Pro,32.9685,263
+48774,2025,Volkswagen,ID.4 AWD Pro S,32.9685,263
+49156,2025,Volkswagen,ID.4 Pro,29.783,291
+49157,2025,Volkswagen,ID.4 Pro S,29.783,291
+49158,2025,Volkswagen,ID.4 S,31.5973,206
+48448,2025,Volvo,EC40,31.6837,298
+48446,2025,Volvo,EC40 Twin,34.8397,268
+48449,2025,Volvo,EX30 Single Motor extended range (18 Inch Wheels),29.678,257
+48450,2025,Volvo,EX30 Single Motor extended range (19/20 Inch Wheels),29.1651,261
+48775,2025,Volvo,EX30 Twin Performance (19 Inch Wheels),31.0632,253
+48776,2025,Volvo,EX30 Twin Performance (20 Inch Wheels),31.0437,250
+48451,2025,Volvo,EX40,31.7016,296
+48447,2025,Volvo,EX40 Twin,35.9765,260
+48777,2025,Volvo,EX90 Twin Motor (20 and 22 Inch Wheels),42.0,300
+48778,2025,Volvo,EX90 Twin Motor (21 Inch Wheels),40.0261,310
+48780,2025,Volvo,EX90 Twin Motor Performance (20 and 22 Inch Wheels),42.0,300
+48779,2025,Volvo,EX90 Twin Motor Performance (21 Inch Wheels),40.0261,310
+47808,2024,Acura,ZDX AWD,38.6225,304
+48781,2024,Acura,ZDX AWD Type S,43.0203,278
+47809,2024,Acura,ZDX RWD,37.4374,313
+46910,2024,Audi,Q4 40 e-tron,32.6939,265
+46911,2024,Audi,Q4 50 e-tron quattro,36.4003,236
+47810,2024,Audi,Q4 55 e-tron quattro,33.7302,258
+46912,2024,Audi,Q4 Sportback 50 e-tron quattro,35.5517,242
+47811,2024,Audi,Q4 Sportback 55 e-tron quattro,33.7302,258
+47440,2024,Audi,Q8 Sportback e-tron quattro,38.9209,296
+46914,2024,Audi,Q8 Sportback e-tron ultra quattro,39.1925,300
+46913,2024,Audi,Q8 e-tron quattro,41.3796,285
+46909,2024,Audi,RS e-tron GT,39.7102,249
+47443,2024,Audi,SQ8 Sportback e-tron (20 inch wheels),46.1062,253
+47444,2024,Audi,SQ8 Sportback e-tron (21/22 inch wheels),53.8641,218
+47441,2024,Audi,SQ8 e-tron (20 inch wheels),46.1062,253
+47442,2024,Audi,SQ8 e-tron (21/22 inch wheels),53.8641,218
+46908,2024,Audi,e-tron GT,39.7102,249
+46915,2024,BMW,i4 M50 Gran Coupe (19 inch wheels),35.3627,269
+46916,2024,BMW,i4 M50 Gran Coupe (20 inch wheels),42.3096,227
+46919,2024,BMW,i4 eDrive35 Gran Coupe (18 inch Wheels),27.982,276
+46920,2024,BMW,i4 eDrive35 Gran Coupe (19 inch Wheels),30.7674,252
+46921,2024,BMW,i4 eDrive40 Gran Coupe (18 inch Wheels),30.9281,301
+46922,2024,BMW,i4 eDrive40 Gran Coupe (19 inch Wheels),33.8558,283
+46917,2024,BMW,i4 xDrive40 Gran Coupe (18 inch Wheels),30.9718,307
+46918,2024,BMW,i4 xDrive40 Gran Coupe (19 inch Wheels),34.1406,279
+46926,2024,BMW,i5 M60 xDrive Sedan (19 inch Wheels),37.0351,256
+46927,2024,BMW,i5 M60 xDrive Sedan (20 inch Wheels),37.7438,248
+46928,2024,BMW,i5 M60 xDrive Sedan (21 inch Wheels),39.5995,240
+46923,2024,BMW,i5 eDrive40 Sedan (19 inch Wheels),32.2089,295
+46924,2024,BMW,i5 eDrive40 Sedan (20 inch Wheels),34.2082,278
+46925,2024,BMW,i5 eDrive40 Sedan (21 inch Wheels),35.2736,270
+46932,2024,BMW,i7 M70 xDrive Sedan (20 inch Wheels),44.0186,274
+46933,2024,BMW,i7 M70 xDrive Sedan (21 inch Wheels),41.5264,291
+46929,2024,BMW,i7 eDrive50 Sedan (19 inch Wheels),37.3574,321
+46930,2024,BMW,i7 eDrive50 Sedan (20 inch Wheels),38.9985,301
+46931,2024,BMW,i7 eDrive50 Sedan (21 inch Wheels),38.0941,311
+46934,2024,BMW,i7 xDrive60 Sedan (19 inch wheels),37.6463,317
+46935,2024,BMW,i7 xDrive60 Sedan (20 inch wheels),40.2123,298
+46936,2024,BMW,i7 xDrive60 Sedan (21 inch wheels),38.2532,307
+46937,2024,BMW,iX M60 (21 inch Wheels),42.2946,296
+46938,2024,BMW,iX M60 (22 inch Wheels),42.2946,296
+46939,2024,BMW,iX xDrive40 (20 inch Wheels),39.3181,217
+46940,2024,BMW,iX xDrive40 (21 inch Wheels),39.3181,217
+46941,2024,BMW,iX xDrive40 (22 inch Wheels),39.3181,217
+46942,2024,BMW,iX xDrive50 (20 inch wheels),40.8272,307
+46943,2024,BMW,iX xDrive50 (21 inch wheels),40.8272,307
+46944,2024,BMW,iX xDrive50 (22 inch wheels),40.8272,307
+48469,2024,Bugatti Rimac,Nevera,63.2681,204
+46945,2024,Cadillac,LYRIQ,38.0898,314
+47812,2024,Cadillac,LYRIQ AWD,37.981,307
+47445,2024,Chevrolet,Blazer EV AWD,35.2192,279
+47813,2024,Chevrolet,Blazer EV RWD,36.631,324
+47815,2024,Chevrolet,Equinox EV AWD,35.1247,285
+47814,2024,Chevrolet,Equinox EV FWD,31.0964,319
+46946,2024,Chevrolet,Silverado EV,53.3826,450
+47446,2024,Chevrolet,Silverado EV,50.5346,393
+48782,2024,Dodge,Charger 2-Dr Daytona R/T AWD 18in,39.0,274
+48783,2024,Dodge,Charger 2-Dr Daytona R/T AWD 20in Goodyear,40.0,268
+48784,2024,Dodge,Charger 2-Dr Daytona R/T AWD 20in Nexen,34.5239,308
+48785,2024,Dodge,Charger 2-Dr Daytona Scat Pack Track Pack AWD,48.0,216
+48786,2024,Dodge,Charger 2-Dr Daytona Scat Pack Track Pack AWD A/S,43.3733,241
+47816,2024,Fiat,500e,29.1808,149
+47817,2024,Fiat,500e All Season,30.5327,141
+48470,2024,Fisker,Ocean Sport 20in,36.6051,231
+48471,2024,Fisker,Ocean Sport 22in,42.7309,194
+47821,2024,Ford,F-150 Lightning 4WD,49.3643,240
+47818,2024,Ford,F-150 Lightning 4WD Extended Range,47.9143,320
+47820,2024,Ford,F-150 Lightning PRO 4WD Extended Range,47.9143,320
+47819,2024,Ford,F-150 Lightning Platinum 4WD,50.7071,300
+47824,2024,Ford,Mustang Mach-E AWD,36.9214,230
+47825,2024,Ford,Mustang Mach-E AWD Extended,34.1929,300
+47826,2024,Ford,Mustang Mach-E GT,37.3571,280
+47822,2024,Ford,Mustang Mach-E RWD,32.9357,250
+47823,2024,Ford,Mustang Mach-E RWD Extended,31.8286,320
+47827,2024,Ford,Mustang Mach-E Rally,39.3571,265
+46951,2024,GMC,Hummer EV Pickup,63.4112,314
+48787,2024,GMC,Hummer EV Pickup 2M20,65.0,311
+46952,2024,GMC,Hummer EV Pickup MT Tires,63.0286,298
+48788,2024,GMC,Hummer EV Pickup MT Tires 2M20,71.7483,279
+46953,2024,GMC,Hummer EV SUV,63.4112,314
+48789,2024,GMC,Hummer EV SUV 2M20,65.9777,303
+46954,2024,GMC,Hummer EV SUV MT Tires,63.0286,298
+48790,2024,GMC,Hummer EV SUV MT Tires 2M20,71.7483,279
+47447,2024,Genesis,Electrified G80,35.0,282
+46947,2024,Genesis,Electrified GV70,37.1566,236
+46948,2024,Genesis,GV60 Advanced (19 inch Wheels),34.0,264
+46949,2024,Genesis,GV60 Advanced (20 inch Wheels),35.4988,248
+46950,2024,Genesis,GV60 PERFORMANCE,37.0,235
+47448,2024,Genesis,GV60 Standard,30.0,294
+47829,2024,Honda,Prologue AWD Elite,36.7604,273
+47830,2024,Honda,Prologue AWD Touring,35.5276,281
+47828,2024,Honda,Prologue FWD,33.9679,296
+46962,2024,Hyundai,Ioniq 5 Long range AWD,34.0206,260
+46960,2024,Hyundai,Ioniq 5 Long range RWD,30.0,303
+46961,2024,Hyundai,Ioniq 5 Standard range RWD,31.0,220
+46955,2024,Hyundai,Ioniq 6 Long range AWD (18 inch Wheels),27.2272,316
+46956,2024,Hyundai,Ioniq 6 Long range AWD (20 inch Wheels),33.0,270
+46957,2024,Hyundai,Ioniq 6 Long range RWD (18 inch Wheels),24.0,361
+46958,2024,Hyundai,Ioniq 6 Long range RWD (20 inch Wheels),29.0,305
+46959,2024,Hyundai,Ioniq 6 Standard Range RWD,25.0,240
+47449,2024,Hyundai,Kona Electric Long Range,29.0825,261
+47831,2024,Hyundai,Kona Electric Standard Range,28.5326,200
+46963,2024,Jaguar,I-Pace EV400 (20 inch tires),39.4505,246
+46964,2024,Jaguar,I-Pace EV400 (22 inch tires),44.6407,217
+48791,2024,Jeep,Wagoneer S AWD (Falken tire),34.6289,303
+48792,2024,Jeep,Wagoneer S AWD (Pirelli tire),39.0,270
+46968,2024,Kia,EV6 AWD GT,41.0,218
+46969,2024,Kia,EV6 Long Range AWD (19 inch Wheels),31.0595,282
+46970,2024,Kia,EV6 Long Range AWD (20 inch Wheels),35.0,252
+46965,2024,Kia,EV6 Long Range RWD,29.0,310
+46966,2024,Kia,EV6 Standard Range RWD,29.0,232
+47452,2024,Kia,EV9 Long Range AWD,41.0,280
+47453,2024,Kia,EV9 Long Range AWD GT-Line,42.0,270
+47450,2024,Kia,EV9 Long Range RWD,38.0,304
+47451,2024,Kia,EV9 Standard Range RWD,38.0,230
+46967,2024,Kia,Niro Electric,29.0,253
+47832,2024,Lexus,RZ 300e (18 inch wheels),27.0,266
+47833,2024,Lexus,RZ 300e (20 inch wheels),31.4874,224
+47834,2024,Lexus,RZ 450e AWD (18 inch wheels),31.1421,220
+47835,2024,Lexus,RZ 450e AWD (20 inch wheels),36.0,196
+47837,2024,Lucid,Air G Touring XR AWD with 20 inch wheels,27.8516,485
+47838,2024,Lucid,Air G Touring XR AWD with 21 inch wheels,29.7946,450
+47836,2024,Lucid,Air G Touring XR AWD with19 inch wheels,26.1381,516
+47454,2024,Lucid,Air Pure RWD with 19 inch wheels,24.5788,419
+47455,2024,Lucid,Air Pure RWD with 20 inch wheels,25.9281,394
+47456,2024,Lucid,Air Sapphire AWD,32.1321,427
+47839,2024,Lucid,Air Touring AWD with 19 inch wheels,25.3039,411
+47840,2024,Lucid,Air Touring AWD with 20 inch wheels,27.4478,382
+47841,2024,Lucid,Air Touring AWD with 21inch wheels,28.6247,365
+46972,2024,MINI,Cooper SE Hardtop 2 door,30.714,114
+47842,2024,Maserati,Grancabrio Folgore,41.2032,233
+47843,2024,Maserati,Granturismo Folgore,38.5322,242
+47457,2024,Mercedes-Benz,AMG EQE 4matic Plus,46.0,230
+46971,2024,Mercedes-Benz,AMG EQE 4matic Plus (SUV),46.0,235
+47461,2024,Mercedes-Benz,AMG EQS 4matic Plus,41.0,305
+47844,2024,Mercedes-Benz,EQB 250 Plus,31.4691,251
+48472,2024,Mercedes-Benz,EQB 300 4matic,38.6807,205
+47845,2024,Mercedes-Benz,EQB 350 4matic,38.7794,207
+47458,2024,Mercedes-Benz,EQE 350 4matic,37.0,280
+47848,2024,Mercedes-Benz,EQE 350 4matic (SUV),40.0,265
+47459,2024,Mercedes-Benz,EQE 350 Plus,34.6491,298
+47846,2024,Mercedes-Benz,EQE 350 Plus (SUV),35.7183,307
+47460,2024,Mercedes-Benz,EQE 500 4matic,34.6491,298
+47849,2024,Mercedes-Benz,EQE 500 4matic (SUV),38.5738,282
+47462,2024,Mercedes-Benz,EQS 450 4matic,35.1346,345
+47850,2024,Mercedes-Benz,EQS 450 4matic (SUV),41.0,330
+47463,2024,Mercedes-Benz,EQS 450 Plus,35.0,352
+47847,2024,Mercedes-Benz,EQS 450 Plus (SUV),38.5572,339
+47464,2024,Mercedes-Benz,EQS 580 4matic,34.8968,345
+47851,2024,Mercedes-Benz,EQS 580 4matic (SUV),41.0,330
+47465,2024,Mercedes-Benz,EQS 680 4matic Maybach (SUV),44.0,280
+47852,2024,Mercedes-Benz,EQS 680 4matic Maybach (SUV),42.0,321
+47854,2024,Nissan,ARIYA ENGAGE FWD 63kWh,33.2574,216
+47853,2024,Nissan,ARIYA ENGAGE e-4ORCE 63kWh,35.2939,205
+47855,2024,Nissan,ARIYA ENGAGE+/EVOLVE+ e-4ORCE 87kWh,36.6389,272
+47856,2024,Nissan,ARIYA EVOLVE+/EMPOWER+ FWD 87kWh,34.3726,289
+47857,2024,Nissan,ARIYA PLATINUM+ e-4ORCE 87kWh 19in. Wheels,37.3979,267
+47858,2024,Nissan,ARIYA PLATINUM+ e-4ORCE 87kWh 20in. Wheels,38.8396,257
+47859,2024,Nissan,ARIYA VENTURE Plus FWD 87kWh,32.7108,304
+46973,2024,Nissan,LEAF,30.4264,149
+46974,2024,Nissan,LEAF SV,30.7824,212
+46975,2024,Polestar,2 Dual Motor (19 Inch Wheels),31.7153,276
+46976,2024,Polestar,2 Dual Motor (20 Inch Wheels),33.0,266
+46977,2024,Polestar,2 Dual Motor Performance Pack,35.0,247
+46978,2024,Polestar,2 Single Motor (19 Inch Wheels),29.2238,320
+46979,2024,Polestar,2 Single Motor (20 Inch Wheels),30.0,307
+48793,2024,Porsche,Macan 4 Electric,34.4628,308
+48794,2024,Porsche,Macan Turbo Electric,36.9137,288
+47474,2024,Porsche,Taycan 4 Cross Turismo,42.0106,235
+47860,2024,Porsche,Taycan 4S Cross Turismo,42.7868,230
+47467,2024,Porsche,Taycan 4S Performance Battery,41.0,206
+47466,2024,Porsche,Taycan 4S Performance Battery Plus,42.2815,235
+47468,2024,Porsche,Taycan GTS,40.6946,246
+47469,2024,Porsche,Taycan GTS Sport Turismo,42.0951,233
+47471,2024,Porsche,Taycan Performance Battery,40.6731,208
+47470,2024,Porsche,Taycan Performance Battery Plus,41.1859,242
+47472,2024,Porsche,Taycan Turbo,41.8137,238
+47475,2024,Porsche,Taycan Turbo Cross Turismo,43.0,233
+47473,2024,Porsche,Taycan Turbo S,44.5214,222
+47476,2024,Porsche,Taycan Turbo S Cross Turismo,44.5214,222
+47890,2024,Rivian,R1S AT Performance Dual Standard Plus (20in),51.6452,277
+47885,2024,Rivian,R1S All-Terrain Dual Large (20in),49.2406,307
+47886,2024,Rivian,R1S All-Terrain Dual Max (20in),46.124,355
+47887,2024,Rivian,R1S All-Terrain Dual Standard Plus (20in),51.6452,277
+47888,2024,Rivian,R1S All-Terrain Performance Dual Large (20in),49.2406,307
+47889,2024,Rivian,R1S All-Terrain Performance Dual Max (20in),46.124,355
+47477,2024,Rivian,R1S All-Terrain Quad Large (20 inch),53.6978,274
+47891,2024,Rivian,R1S Dual Large (21in),43.2259,352
+47892,2024,Rivian,R1S Dual Large (22in),44.7406,341
+47893,2024,Rivian,R1S Dual Max (21in),40.8697,400
+47894,2024,Rivian,R1S Dual Max (22in),43.3111,380
+47895,2024,Rivian,R1S Dual Standard (21in),45.2041,270
+47896,2024,Rivian,R1S Dual Standard (22in),48.031,255
+47897,2024,Rivian,R1S Dual Standard Plus (21in),43.8057,315
+47898,2024,Rivian,R1S Dual Standard Plus (22in),46.7443,300
+47899,2024,Rivian,R1S Performance Dual Large (21in),43.2259,352
+47900,2024,Rivian,R1S Performance Dual Large (22in),44.7406,341
+47901,2024,Rivian,R1S Performance Dual Max (21in),40.8697,400
+47902,2024,Rivian,R1S Performance Dual Max (22in),43.3111,380
+47903,2024,Rivian,R1S Performance Dual Standard (22in),46.7443,300
+47904,2024,Rivian,R1S Performance Dual Standard Plus (21in),43.8057,315
+47905,2024,Rivian,R1S Quad Large (20in),52.3772,289
+47906,2024,Rivian,R1S Quad Large (21in),47.3963,321
+47907,2024,Rivian,R1S Quad Large (22in),49.3574,303
+47867,2024,Rivian,R1T AT Performance Dual Standard Plus (20in),51.6452,277
+47861,2024,Rivian,R1T All-Terrain Dual Large (20in),49.2406,307
+47862,2024,Rivian,R1T All-Terrain Dual Max (20in),46.124,355
+47863,2024,Rivian,R1T All-Terrain Dual Standard Plus (20in),51.6452,277
+47864,2024,Rivian,R1T All-Terrain Performance Dual Large (20in),49.2406,307
+47865,2024,Rivian,R1T All-Terrain Performance Dual Max (20in),46.124,355
+47866,2024,Rivian,R1T All-Terrain Quad Large (20in),53.6978,274
+47868,2024,Rivian,R1T Dual Large (21in),43.2259,352
+47869,2024,Rivian,R1T Dual Large (22in),44.478,341
+47870,2024,Rivian,R1T Dual Max (21in),39.9444,410
+47871,2024,Rivian,R1T Dual Max (22in),43.3111,380
+47872,2024,Rivian,R1T Dual Standard (21in),45.2041,270
+47873,2024,Rivian,R1T Dual Standard (22in),48.031,255
+47874,2024,Rivian,R1T Dual Standard Plus (21in),43.8057,315
+47875,2024,Rivian,R1T Dual Standard Plus (22in),46.7443,300
+47876,2024,Rivian,R1T Performance Dual Large (21in),43.2259,352
+47877,2024,Rivian,R1T Performance Dual Large (22in),44.478,341
+47878,2024,Rivian,R1T Performance Dual Max (21in),39.9444,410
+47879,2024,Rivian,R1T Performance Dual Max (22in),43.3111,380
+47880,2024,Rivian,R1T Performance Dual Standard Plus (21in),43.8057,315
+47881,2024,Rivian,R1T Performance Dual Standard Plus (22in),46.7443,300
+47882,2024,Rivian,R1T Quad Large (20in),52.3772,289
+47883,2024,Rivian,R1T Quad Large (21in),46.1441,328
+47884,2024,Rivian,R1T Quad Large (22in),49.3574,303
+47480,2024,Rolls-Royce,Spectre (22 inch wheels),41.475,291
+47481,2024,Rolls-Royce,Spectre (23 inch wheels),45.4581,266
+47478,2024,Rolls-Royce,Spectre Black Badge (22 inch wheels),43.1676,280
+47479,2024,Rolls-Royce,Spectre Black Badge (23 inch wheels),45.8785,264
+47482,2024,Subaru,Solterra AWD,32.0,227
+47483,2024,Subaru,Solterra Limited/Touring AWD,33.0,222
+47908,2024,Tesla,Model 3 Long Range AWD,25.8361,342
+48473,2024,Tesla,Model 3 Long Range AWD-E,26.3757,341
+48795,2024,Tesla,Model 3 Long Range RWD,24.6398,363
+48796,2024,Tesla,Model 3 Performance AWD,30.1017,303
+47909,2024,Tesla,Model 3 RWD,25.4472,272
+47910,2024,Tesla,Model S,27.7036,402
+47911,2024,Tesla,Model S Plaid (19in wheels),31.4651,359
+47912,2024,Tesla,Model S Plaid (21in wheels),35.2387,320
+47915,2024,Tesla,Model X,33.6127,335
+47916,2024,Tesla,Model X Plaid (20in wheels),34.5286,326
+47917,2024,Tesla,Model X Plaid (22in wheels),37.2621,300
+47913,2024,Tesla,Model Y Long Range AWD,28.6981,310
+48474,2024,Tesla,Model Y Long Range AWD-I,28.6357,308
+48475,2024,Tesla,Model Y Long Range RWD,28.0611,320
+47914,2024,Tesla,Model Y Performance AWD,32.2142,279
+48476,2024,Tesla,Model Y RWD,28.0056,260
+47918,2024,Toyota,bZ4X,28.317,252
+47920,2024,Toyota,bZ4X AWD,32.0,228
+47919,2024,Toyota,bZ4X Limited,30.1384,236
+47921,2024,Toyota,bZ4X Limited AWD,33.0,222
+47487,2024,Vinfast,VF 9 Eco,44.8914,330
+47488,2024,Vinfast,VF 9 Plus,49.0809,291
+47922,2024,Volkswagen,ID.4,31.5624,206
+47485,2024,Volkswagen,ID.4 AWD Pro,32.9685,263
+47486,2024,Volkswagen,ID.4 AWD Pro S,32.9685,263
+47484,2024,Volkswagen,ID.4 Pro,29.783,291
+47923,2024,Volkswagen,ID.4 Pro S,29.783,291
+47924,2024,Volkswagen,ID.4 S,31.5624,206
+46980,2024,Volvo,C40 Recharge,31.4965,297
+46982,2024,Volvo,C40 Recharge twin,34.169,257
+46981,2024,Volvo,XC40 Recharge,31.6937,293
+46983,2024,Volvo,XC40 Recharge twin,34.4839,254
+45983,2023,Audi,Q4 e-tron,32.6939,265
+45989,2023,Audi,Q4 e-tron Sportback,35.5517,242
+45988,2023,Audi,Q4 e-tron quattro,36.4003,236
+45982,2023,Audi,RS e-tron GT,41.8433,232
+45981,2023,Audi,e-tron GT,41.2589,238
+45985,2023,Audi,e-tron S (20 inch wheels),45.8922,208
+46614,2023,Audi,e-tron S (21/22 inch wheels),53.3095,181
+45986,2023,Audi,e-tron S Sportback (20 inch wheels),44.9152,212
+46615,2023,Audi,e-tron S Sportback (21/22 inch wheels),52.0787,185
+45987,2023,Audi,e-tron Sportback quattro,43.1722,225
+45984,2023,Audi,e-tron quattro,42.8872,226
+45990,2023,BMW,i4 M50 Gran Coupe (19 inch wheels),35.2249,271
+45991,2023,BMW,i4 M50 Gran Coupe (20 inch wheels),42.3096,227
+46616,2023,BMW,i4 eDrive35 Gran Coupe (18 inch Wheels),29.832,256
+46617,2023,BMW,i4 eDrive35 Gran Coupe (19 inch Wheels),32.2177,235
+45992,2023,BMW,i4 eDrive40 Gran Coupe (18 inch wheels),33.9144,301
+46618,2023,BMW,i4 eDrive40 Gran Coupe (19 inch Wheels),33.9144,282
+45993,2023,BMW,i7 xDrive60 Sedan (19 inch wheels),37.7519,318
+45994,2023,BMW,i7 xDrive60 Sedan (20 inch wheels),40.6332,296
+45995,2023,BMW,i7 xDrive60 Sedan (21 inch wheels),38.7578,308
+45326,2023,BMW,iX M60 (21 inch wheels),43.5015,288
+45327,2023,BMW,iX M60 (22 inch wheels),42.99,274
+45996,2023,BMW,iX xDrive50 (20 inch wheels),38.9911,324
+45997,2023,BMW,iX xDrive50 (21 inch wheels),40.6757,305
+45998,2023,BMW,iX xDrive50 (22 inch wheels),39.2692,315
+45749,2023,Cadillac,LYRIQ,37.6878,312
+46619,2023,Cadillac,LYRIQ AWD,37.981,307
+45750,2023,Chevrolet,Bolt EUV,29.4031,247
+45751,2023,Chevrolet,Bolt EV,28.1083,259
+46984,2023,Fisker,Ocean Extreme One,36.8159,360
+46329,2023,Ford,F-150 Lightning 4WD,49.3643,240
+46327,2023,Ford,F-150 Lightning 4WD Extended Range,47.9143,320
+46328,2023,Ford,F-150 Lightning Platinum 4WD,50.7071,300
+46514,2023,Ford,MUSTANG MACH-E CAL RT 1 ER AWD,34.3412,312
+46512,2023,Ford,Mustang Mach-E AWD,36.3182,224
+46513,2023,Ford,Mustang Mach-E AWD Extended,36.7996,290
+46515,2023,Ford,Mustang Mach-E GT,40.1838,270
+46516,2023,Ford,Mustang Mach-E GT Performance,41.0,260
+46517,2023,Ford,Mustang Mach-E RWD,32.6522,247
+46518,2023,Ford,Mustang Mach-E RWD Extended,34.0119,310
+46985,2023,Ford,Mustang Mach-E RWD LFP,33.3071,250
+45999,2023,Genesis,Electrified G80,33.5099,282
+45328,2023,Genesis,GV60 ADVANCE,35.4988,248
+45329,2023,Genesis,GV60 PERFORMANCE,36.8341,235
+46620,2023,Hyundai,Ioniq 6 Long range AWD (18 inch Wheels),28.0,316
+46621,2023,Hyundai,Ioniq 6 Long range AWD (20 inch Wheels),32.5202,270
+46622,2023,Hyundai,Ioniq 6 Long range RWD (18 inch Wheels),23.5724,361
+46623,2023,Hyundai,Ioniq 6 Long range RWD (20 inch Wheels),29.0,305
+46624,2023,Hyundai,Ioniq 6 Standard Range RWD,25.0,240
+46000,2023,Hyundai,Kona Electric,27.4801,258
+46001,2023,Jaguar,I-Pace EV400 (20 inch tires),39.4505,246
+46002,2023,Jaguar,I-Pace EV400 (22 inch tires),44.6407,217
+46003,2023,Kia,EV6 AWD GT,42.4438,206
+46004,2023,Kia,EV6 Long Range AWD (19 inch tires),31.0595,282
+46005,2023,Kia,EV6 Long Range AWD (20 inch tires),34.2496,252
+46006,2023,Kia,EV6 Long Range RWD,28.0361,310
+46007,2023,Kia,EV6 Standard Range RWD,28.3108,232
+46008,2023,Kia,Niro Electric,29.2513,253
+46986,2023,Lexus,RZ 450e AWD (18 inch Wheels),32.0,220
+46987,2023,Lexus,RZ 450e AWD (20 inch Wheels),36.0,196
+46519,2023,Lordstown,Endurance,70.0,174
+46303,2023,Lucid,Air G Touring XR AWD with 19 inch wheels,25.709,516
+46304,2023,Lucid,Air G Touring XR AWD with 20 inch wheels,27.793,469
+46305,2023,Lucid,Air G Touring XR AWD with 21 inch wheels,27.793,469
+46306,2023,Lucid,Air GT P AWD with 21 inch wheels,30.4704,446
+46307,2023,Lucid,Air Pure AWD with 19 inch wheels,24.0616,410
+46308,2023,Lucid,Air Pure AWD with 20 inch wheels,27.857,384
+46309,2023,Lucid,Air Touring AWD with 19 inch wheels,24.0616,425
+46310,2023,Lucid,Air Touring AWD with 20 inch wheels,27.857,384
+46311,2023,Lucid,Air Touring AWD with 21 inch wheels,27.857,384
+45330,2023,MINI,Cooper SE Hardtop 2 door,30.714,114
+46988,2023,Mazda,MX-30,36.7506,100
+46009,2023,Mercedes-Benz,EQS 450 4matic,31.0304,340
+46010,2023,Mercedes-Benz,EQS 450 4matic (SUV),42.6052,285
+46011,2023,Mercedes-Benz,EQS 450 Plus (SUV),39.1151,305
+46012,2023,Mercedes-Benz,EQS 580 4matic (SUV),42.0553,285
+46989,2023,Nissan,ARIYA ENG Plus/EVO Plus e-4ORCE 87kWh,36.6389,272
+46013,2023,Nissan,ARIYA ENGAGE FWD 63kWh,33.2574,216
+46990,2023,Nissan,ARIYA ENGAGE e-4ORCE 63kWh,35.2939,205
+46014,2023,Nissan,ARIYA EVO Plus/EMP Plus/PRM FWD 87kWh,34.3726,289
+46991,2023,Nissan,ARIYA PLAT Plus e-4ORCE 87kWh 19,37.3979,267
+46992,2023,Nissan,ARIYA PLAT Plus e-4ORCE 87kWh 20,38.8396,257
+46015,2023,Nissan,ARIYA VENTURE Plus FWD 87kWh,32.7108,304
+46016,2023,Nissan,LEAF,30.4264,149
+46017,2023,Nissan,LEAF SV,30.7824,212
+45752,2023,Polestar,2 BST edition,35.5787,247
+45753,2023,Polestar,2 Dual Motor,33.6036,260
+45754,2023,Polestar,2 Dual Motor Perf Pack,33.6036,260
+45755,2023,Polestar,2 Single Motor,31.4956,270
+46018,2023,Porsche,Taycan 4 Cross Turismo,42.0106,235
+46019,2023,Porsche,Taycan 4S Cross Turismo,42.7868,230
+46020,2023,Porsche,Taycan 4S Perf Battery Plus,42.2815,235
+46021,2023,Porsche,Taycan 4S Performance Battery,40.4962,206
+46022,2023,Porsche,Taycan GTS,40.6946,246
+46023,2023,Porsche,Taycan GTS Sport Turismo,42.0951,233
+46024,2023,Porsche,Taycan Perf Battery Plus,41.1859,242
+46025,2023,Porsche,Taycan Performance Battery,40.6731,208
+46026,2023,Porsche,Taycan Turbo,41.8137,238
+46027,2023,Porsche,Taycan Turbo Cross Turismo,41.631,233
+46028,2023,Porsche,Taycan Turbo S,44.5214,222
+46029,2023,Porsche,Taycan Turbo S Cross Turismo,44.5214,222
+46315,2023,Rivian,R1S (20 inch wheels),52.3772,289
+46316,2023,Rivian,R1S (21 inch wheels),47.3963,321
+46317,2023,Rivian,R1S (22 inch wheels),49.3574,303
+46993,2023,Rivian,R1S 20 inch All-Terrain,53.6978,274
+46994,2023,Rivian,R1S 20 inch All-Terrain Dual Large,49.2406,307
+46995,2023,Rivian,R1S 20 inch All-Terrain Performance Dual Large,49.2406,307
+46996,2023,Rivian,R1S 21 inch Dual Large,43.2259,352
+46997,2023,Rivian,R1S 21 inch Performance Dual Large,43.2259,352
+46998,2023,Rivian,R1S 22 inch Dual Large,44.7406,341
+46999,2023,Rivian,R1S 22 inch Performance Dual Large,44.7406,341
+46312,2023,Rivian,R1T (20 inch wheels),52.3772,289
+46313,2023,Rivian,R1T (21 inch wheels),46.1441,328
+46314,2023,Rivian,R1T (22 inch wheels),49.3574,303
+47000,2023,Rivian,R1T 21 inch Dual Large,43.2259,352
+47001,2023,Rivian,R1T 21 inch Performance Dual Large,43.2259,352
+47002,2023,Rivian,R1T 22 inch Dual Large,44.478,341
+47003,2023,Rivian,R1T 22 inch Performance Dual Large,44.478,341
+46030,2023,Subaru,Solterra AWD,30.9339,228
+46031,2023,Subaru,Solterra Limited/Touring AWD,32.1274,222
+46204,2023,Tesla,Model 3 Long Range AWD,25.8238,358
+46205,2023,Tesla,Model 3 Performance AWD,29.9572,315
+46206,2023,Tesla,Model 3 RWD,25.4929,272
+46207,2023,Tesla,Model S,28.1799,405
+46208,2023,Tesla,Model X,33.0836,348
+46209,2023,Tesla,Model X Plaid (20 inch wheels),34.3629,333
+46210,2023,Tesla,Model X Plaid (22 inch wheels),36.916,311
+46211,2023,Tesla,Model Y AWD,27.5117,279
+46212,2023,Tesla,Model Y Long Range AWD,27.6273,330
+46213,2023,Tesla,Model Y Performance AWD,30.4938,303
+45756,2023,Toyota,bZ4X,28.317,252
+45758,2023,Toyota,bZ4X AWD,32.0,228
+45757,2023,Toyota,bZ4X LIMITED,30.0,242
+45759,2023,Toyota,bZ4X LIMITED AWD,33.0,222
+47004,2023,Vinfast,VF 8 Eco,38.6155,207
+47005,2023,Vinfast,VF 8 Plus,42.0188,191
+46032,2023,Volkswagen,ID.4,31.4767,209
+46033,2023,Volkswagen,ID.4 AWD Pro,34.1754,255
+46034,2023,Volkswagen,ID.4 AWD Pro S,34.1754,255
+46035,2023,Volkswagen,ID.4 Pro,31.5315,275
+46036,2023,Volkswagen,ID.4 Pro S,31.5315,275
+46037,2023,Volkswagen,ID.4 S,31.4767,209
+45760,2023,Volvo,C40 Recharge twin,38.5224,226
+45761,2023,Volvo,XC40 Recharge twin,39.4392,223
+44782,2022,Audi,Q4 e-tron Sportback quattro,35.6322,241
+44781,2022,Audi,Q4 e-tron quattro,35.6322,241
+44783,2022,Audi,RS e-tron GT,41.8433,232
+44776,2022,Audi,e-tron GT,41.2589,238
+44777,2022,Audi,e-tron S (20in wheels),45.8922,208
+44778,2022,Audi,e-tron S (21/22 inch wheels),53.3095,181
+44779,2022,Audi,e-tron S Sportback (20 inch wheels),44.9152,212
+44780,2022,Audi,e-tron S Sportback (21/22 inch wheels),52.0787,185
+44921,2022,Audi,e-tron Sportback quattro,43.9841,218
+44920,2022,Audi,e-tron quattro,43.4116,222
+45131,2022,BMW,i4 M50 Gran Coupe (19 inch wheels),35.2367,270
+45132,2022,BMW,i4 M50 Gran Coupe (20 inch wheels),42.3096,227
+45133,2022,BMW,i4 eDrive40 Gran Coupe (18 inch wheels),30.9281,301
+45134,2022,BMW,i4 eDrive40 Gran Coupe (19 inch wheels),33.9513,282
+45135,2022,BMW,iX xDrive50 (20 inch wheels),38.9911,324
+45136,2022,BMW,iX xDrive50 (21 inch wheels),40.6757,305
+45137,2022,BMW,iX xDrive50 (22 inch wheels),39.2692,315
+43954,2022,Chevrolet,Bolt EUV,29.4031,247
+43955,2022,Chevrolet,Bolt EV,28.1083,259
+45318,2022,Ford,F-150 Lightning 4WD,49.3643,230
+45317,2022,Ford,F-150 Lightning 4WD Extended Range,47.9143,320
+45316,2022,Ford,F-150 Lightning Platinum 4WD,50.7071,300
+45138,2022,Ford,Mustang Mach-E AWD,36.3143,224
+45139,2022,Ford,Mustang Mach-E AWD Extended,37.0929,277
+45140,2022,Ford,Mustang Mach-E CAL RT 1 ER AWD,34.3429,312
+45141,2022,Ford,Mustang Mach-E CAL RT 1 ER RWD,33.3429,314
+45142,2022,Ford,Mustang Mach-E GT,40.1929,270
+45143,2022,Ford,Mustang Mach-E GT Performance,41.1786,260
+45144,2022,Ford,Mustang Mach-E RWD,32.6286,247
+45145,2022,Ford,Mustang Mach-E RWD Extended,34.6143,303
+44922,2022,Hyundai,Ioniq 5 AWD (Long Range),34.3285,256
+44923,2022,Hyundai,Ioniq 5 RWD (Long Range),30.0,303
+44924,2022,Hyundai,Ioniq 5 RWD (Standard Range),31.0,220
+44444,2022,Hyundai,Kona Electric,28.0,258
+44925,2022,Kia,EV6 AWD (Long Range),31.7188,274
+44926,2022,Kia,EV6 RWD (Long Range),29.0,310
+44927,2022,Kia,EV6 RWD (Standard Range),29.0,232
+44445,2022,Kia,Niro Electric,30.0071,239
+44491,2022,Lucid,Air Dream P AWD w/19 inch wheels,29.1655,471
+44492,2022,Lucid,Air Dream P AWD w/21 inch wheels,30.4704,451
+44493,2022,Lucid,Air Dream R AWD w/19 inch wheels,26.8675,520
+44494,2022,Lucid,Air Dream R AWD w/21 inch wheels,29.1656,481
+44495,2022,Lucid,Air G Touring AWD w/19 inch wheels,25.709,516
+44496,2022,Lucid,Air G Touring AWD w/21 inch wheels,27.793,469
+43953,2022,MINI,Cooper SE Hardtop 2 door,30.714,114
+44784,2022,Mazda,MX-30,36.7506,100
+46330,2022,Mercedes-Benz,AMG EQS 4matic Plus,43.9782,277
+46331,2022,Mercedes-Benz,EQB 300 4matic,33.3166,243
+46332,2022,Mercedes-Benz,EQB 350 4matic,35.0,227
+44785,2022,Mercedes-Benz,EQS 450 Plus,35.0,350
+45023,2022,Mercedes-Benz,EQS 580 4matic,35.5155,340
+44446,2022,Nissan,Leaf (40 kW-hr battery pack),30.4264,149
+44447,2022,Nissan,Leaf (62 kW-hr battery pack),31.3048,226
+44448,2022,Nissan,Leaf SV/SL (62 kW-hr battery pack),32.283,215
+44449,2022,Polestar,2 Dual Motor,37.8103,249
+44928,2022,Polestar,2 Single Motor,31.4956,270
+44793,2022,Porsche,Taycan 4 Cross Turismo,44.0965,215
+44794,2022,Porsche,Taycan 4S Cross Turismo,45.0,215
+44787,2022,Porsche,Taycan 4S Perf Battery,42.4471,199
+44788,2022,Porsche,Taycan 4S Perf Battery Plus,43.4913,227
+45715,2022,Porsche,Taycan GTS,40.6946,246
+45716,2022,Porsche,Taycan GTS ST,42.0951,233
+44789,2022,Porsche,Taycan Perf Battery,42.0,200
+44790,2022,Porsche,Taycan Perf Battery Plus,44.9454,225
+44791,2022,Porsche,Taycan Turbo,46.0,212
+44795,2022,Porsche,Taycan Turbo Cross Turismo,46.8796,204
+44792,2022,Porsche,Taycan Turbo S,48.0973,201
+44796,2022,Porsche,Taycan Turbo S Cross Turismo,46.0355,202
+44461,2022,Rivian,R1S,48.6142,316
+44462,2022,Rivian,R1T,48.0759,314
+45011,2022,Tesla,Model 3 Long Range AWD,25.8238,358
+45012,2022,Tesla,Model 3 Performance AWD,29.9572,315
+45013,2022,Tesla,Model 3 RWD,25.4929,272
+45014,2022,Tesla,Model S,28.1799,405
+45015,2022,Tesla,Model S Plaid (19 inch wheels),29.1522,396
+45016,2022,Tesla,Model S Plaid (21 inch wheels),33.4451,348
+45020,2022,Tesla,Model X,33.0836,348
+45021,2022,Tesla,Model X Plaid (20 inch wheels),34.3629,333
+45022,2022,Tesla,Model X Plaid (22 inch wheels),36.916,311
+45196,2022,Tesla,Model Y AWD,27.5117,279
+45018,2022,Tesla,Model Y Long Range AWD,27.6273,330
+45019,2022,Tesla,Model Y Performance AWD,30.4938,303
+45017,2022,Tesla,Model Y RWD,26.0277,244
+45257,2022,Volkswagen,ID.4 AWD Pro,33.3655,251
+45258,2022,Volkswagen,ID.4 AWD Pro S,35.4722,245
+45259,2022,Volkswagen,ID.4 Pro,32.0,275
+45413,2022,Volkswagen,ID.4 Pro S,33.0,262
+44929,2022,Volvo,C40 Recharge twin,38.5224,226
+44450,2022,Volvo,XC40 Recharge twin,39.4392,223
+43498,2021,Audi,e-tron,43.4088,222
+43499,2021,Audi,e-tron Sportback,43.9807,218
+43819,2021,BMW,i3,29.7947,153
+43662,2021,BMW,i3s,29.7947,153
+43663,2021,Chevrolet,Bolt EV,28.6629,259
+43602,2021,Ford,Mustang Mach-E AWD,36.3643,211
+43603,2021,Ford,Mustang Mach-E AWD Extended,37.2743,270
+44797,2021,Ford,Mustang Mach-E GT,40.1838,270
+44798,2021,Ford,Mustang Mach-E GT Performance,41.1883,260
+43604,2021,Ford,Mustang Mach-E RWD,33.8643,230
+43683,2021,Ford,Mustang Mach-E RWD California Route 1,33.3429,305
+43605,2021,Ford,Mustang Mach-E RWD Extended,34.6143,300
+43879,2021,Hyundai,Ioniq Electric,25.3864,170
+43747,2021,Hyundai,Kona Electric,27.0,258
+43889,2021,Jaguar,I-Pace EV400,44.3076,234
+43640,2021,Kandi,K27,29.5376,59
+43820,2021,Kia,Niro Electric,30.0071,239
+42634,2021,MINI,Cooper SE Hardtop 2 door,31.2795,110
+43664,2021,Nissan,Leaf (40 kW-hr battery pack),30.4264,149
+43665,2021,Nissan,Leaf (62 kW-hr battery pack),31.3048,226
+43666,2021,Nissan,Leaf SV/SL (62 kW-hr battery pack),32.283,215
+43294,2021,Polestar,2,36.6656,233
+44721,2021,Porsche,Taycan 4 Cross Turismo,44.0965,215
+44722,2021,Porsche,Taycan 4S Cross Turismo,45.0,215
+43684,2021,Porsche,Taycan 4S Perf Battery,42.4471,199
+43685,2021,Porsche,Taycan 4S Perf Battery Plus,43.4913,227
+43802,2021,Porsche,Taycan Perf Battery,41.0,200
+43803,2021,Porsche,Taycan Perf Battery Plus,44.9454,225
+43910,2021,Porsche,Taycan Turbo,45.0,212
+44724,2021,Porsche,Taycan Turbo Cross Turismo,46.8796,204
+43911,2021,Porsche,Taycan Turbo S,48.0973,201
+44723,2021,Porsche,Taycan Turbo S Cross Turismo,46.0355,202
+43401,2021,Tesla,Model 3 Long Range AWD,25.109,353
+43402,2021,Tesla,Model 3 Performance AWD,29.9572,315
+43821,2021,Tesla,Model 3 Standard Range Plus RWD,23.7441,263
+44051,2021,Tesla,Model S Long Range,28.1799,405
+43516,2021,Tesla,Model S Performance (19in Wheels),30.569,387
+43517,2021,Tesla,Model S Performance (21in Wheels),35.2475,334
+44069,2021,Tesla,Model S Plaid (21inch wheels),33.4451,348
+43403,2021,Tesla,Model X Long Range Plus,32.0033,371
+43404,2021,Tesla,Model X Performance (20in Wheels),34.5954,341
+43405,2021,Tesla,Model X Performance (22in Wheels),39.2815,300
+43406,2021,Tesla,Model Y Long Range AWD,27.0455,326
+43407,2021,Tesla,Model Y Performance AWD,30.4938,303
+43880,2021,Tesla,Model Y Standard Range RWD,26.0277,244
+43557,2021,Volkswagen,ID.4 1st,35.0,250
+44725,2021,Volkswagen,ID.4 AWD Pro,34.9117,249
+44726,2021,Volkswagen,ID.4 AWD Pro S,36.2762,240
+44052,2021,Volkswagen,ID.4 Pro,34.0,260
+43558,2021,Volkswagen,ID.4 Pro S,35.0,250
+43295,2021,Volvo,XC40 AWD BEV,42.8076,208
+42674,2020,Audi,e-tron Sportback,43.9849,218
+42512,2020,BMW,i3,29.7947,153
+42513,2020,BMW,i3s,29.7947,153
+42088,2020,BYD,e6,46.6265,187
+42191,2020,Chevrolet,Bolt EV,28.6629,259
+42273,2020,Hyundai,Ioniq Electric,25.3864,170
+42089,2020,Hyundai,Kona Electric,27.4801,258
+41413,2020,Jaguar,I-Pace,44.3076,234
+42514,2020,Kia,Niro Electric,30.0071,239
+43412,2020,Kia,Soul Electric,29.1732,243
+42508,2020,MINI,Cooper SE Hardtop 2 door,31.2795,110
+42561,2020,Nissan,Leaf (40 kW-hr battery pack),30.4264,149
+42562,2020,Nissan,Leaf (62 kW-hr battery pack),31.3048,226
+42563,2020,Nissan,Leaf SV/SL (62 kW-hr battery pack),32.283,215
+42590,2020,Porsche,Taycan 4S Perf Battery Plus,48.8109,203
+42383,2020,Porsche,Taycan Turbo,48.677,201
+42427,2020,Porsche,Taycan Turbo S,49.9016,192
+42274,2020,Tesla,Model 3 Long Range,25.8779,330
+42275,2020,Tesla,Model 3 Long Range AWD,27.9607,322
+42279,2020,Tesla,Model 3 Long Range Performance AWD (18in),28.0,322
+42280,2020,Tesla,Model 3 Long Range Performance AWD (19in),29.1267,304
+42281,2020,Tesla,Model 3 Long Range Performance AWD (20in),29.8797,299
+42276,2020,Tesla,Model 3 Mid Range,27.4857,264
+42277,2020,Tesla,Model 3 Standard Range,25.6917,220
+42278,2020,Tesla,Model 3 Standard Range Plus,23.979,250
+42282,2020,Tesla,Model S Long Range,30.2726,373
+42755,2020,Tesla,Model S Long Range Plus,28.9,402
+42283,2020,Tesla,Model S Performance (19in Wheels),32.4322,348
+42284,2020,Tesla,Model S Performance (21in Wheels),34.731,326
+42285,2020,Tesla,Model S Standard Range,30.8184,287
+42286,2020,Tesla,Model X Long Range,35.0319,328
+43413,2020,Tesla,Model X Long Range Plus,32.1566,351
+42287,2020,Tesla,Model X Performance (20in Wheels),37.569,305
+42288,2020,Tesla,Model X Performance (22in Wheels),42.8103,272
+42289,2020,Tesla,Model X Standard Range,33.2624,258
+42916,2020,Tesla,Model Y Long Range AWD,27.8558,316
+42474,2020,Tesla,Model Y Performance AWD,27.9706,315
+42816,2020,Tesla,Model Y Performance AWD (21in Wheels),30.3534,291
+41393,2019,Audi,e-tron,45.5672,204
+41054,2019,BMW,i3,29.7947,153
+41055,2019,BMW,i3s,29.7947,153
+40520,2019,Chevrolet,Bolt EV,28.3007,238
+41143,2019,Fiat,500e,29.9767,84
+41185,2019,Honda,Clarity EV,29.5354,89
+40384,2019,Hyundai,Ioniq Electric,25.0,124
+40585,2019,Hyundai,Kona Electric,28.0,258
+40986,2019,Jaguar,I-Pace,44.275,234
+41060,2019,Kia,Niro Electric,30.0071,239
+40768,2019,Kia,Soul Electric,31.2261,111
+40812,2019,Nissan,Leaf (40 kW-hr battery pack),30.1816,150
+41276,2019,Nissan,Leaf (62 kW-hr battery pack),31.0,226
+41277,2019,Nissan,Leaf SV/SL (62 kW-hr battery pack),32.283,215
+41189,2019,Tesla,Model 3 Long Range,25.8779,310
+41190,2019,Tesla,Model 3 Long Range AWD,28.9462,310
+41191,2019,Tesla,Model 3 Long Range AWD Performance,28.9462,310
+41188,2019,Tesla,Model 3 Mid Range,27.4857,264
+41415,2019,Tesla,Model 3 Standard Range,25.6917,220
+41416,2019,Tesla,Model 3 Standard Range Plus,25.3881,240
+41193,2019,Tesla,Model S 100D,33.196,335
+41192,2019,Tesla,Model S 75D,32.6174,259
+41417,2019,Tesla,Model S Long Range,30.2726,370
+41194,2019,Tesla,Model S P100D,34.561,315
+41418,2019,Tesla,Model S Performance (19in Wheels),32.4322,345
+41419,2019,Tesla,Model S Performance (21in Wheels),34.731,325
+41513,2019,Tesla,Model S Standard Range,30.8184,285
+41196,2019,Tesla,Model X 100D,38.6651,295
+41195,2019,Tesla,Model X 75D,36.23,238
+41514,2019,Tesla,Model X Long Range,35.0319,325
+41197,2019,Tesla,Model X P100D,39.5413,289
+41515,2019,Tesla,Model X Performance (22in Wheels),42.8103,270
+40769,2019,Volkswagen,e-Golf,28.4186,125
+41187,2019,smart,EQ fortwo (convertible),33.0,57
+41186,2019,smart,EQ fortwo (coupe),31.0,58
+39854,2018,BMW,i3 (94Ah),28.6352,114
+39855,2018,BMW,i3s (94Ah),29.9713,107
+39880,2018,BYD,e6,46.6265,187
+39786,2018,Chevrolet,Bolt EV,28.3007,238
+39959,2018,Fiat,500e,29.9767,84
+39640,2018,Ford,Focus Electric,31.4904,115
+40044,2018,Honda,Clarity EV,29.5354,89
+39641,2018,Hyundai,Ioniq Electric,25.0,124
+39322,2018,Kia,Soul Electric,31.2261,111
+39860,2018,Nissan,Leaf,30.0011,151
+39836,2018,Tesla,Model 3 Long Range,25.8779,310
+40385,2018,Tesla,Model 3 Long Range  AWD,28.9462,310
+40386,2018,Tesla,Model 3 Long Range  AWD Performance,28.9462,310
+41056,2018,Tesla,Model 3 Mid Range,27.4857,260
+39839,2018,Tesla,Model S 100D,33.196,335
+39838,2018,Tesla,Model S 75D,32.6174,259
+39837,2018,Tesla,Model S 75kWh,34.2499,249
+39840,2018,Tesla,Model S P100D,34.561,315
+39842,2018,Tesla,Model X 100D,38.6651,295
+39841,2018,Tesla,Model X 75D,36.23,238
+39843,2018,Tesla,Model X P100D,39.5413,289
+39871,2018,Volkswagen,e-Golf,28.4186,125
+39785,2018,smart,fortwo electric drive convertible,33.0,57
+39784,2018,smart,fortwo electric drive coupe,31.0,58
+38000,2017,BMW,i3 BEV (60  Amp-hour battery),27.0,81
+38001,2017,BMW,i3 BEV (94 Amp-hour battery),29.0,114
+38591,2017,BYD,e6,47.0,187
+38187,2017,Chevrolet,Bolt EV,28.3007,238
+37798,2017,Fiat,500e,29.9767,84
+38505,2017,Ford,Focus Electric,31.0,115
+39191,2017,Honda,Clarity EV,30.0,89
+38431,2017,Hyundai,Ioniq Electric,25.0,124
+38168,2017,Kia,Soul Electric,31.9856,93
+38002,2017,Mercedes-Benz,B250e,40.2262,87
+37293,2017,Mitsubishi,i-MiEV,30.0,59
+38428,2017,Nissan,Leaf,29.9887,107
+39769,2017,Tesla,Model 3 Long Range,26.826,310
+38557,2017,Tesla,Model S (60 kW-hr battery pack),34.0,210
+38558,2017,Tesla,Model S (75 kW-hr battery pack),34.0,249
+38640,2017,Tesla,Model S AWD - 100D,33.0,335
+38523,2017,Tesla,Model S AWD - 60D,32.0,218
+38524,2017,Tesla,Model S AWD - 75D,33.0,259
+38569,2017,Tesla,Model S AWD - 90D,32.0,294
+38525,2017,Tesla,Model S AWD - P100D,35.0,315
+38537,2017,Tesla,Model S AWD - P90D,35.0,270
+39831,2017,Tesla,Model X AWD - 100D,38.6651,295
+38526,2017,Tesla,Model X AWD - 60D,36.0,200
+38527,2017,Tesla,Model X AWD - 75D,36.0,238
+38528,2017,Tesla,Model X AWD - 90D,37.0,257
+38530,2017,Tesla,Model X AWD - P100D,39.0,289
+38529,2017,Tesla,Model X AWD - P90D,38.0,250
+38549,2017,Volkswagen,e-Golf,28.4186,125
+39603,2017,smart,fortwo electric drive convertible,33.0,57
+39192,2017,smart,fortwo electric drive coupe,31.0,58
+37216,2016,BMW,i3 BEV,27.0,81
+37800,2016,BYD,e6,47.0,187
+36996,2016,Chevrolet,Spark EV,28.3449,82
+37156,2016,Fiat,500e,29.9767,84
+36978,2016,Ford,Focus Electric,32.0,76
+36553,2016,Kia,Soul Electric,31.9856,93
+36997,2016,Mercedes-Benz,B250e,40.2262,87
+36023,2016,Mitsubishi,i-MiEV,30.0,62
+37066,2016,Nissan,Leaf (24 kW-hr battery pack),29.6496,84
+37067,2016,Nissan,Leaf (30 kW-hr battery pack),29.9829,107
+38170,2016,Tesla,Model S (60 kW-hr battery pack),34.0,210
+37233,2016,Tesla,Model S (70 kW-hr battery pack),38.0,234
+37421,2016,Tesla,Model S (75 kW-hr battery pack),34.0,249
+37234,2016,Tesla,Model S (85 kW-hr battery pack),38.0,265
+37235,2016,Tesla,Model S (90 kW-hr battery pack),38.0,265
+38171,2016,Tesla,Model S AWD - 60D,32.0,218
+37238,2016,Tesla,Model S AWD - 70D,33.0,240
+37422,2016,Tesla,Model S AWD - 75D,33.0,259
+37239,2016,Tesla,Model S AWD - 85D,34.0,270
+37240,2016,Tesla,Model S AWD - 90D,33.0,294
+38172,2016,Tesla,Model S AWD - P100D,35.0,315
+37241,2016,Tesla,Model S AWD - P85D,36.0,253
+37242,2016,Tesla,Model S AWD - P90D,35.0,270
+38173,2016,Tesla,Model X AWD - 60D,36.0,200
+37423,2016,Tesla,Model X AWD - 75D,36.0,238
+36979,2016,Tesla,Model X AWD - 90D,37.0,257
+38500,2016,Tesla,Model X AWD - P100D,39.0,289
+36980,2016,Tesla,Model X AWD - P90D,38.0,250
+36834,2016,Volkswagen,e-Golf,29.1765,83
+36860,2016,smart,fortwo electric drive convertible,31.5042,68
+36861,2016,smart,fortwo electric drive coupe,31.5042,68
+36016,2015,BMW,i3 BEV,27.0,81
+35120,2015,Chevrolet,Spark EV,28.3449,82
+35206,2015,Fiat,500e,29.1733,87
+35970,2015,Ford,Focus Electric,32.0,76
+35601,2015,Kia,Soul Electric,31.9856,93
+35960,2015,Mercedes-Benz,B-Class Electric Drive,40.0,87
+34918,2015,Nissan,Leaf,29.6225,84
+36017,2015,Tesla,Model S (60 kW-hr battery pack),35.0,208
+35980,2015,Tesla,Model S (85 kW-hr battery pack),38.0,265
+37236,2015,Tesla,Model S (90 kW-hr battery pack),38.0,265
+36126,2015,Tesla,Model S AWD - 70D,33.0,240
+36009,2015,Tesla,Model S AWD - 85D,34.0,270
+36786,2015,Tesla,Model S AWD - 90D,34.0,270
+36008,2015,Tesla,Model S AWD - P85D,36.0,253
+36787,2015,Tesla,Model S AWD - P90D,36.0,253
+35849,2015,Volkswagen,e-Golf,29.1683,83
+35858,2015,smart,fortwo electric drive convertible,31.5042,68
+35859,2015,smart,fortwo electric drive coupe,31.5042,68
+35207,2014,BMW,i3 BEV,27.0,81
+34859,2014,BYD,e6,54.0,127
+33640,2014,Chevrolet,Spark EV,28.0,82
+34392,2014,Fiat,500e,29.0,87
+34130,2014,Ford,Focus Electric,32.0,76
+33905,2014,Honda,Fit EV,29.0,82
+35247,2014,Mercedes-Benz,B-Class Electric Drive,40.0,87
+34901,2014,Mitsubishi,i-MiEV,30.0,62
+34699,2014,Nissan,Leaf,30.0,84
+34776,2014,Tesla,Model S (60 kW-hr battery pack),35.0,208
+34775,2014,Tesla,Model S (85 kW-hr battery pack),38.0,265
+35994,2014,Tesla,Model S AWD (85 kW-hr battery pack),38.0,242
+34425,2014,Toyota,RAV4 EV,44.0,103
+34393,2014,smart,fortwo electric drive convertible,32.0,68
+34394,2014,smart,fortwo electric drive coupe,32.0,68
+34860,2013,BYD,e6,54.0,127
+33337,2013,CODA Automotive,CODA,46.0,88
+33396,2013,Fiat,500e,29.0,87
+33024,2013,Ford,Focus Electric,32.0,76
+33265,2013,Honda,Fit EV,29.0,82
+33358,2013,Mitsubishi,i-MiEV,30.0,62
+33558,2013,Nissan,Leaf,29.0,75
+33307,2013,Scion,iQ EV,28.0,38
+33612,2013,Tesla,Model S (40 kW-hr battery pack),36.0,139
+33367,2013,Tesla,Model S (60 kW-hr battery pack),35.0,208
+33368,2013,Tesla,Model S (85 kW-hr battery pack),38.0,265
+33397,2013,Toyota,RAV4 EV,44.0,103
+33305,2013,smart,fortwo electric drive convertible,32.0,68
+33306,2013,smart,fortwo electric drive coupe,32.0,68
+31893,2012,Azure Dynamics,Transit Connect Electric Van/Wagon,54.0,56
+33383,2012,BYD,e6,54.0,122
+32277,2012,CODA Automotive,CODA,46.0,88
+32278,2012,Ford,Focus Electric,32.0,76
+31673,2012,Mitsubishi,i-MiEV,30.0,62
+32154,2012,Nissan,Leaf,34.0,73
+32557,2012,Tesla,Model S,38.0,265
+33308,2012,Toyota,RAV4 EV,44.0,103
+32276,2011,BMW,Active E,33.0,94
+30979,2011,Nissan,Leaf,34.0,73
+31064,2011,smart,fortwo electric drive cabriolet,39.0,63
+31065,2011,smart,fortwo electric drive coupe,39.0,63
+30978,2008,MINI,MiniE,34.0,100
+19296,2003,Toyota,RAV4 EV,43.0,95
+18291,2002,Ford,Explorer USPS Electric,87.0,38
+18290,2002,Toyota,RAV4 EV,43.0,95
+17330,2001,Ford,Explorer USPS Electric,87.0,38
+30965,2001,Ford,Ranger Pickup 2WD,58.0,50
+17329,2001,Ford,Th!nk,52.0,29
+17331,2001,Nissan,Hyper-Mini,45.0,33
+17328,2001,Toyota,RAV4 EV,47.0,88
+30966,2000,Ford,Ranger Pickup 2WD,58.0,50
+30967,2000,Ford,Ranger Pickup 2WD,60.0,65
+16423,2000,Nissan,Altra EV,40.0,90
+16424,2000,Toyota,RAV4 EV,47.0,88
+30973,1999,Dodge,Caravan/Grand Caravan 2WD,96.0,70
+30971,1999,Ford,Ranger Pickup 2WD,58.0,50
+30972,1999,Ford,Ranger Pickup 2WD,72.0,55
+30968,1999,GMC,EV1,40.0,55
+30969,1999,GMC,EV1,91.0,105
+30970,1999,Honda,EV Plus,71.0,81
+30974,1999,Plymouth,Voyager/Grand Voyager 2WD,96.0,70
+30976,1998,Chevrolet,S10 Electric,62.0,33
+30977,1998,Chevrolet,S10 Electric,121.0,72
+30975,1998,Honda,EV Plus,71.0,81
