@@ -1,6 +1,6 @@
 # BEV vehicle-data audit
 
-Generated: 2026-09-28 20:09 UTC
+Generated: 2026-09-28 20:24 UTC
 
 ## Source
 
@@ -9,28 +9,29 @@ Generated: 2026-09-28 20:09 UTC
 
 ## BEV selection rule
 
-A record is treated as a battery-electric vehicle when:
+A record is included when:
 
 - `fuelType1 = Electricity`
 - `fuelType2` is blank or missing
 
-This rule intentionally excludes plug-in hybrids, which have a second fuel
-type because they can use another energy source in addition to electricity.
+This is an initial electricity-only classification rule. It should be
+validated against source records before being treated as a complete
+classification of every BEV and plug-in hybrid.
 
 ## Coverage
 
 | Check | Result |
 |---|---:|
 | Total vehicle records downloaded | 50,409 |
-| BEV records matching selection rule | 1,610 |
+| Records matching BEV selection rule | 1,610 |
 | Distinct vehicle IDs | 1,610 |
 | Model years represented | 1998–2027 |
-| BEV records with positive `combE` | 1,610 |
-| BEV records without positive `combE` | 0 |
+| Selected records with positive `combE` | 1,610 |
+| Selected records without positive `combE` | 0 |
 | Missing vehicle IDs | 0 |
 | Duplicate vehicle IDs | 0 |
 
-## Sample BEV records
+## Sample selected records
 
 | Year | Make | Model | Combined electricity use (kWh/100 mi) |
 |---:|---|---|---:|
@@ -47,11 +48,11 @@ type because they can use another energy source in addition to electricity.
 
 ## Interpretation and limitations
 
-This audit establishes a reproducible starting catalog for U.S. BEVs. It does
-not yet make every record trip-ready. The route planner still needs usable
-battery capacity, connector compatibility, DC fast-charging behavior, and
-station availability data.
+This audit establishes a reproducible starting catalog. It does not make
+every record trip-ready. The source may include future model-year vehicles,
+and the planner still needs usable battery capacity, connector
+compatibility, DC fast-charging behavior, and station data.
 
 `combE` is a published electricity-use measure and can include charging
-losses. The planner will document how this value is transformed, rather than
-treating it as direct battery energy consumption without adjustment.
+losses. The planner must document how it uses this value rather than
+silently treating it as direct battery energy consumption.

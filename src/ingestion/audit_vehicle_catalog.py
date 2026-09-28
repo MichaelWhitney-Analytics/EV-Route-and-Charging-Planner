@@ -22,6 +22,32 @@ REQUIRED_COLUMNS = {
 }
 
 
+def select_bevs(vehicles: pd.DataFrame) -> pd.DataFrame:
+    """Select electricity-only records using the audited fuel-type fields."""
+    required = {"fuelType1", "fuelType2"}
+    missing = required - set(vehicles.columns)
+
+    if missing:
+        raise ValueError(f"Missing fuel-type columns: {sorted(missing)}")
+
+    primary_fuel = (
+        vehicles["fuelType1"]
+        .astype("string")
+        .fillna("")
+        .str.strip()
+    )
+    secondary_fuel = (
+        vehicles["fuelType2"]
+        .astype("string")
+        .fillna("")
+        .str.strip()
+    )
+
+    return vehicles.loc[
+        primary_fuel.eq("Electricity") & secondary_fuel.eq("")
+    ].copy()
+
+
 def main() -> None:
     print("Downloading FuelEconomy.gov vehicle data...")
 
@@ -52,13 +78,7 @@ def main() -> None:
     RAW_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     vehicles.to_csv(RAW_OUTPUT_PATH, index=False)
 
-    fuel_type_1 = vehicles["fuelType1"].astype("string").str.strip()
-    fuel_type_2 = vehicles["fuelType2"].astype("string").str.strip()
-
-    bev = vehicles[
-        fuel_type_1.eq("Electricity")
-        & (fuel_type_2.isna() | fuel_type_2.eq(""))
-    ].copy()
+    bev = select_bevs(vehicles)
 
     bev["year"] = pd.to_numeric(bev["year"], errors="coerce")
     bev["combE"] = pd.to_numeric(bev["combE"], errors="coerce")
@@ -99,28 +119,29 @@ Generated: {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")}
 
 ## BEV selection rule
 
-A record is treated as a battery-electric vehicle when:
+A record is included when:
 
 - `fuelType1 = Electricity`
 - `fuelType2` is blank or missing
 
-This rule intentionally excludes plug-in hybrids, which have a second fuel
-type because they can use another energy source in addition to electricity.
+This is an initial electricity-only classification rule. It should be
+validated against source records before being treated as a complete
+classification of every BEV and plug-in hybrid.
 
 ## Coverage
 
 | Check | Result |
 |---|---:|
 | Total vehicle records downloaded | {len(vehicles):,} |
-| BEV records matching selection rule | {total_bev_records:,} |
+| Records matching BEV selection rule | {total_bev_records:,} |
 | Distinct vehicle IDs | {distinct_vehicle_ids:,} |
 | Model years represented | {first_year}–{last_year} |
-| BEV records with positive `combE` | {usable_efficiency:,} |
-| BEV records without positive `combE` | {missing_efficiency:,} |
+| Selected records with positive `combE` | {usable_efficiency:,} |
+| Selected records without positive `combE` | {missing_efficiency:,} |
 | Missing vehicle IDs | {missing_vehicle_ids:,} |
 | Duplicate vehicle IDs | {duplicate_vehicle_ids:,} |
 
-## Sample BEV records
+## Sample selected records
 
 | Year | Make | Model | Combined electricity use (kWh/100 mi) |
 |---:|---|---|---:|
@@ -128,22 +149,22 @@ type because they can use another energy source in addition to electricity.
 
 ## Interpretation and limitations
 
-This audit establishes a reproducible starting catalog for U.S. BEVs. It does
-not yet make every record trip-ready. The route planner still needs usable
-battery capacity, connector compatibility, DC fast-charging behavior, and
-station availability data.
+This audit establishes a reproducible starting catalog. It does not make
+every record trip-ready. The source may include future model-year vehicles,
+and the planner still needs usable battery capacity, connector
+compatibility, DC fast-charging behavior, and station data.
 
 `combE` is a published electricity-use measure and can include charging
-losses. The planner will document how this value is transformed, rather than
-treating it as direct battery energy consumption without adjustment.
+losses. The planner must document how it uses this value rather than
+silently treating it as direct battery energy consumption.
 """
 
     REPORT_OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     REPORT_OUTPUT_PATH.write_text(report, encoding="utf-8")
 
     print(f"Downloaded {len(vehicles):,} vehicle records.")
-    print(f"Found {total_bev_records:,} BEV records.")
-    print(f"BEVs with positive combE values: {usable_efficiency:,}.")
+    print(f"Found {total_bev_records:,} records matching the BEV rule.")
+    print(f"Selected records with positive combE: {usable_efficiency:,}.")
     print(f"Saved raw data to {RAW_OUTPUT_PATH}.")
     print(f"Saved audit report to {REPORT_OUTPUT_PATH}.")
 
