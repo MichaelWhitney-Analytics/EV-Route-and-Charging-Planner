@@ -5,6 +5,7 @@ import json
 
 from src.planning.candidate_assessment import assess_candidates
 from src.planning.candidate_reachability import assess_candidate_reachability
+from src.planning.planning_report import format_planning_report
 from src.planning.vehicle_profile import VehicleProfile
 
 
@@ -72,6 +73,7 @@ def main(argv=None) -> int:
     parser.add_argument("--reserve-percent", type=float, default=10)
     parser.add_argument("--start-percent", type=float, required=True)
     parser.add_argument("--max-checks", type=int, choices=(1, 2, 3), default=2)
+    parser.add_argument("--format", choices=("text", "json"), default="text")
     args = parser.parse_args(argv)
     try:
         profile = VehicleProfile(
@@ -84,7 +86,7 @@ def main(argv=None) -> int:
         )
     except (ValueError, RuntimeError, TypeError) as exc:
         parser.exit(2, f"Planning summary error: {exc}\n")
-    print(json.dumps(result, indent=2))
+    print(format_planning_report(result) if args.format == "text" else json.dumps(result, indent=2))
     return 0
 
 
