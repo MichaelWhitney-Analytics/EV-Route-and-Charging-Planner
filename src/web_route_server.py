@@ -96,10 +96,59 @@ def build_conditional_plan(payload):
             "baseline_road_miles": result["baseline_road_miles"],
             "disclaimer": result["disclaimer"] + " " + result["selection"]["note"]}
 
+import csv
+
+CATALOG_PATH = Path(__file__).resolve().parents[1] / "data" / "processed" / "vehicle_catalog.csv"
+
+
+def read_vehicle_choices(path=None):
+    """Display-only BEV catalog: published use/range are not a complete profile."""
+    path = CATALOG_PATH if path is None else Path(path)
+    try:
+        if path.stat().st_size > 5_000_000:
+            raise RuntimeError("Vehicle catalog is too large to display.")
+        with path.open(newline="", encoding="utf-8-sig") as stream:
+            reader = csv.DictReader(stream)
+            required = {"vehicle_id", "year", "make", "model", "electricity_kwh_per_100_miles", "epa_range_miles"}
+            if not reader.fieldnames or not required.issubset(reader.fieldnames):
+                raise RuntimeError("Vehicle catalog has missing columns.")
+            choices = []
+            for row in reader:
+                try:
+                    use = float(row["electricity_kwh_per_100_miles"])
+                    vehicle_id = int(row["vehicle_id"])
+                    year = int(row["year"])
+                    make = row["make"].strip()
+                    model = row["model"].strip()
+                    if not (math.isfinite(use) and use > 0 and make and model and 1900 <= year <= 2100):
+                        continue
+                    choices.append({"vehicle_id": vehicle_id, "year": year, "make": make,
+                                    "model": model, "electricity_kwh_per_100_miles": use})
+                except (ValueError, TypeError, AttributeError):
+                    continue
+            return {"vehicles": choices,
+                    "note": "Published consumption is a reference, not a measured trip value. Battery capacity, connector and charging power are not in this catalog; supply your own estimates."}
+    except OSError as exc:
+        raise RuntimeError("Processed vehicle catalog unavailable; build it locally first.") from exc
+
 class RouteHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(WEB_ROOT), **kwargs)
 
+    def do_GET(self):
+        if self.path != "/api/vehicles":
+            return super().do_GET()
+        try:
+            body, status = read_vehicle_choices(), 200
+        except RuntimeError as exc:
+            body, status = {"error": str(exc)}, 503
+        data = json.dumps(body, allow_nan=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
     def do_POST(self):
         if self.path not in ("/api/route", "/api/conditional-plan"):
             self.send_error(404)
@@ -148,3 +197,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

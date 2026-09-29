@@ -1,30 +1,19 @@
-from pathlib import Path
-
+﻿from pathlib import Path
 
 PAGE = Path("web/trip_planner_visual_prototype.html")
 
+def test_model_dropdown_and_optional_battery_fields():
+    text = PAGE.read_text(encoding="utf-8-sig")
+    assert 'id="vehicle-mode"' in text
+    assert 'fetch("/api/vehicles")' in text
+    assert 'option.textContent = `${record.year} ${record.make} ${record.model}`' in text
+    assert 'id="start-percent"' in text and 'id="reserve-percent"' in text
+    for hidden_spec in ('battery-kwh', 'charge-kw', 'connector', 'consumption', 'vehicle-name'):
+        assert f'id="{hidden_spec}"' not in text
+    assert 'id="custom-vehicle-details"' not in text
 
-def test_default_vehicle_form_shows_only_three_choices():
-    page = PAGE.read_text(encoding="utf-8")
-    assert 'id="vehicle-mode"' in page
-    assert 'id="start-percent"' in page
-    assert 'id="reserve-percent"' in page
-    assert 'id="custom-vehicle-details" hidden' in page
-    assert '<option value="" selected>Choose a vehicle</option>' in page
+def test_no_fabricated_energy_claim():
+    text = PAGE.read_text(encoding="utf-8-sig")
+    assert 'No battery or charging outcome is calculated' in text
+    assert 'Add custom vehicle' not in text
 
-
-def test_advanced_fields_only_in_custom_path_without_fabricated_catalog():
-    page = PAGE.read_text(encoding="utf-8")
-    for control in ("vehicle-name", "battery-kwh", "consumption", "charge-kw", "connector"):
-        assert f'id="{control}"' in page
-    assert '<option value="custom">Add custom vehicle</option>' in page
-    assert 'value="catalog" disabled' in page
-    assert 'customDetails.hidden=!custom' in page
-    assert 'input.disabled=!custom' in page
-
-
-def test_form_does_not_claim_to_recalculate_demo_route():
-    page = PAGE.read_text(encoding="utf-8")
-    assert "these inputs do not recalculate the example timeline or map" in page
-    assert "Battery outcomes remain uncalculated" in page
-    assert 'role="status"' in page
