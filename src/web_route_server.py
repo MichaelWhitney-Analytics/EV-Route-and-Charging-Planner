@@ -60,6 +60,7 @@ def fetch_road_route(origin, destination, key):
 
 from src.planning.measured_candidate_graph import build_measured_candidate_graph
 from src.planning.vehicle_profile import VehicleProfile
+from src.planning.verified_vehicle_profiles import load_catalog, load_profiles
 
 
 def build_conditional_plan(payload):
@@ -73,13 +74,18 @@ def build_conditional_plan(payload):
         raise ValueError("Origin needs a selected place label of at most 120 characters.")
     if not isinstance(destination.get("label"), str) or not destination["label"].strip() or len(destination["label"]) > 120:
         raise ValueError("Destination needs a selected place label of at most 120 characters.")
-    vehicle = payload.get("vehicle")
-    if not isinstance(vehicle, dict):
-        raise ValueError("Provide a custom vehicle profile.")
-    allowed = ("name", "usable_battery_kwh", "driving_kwh_per_100_miles", "max_dc_charge_kw", "connector", "minimum_arrival_percent")
-    if set(vehicle) != set(allowed) or not isinstance(vehicle["name"], str) or len(vehicle["name"]) > 80:
-        raise ValueError("Provide all six custom vehicle fields with a short name.")
-    profile = VehicleProfile(**vehicle)
+    if "vehicle_id" in payload:
+        if "vehicle" in payload:
+            raise ValueError("Provide either a catalog vehicle ID or a custom profile, not both.")
+        profile = profile_for_catalog_id(payload["vehicle_id"])
+    else:
+        vehicle = payload.get("vehicle")
+        if not isinstance(vehicle, dict):
+            raise ValueError("Provide a custom vehicle profile.")
+        allowed = ("name", "usable_battery_kwh", "driving_kwh_per_100_miles", "max_dc_charge_kw", "connector", "minimum_arrival_percent")
+        if set(vehicle) != set(allowed) or not isinstance(vehicle["name"], str) or len(vehicle["name"]) > 80:
+            raise ValueError("Provide all six custom vehicle fields with a short name.")
+        profile = VehicleProfile(**vehicle)
     start = payload.get("start_percent")
     if isinstance(start, bool) or not isinstance(start, (int, float)) or not math.isfinite(start) or not 0 <= start <= 100:
         raise ValueError("Starting battery must be a finite percentage from 0 to 100.")
@@ -130,6 +136,35 @@ def read_vehicle_choices(path=None):
                     "note": "Published consumption is a reference, not a measured trip value. Battery capacity, connector and charging power are not in this catalog; supply your own estimates."}
     except OSError as exc:
         raise RuntimeError("Processed vehicle catalog unavailable; build it locally first.") from exc
+
+def profile_for_catalog_id(vehicle_id):
+    """Use an exact sourced profile; never infer charging specs from EPA range."""
+    if isinstance(vehicle_id, bool) or not isinstance(vehicle_id, int):
+        raise ValueError("vehicle_id must be an integer catalog ID.")
+
+    catalog = load_catalog(CATALOG_PATH)
+    profiles_path = CATALOG_PATH.parent / "verified_vehicle_profiles.json"
+    profiles = load_profiles(profiles_path, catalog)
+    if vehicle_id not in profiles:
+        raise ValueError("This vehicle is direct-route-only; no sourced charging profile.")
+
+    matches = [
+        row for row in read_vehicle_choices()["vehicles"]
+        if row["vehicle_id"] == vehicle_id
+    ]
+    if len(matches) != 1:
+        raise ValueError("Catalog vehicle has no unique usable consumption value.")
+
+    row = matches[0]
+    sourced = profiles[vehicle_id]
+    return VehicleProfile(
+        name=f'{row["year"]} {row["make"]} {row["model"]}',
+        usable_battery_kwh=sourced["usable_battery_kwh"],
+        driving_kwh_per_100_miles=row["electricity_kwh_per_100_miles"],
+        max_dc_charge_kw=sourced["max_dc_charge_kw"],
+        connector=sourced["connector"],
+    )
+
 
 class RouteHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):

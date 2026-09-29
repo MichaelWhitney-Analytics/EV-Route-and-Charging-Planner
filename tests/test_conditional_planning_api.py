@@ -51,3 +51,64 @@ def test_server_route_is_opt_in():
     text = Path(server.__file__).read_text(encoding="utf-8")
     assert 'self.path == "/api/conditional-plan"' in text
     assert 'self.path not in ("/api/route", "/api/conditional-plan")' in text
+
+
+def test_sourced_catalog_id_builds_opt_in_profile(monkeypatch):
+    captured = []
+
+    def fake(profile, *args, **kwargs):
+        captured.append((profile, kwargs))
+        return {
+            "selection": {
+                "status": "no_charge_needed",
+                "selected_site_names": [],
+                "itinerary": {"timeline": []},
+                "note": "Conditional estimate.",
+            },
+            "ordered_sites": [],
+            "baseline_road_miles": 20.0,
+            "disclaimer": "Unverified stations.",
+        }
+
+    monkeypatch.setattr(server, "build_measured_candidate_graph", fake)
+    payload = request()
+    payload.pop("vehicle")
+    payload["vehicle_id"] = 49612
+
+    result = server.build_conditional_plan(payload)
+    profile, kwargs = captured[0]
+
+    assert result["status"] == "no_charge_needed"
+    assert profile.name == "2026 Audi Q4 45 e-tron"
+    assert profile.usable_battery_kwh == 77.0
+    assert profile.max_dc_charge_kw == 175.0
+    assert profile.connector == "CCS"
+    assert profile.driving_kwh_per_100_miles == pytest.approx(29.4031)
+    assert profile.minimum_arrival_percent == 10.0
+    assert kwargs["max_sites"] == 2
+
+
+@pytest.mark.parametrize("bad_id", [True, "49612", 999999])
+def test_unsourced_or_invalid_catalog_id_never_calls_network(monkeypatch, bad_id):
+    monkeypatch.setattr(
+        server,
+        "build_measured_candidate_graph",
+        lambda *args, **kwargs: pytest.fail("network called"),
+    )
+    payload = request()
+    payload.pop("vehicle")
+    payload["vehicle_id"] = bad_id
+    with pytest.raises(ValueError):
+        server.build_conditional_plan(payload)
+
+
+def test_cannot_override_sourced_catalog_profile(monkeypatch):
+    monkeypatch.setattr(
+        server,
+        "build_measured_candidate_graph",
+        lambda *args, **kwargs: pytest.fail("network called"),
+    )
+    payload = request()
+    payload["vehicle_id"] = 49612
+    with pytest.raises(ValueError, match="either"):
+        server.build_conditional_plan(payload)
