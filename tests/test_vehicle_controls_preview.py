@@ -26,5 +26,5 @@ def test_advanced_fields_only_in_custom_path_without_fabricated_catalog():
 def test_form_does_not_claim_to_recalculate_demo_route():
     page = PAGE.read_text(encoding="utf-8")
     assert "these inputs do not recalculate the example timeline or map" in page
-    assert "example itinerary unchanged" in page
+    assert "Battery outcomes remain uncalculated" in page
     assert 'role="status"' in page
