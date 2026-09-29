@@ -1,0 +1,54 @@
+﻿{
+  "vehicle_name": "Illustrative EV",
+  "start_percent": 80.0,
+  "route_distance_miles": 14.15452507357035,
+  "discovered_record_count": 28,
+  "reported_connector_match_record_count": 27,
+  "distinct_reported_address_count": 21,
+  "road_detours_assessed_count": 1,
+  "not_assessed_count": 20,
+  "not_assessed_note": "Includes sites beyond the detour-check cap and any skipped for missing coordinates. These sites have not been energy-screened.",
+  "categories": {
+    "no_charging_needed": [
+      {
+        "station": {
+          "id": 189344,
+          "name": "EMICH VW DCC 2",
+          "address": "350 S Santa Fe Dr",
+          "city": "Denver",
+          "state": "CO",
+          "distance_miles_straight_line": 0.75852,
+          "latitude": 39.710285,
+          "longitude": -104.996259,
+          "dc_fast_ports_reported": 1,
+          "connector_types_reported": [
+            "J1772COMBO",
+            "TESLA"
+          ]
+        },
+        "station_reachable_with_reserve": true,
+        "arrival_estimate": {
+          "distance_miles": 1.3239555993000873,
+          "start_percent": 80.0,
+          "energy_needed_kwh": 0.3971866797900262,
+          "energy_available_above_reserve_kwh": 52.5,
+          "estimated_arrival_percent": 79.47041776027997,
+          "shortfall_kwh": 0.0,
+          "reachable_without_charging": true
+        },
+        "charge_for_next_leg": {
+          "arrival_percent": 79.47041776027997,
+          "next_leg_miles": 12.826903384236061,
+          "departure_percent": 79.47041776027997,
+          "energy_to_add_kwh": 0.0,
+          "charge_needed": false
+        },
+        "next_leg_possible_from_full": true
+      }
+    ],
+    "charging_needed_if_usable": [],
+    "unreachable_with_reserve": [],
+    "next_leg_exceeds_full_battery_with_reserve": []
+  },
+  "disclaimer": "Exploratory estimates only. Battery and consumption are user-supplied. Reported connector matches, site access, charger availability, charging speed, road conditions, and trip completion are unverified. No candidate is recommended or guaranteed."
+}
