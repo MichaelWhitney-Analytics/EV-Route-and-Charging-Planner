@@ -1,4 +1,4 @@
-"""Local-only static web server and limited ORS road-route proxy.
+﻿"""Local-only static web server and limited ORS road-route proxy.
 
 Run with ORS_API_KEY set. Never commit or expose the API key to browser JS.
 """
@@ -58,12 +58,50 @@ def fetch_road_route(origin, destination, key):
             "note": "Direct road route only. No charging stops or battery outcomes have been calculated."}
 
 
+from src.planning.measured_candidate_graph import build_measured_candidate_graph
+from src.planning.vehicle_profile import VehicleProfile
+
+
+def build_conditional_plan(payload):
+    """Explicit, bounded experimental planning API; no charger guarantee."""
+    if not isinstance(payload, dict):
+        raise ValueError("Planning request must be an object.")
+    origin, destination = payload.get("origin"), payload.get("destination")
+    validate_point(origin)
+    validate_point(destination)
+    if not isinstance(origin.get("label"), str) or not origin["label"].strip() or len(origin["label"]) > 120:
+        raise ValueError("Origin needs a selected place label of at most 120 characters.")
+    if not isinstance(destination.get("label"), str) or not destination["label"].strip() or len(destination["label"]) > 120:
+        raise ValueError("Destination needs a selected place label of at most 120 characters.")
+    vehicle = payload.get("vehicle")
+    if not isinstance(vehicle, dict):
+        raise ValueError("Provide a custom vehicle profile.")
+    allowed = ("name", "usable_battery_kwh", "driving_kwh_per_100_miles", "max_dc_charge_kw", "connector", "minimum_arrival_percent")
+    if set(vehicle) != set(allowed) or not isinstance(vehicle["name"], str) or len(vehicle["name"]) > 80:
+        raise ValueError("Provide all six custom vehicle fields with a short name.")
+    profile = VehicleProfile(**vehicle)
+    start = payload.get("start_percent")
+    if isinstance(start, bool) or not isinstance(start, (int, float)) or not math.isfinite(start) or not 0 <= start <= 100:
+        raise ValueError("Starting battery must be a finite percentage from 0 to 100.")
+    # Bound the synchronous API workload: 1 baseline + 5 forward routes at most.
+    result = build_measured_candidate_graph(
+        profile, start, origin["label"], (origin["latitude"], origin["longitude"]),
+        destination["label"], (destination["latitude"], destination["longitude"]),
+        max_sites=2,
+    )
+    return {"status": result["selection"]["status"],
+            "selected_site_names": result["selection"].get("selected_site_names", []),
+            "itinerary": result["selection"]["itinerary"],
+            "candidate_sites_considered": result["ordered_sites"],
+            "baseline_road_miles": result["baseline_road_miles"],
+            "disclaimer": result["disclaimer"] + " " + result["selection"]["note"]}
+
 class RouteHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(WEB_ROOT), **kwargs)
 
     def do_POST(self):
-        if self.path != "/api/route":
+        if self.path not in ("/api/route", "/api/conditional-plan"):
             self.send_error(404)
             return
         try:
@@ -76,7 +114,10 @@ class RouteHandler(SimpleHTTPRequestHandler):
             origin, destination = payload.get("origin"), payload.get("destination")
             validate_point(origin)
             validate_point(destination)
-            result = fetch_road_route(origin, destination, os.environ.get("ORS_API_KEY"))
+            if self.path == "/api/conditional-plan":
+                result = build_conditional_plan(payload)
+            else:
+                result = fetch_road_route(origin, destination, os.environ.get("ORS_API_KEY"))
             status = 200
         except (ValueError, TypeError, json.JSONDecodeError) as exc:
             result, status = {"error": str(exc)}, 400
