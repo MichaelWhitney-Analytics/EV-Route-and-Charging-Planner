@@ -44,7 +44,7 @@ def test_current_catalog_and_empty_registry_have_explicit_coverage():
     catalog = load_catalog(root / "data/processed/vehicle_catalog.csv")
     profiles = load_profiles(root / "data/processed/verified_vehicle_profiles.json", catalog)
     assert coverage(catalog, profiles)["catalog_vehicle_count"] >= 1
-    assert coverage(catalog, profiles)["source_backed_profile_count"] == 0
+    assert coverage(catalog, profiles)["source_backed_profile_count"] == 1
 
 
 @pytest.mark.parametrize("bad_sources", [
@@ -66,3 +66,25 @@ def test_current_catalog_and_empty_registry_have_explicit_coverage():
 def test_rejects_incomplete_field_sources(bad_sources):
     with pytest.raises(ValueError):
         validate_record(record(source_urls=bad_sources), CATALOG)
+
+
+def test_audi_q4_45_pilot_matches_catalog_and_has_field_sources():
+    root = Path(__file__).resolve().parents[1]
+    catalog = load_catalog(root / "data/processed/vehicle_catalog.csv")
+    profiles = load_profiles(
+        root / "data/processed/verified_vehicle_profiles.json",
+        catalog,
+    )
+    audi = profiles[49612]
+    assert catalog[49612] == (2026, "Audi", "Q4 45 e-tron")
+    assert audi["usable_battery_kwh"] == 77.0
+    assert audi["max_dc_charge_kw"] == 175.0
+    assert audi["connector"] == "CCS"
+    assert set(audi["source_urls"]) == {
+        "usable_battery_kwh",
+        "max_dc_charge_kw",
+        "connector",
+    }
+    assert coverage(catalog, profiles)["direct_route_only_count"] == (
+        len(catalog) - 1
+    )
