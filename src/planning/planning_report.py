@@ -17,7 +17,7 @@ def _station_line(candidate: dict, label: str) -> str:
     arrival_text = f"; estimated arrival {arrival:.1f}%" if isinstance(arrival, (int, float)) else ""
     charge = candidate.get("charge_for_next_leg")
     added = charge.get("energy_to_add_kwh") if isinstance(charge, dict) else None
-    energy_text = f"; estimated energy to add {added:.1f} kWh" if isinstance(added, (int, float)) else ""
+    energy_text = f"; estimated energy to add {added:.1f} kWh" if isinstance(added, (int, float)) and added > 0 else ""
     return f"- {label_text} [ID: {_clean(station.get('id'))}]: {label}{arrival_text}{energy_text}"
 
 
@@ -36,7 +36,7 @@ def format_planning_report(summary: dict) -> str:
         "ASSESSED SITES (grouped by outcome, not ranked)",
     ]
     labels = (
-        ("no_charging_needed", "No charging needed for the next leg under these assumptions"),
+        ("no_charging_needed", "Charging not required for this assessed route under these assumptions; not a suggested stop"),
         ("charging_needed_if_usable", "Charging needed for the next leg; charger usability unverified"),
         ("unreachable_with_reserve", "Station not reachable with the configured reserve"),
         ("next_leg_exceeds_full_battery_with_reserve", "Next leg exceeds a full battery with the configured reserve"),

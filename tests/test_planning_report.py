@@ -24,10 +24,10 @@ def base_summary():
 
 def test_report_explains_optional_stop_and_unchecked_sites():
     report = format_planning_report(base_summary())
-    assert "No charging needed" in report
+    assert "Charging not required" in report
     assert "Not checked: 20" in report
     assert "79.5%" in report
-    assert "0.0 kWh" in report
+    assert "0.0 kWh" not in report
     assert "not ranked" in report
     assert "availability are unverified" in report
 
