@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,15 +14,22 @@
 <header class="topbar"><div class="brand">route<b>wise</b> <span style="font-weight:400;color:#9aabb6">/</span> trips</div><small>Electric travel, clearly planned</small></header>
 <main class="shell">
 <aside class="side"><div class="sidebar-body">
-<div class="eyebrow">Your journey</div><h1>Plan the road ahead.</h1><p class="sub">From the first mile to your arrival charge, see the whole journey at a glance.</p><span class="demo">INTERACTIVE DESIGN DEMO · NOT A ROUTE PLAN</span>
+<div class="eyebrow">Your journey</div><h1>Plan the road ahead.</h1><p class="sub">From the first mile to your arrival charge, see the whole journey at a glance.</p><span class="demo">INTERACTIVE DESIGN DEMO Â· NOT A ROUTE PLAN</span>
 <section class="vehicle-card" aria-labelledby="vehicle-title"><h2 id="vehicle-title">Your electric vehicle</h2><p>Choose a vehicle, then set the battery level for this trip.</p><div class="vehicle-grid"><label class="wide" for="vehicle-mode">Vehicle choice<select id="vehicle-mode"><option value="" selected>Choose a vehicle</option><option value="catalog" disabled>Model catalog (coming later)</option><option value="custom">Add custom vehicle</option></select></label><label for="start-percent">Start battery (%)<input id="start-percent" type="number" min="0" max="100" step="any" placeholder="Enter %"></label><label for="reserve-percent">Arrival reserve (%)<input id="reserve-percent" type="number" min="0" max="100" step="any" placeholder="Enter %"></label></div><div id="custom-vehicle-details" hidden><p class="vehicle-warning">Only for a custom vehicle: enter your own estimates. No model specifications are assumed.</p><div class="vehicle-grid"><label class="wide" for="vehicle-name">Vehicle name<input id="vehicle-name" type="text" placeholder="e.g., My EV" maxlength="80" autocomplete="off"></label><label for="battery-kwh">Usable battery (kWh)<input id="battery-kwh" type="number" min="0.1" step="any" placeholder="Enter value"></label><label for="consumption">Energy use (kWh / 100 mi)<input id="consumption" type="number" min="0.1" step="any" placeholder="Enter value"></label><label for="charge-kw">Max charging power (kW)<input id="charge-kw" type="number" min="0.1" step="any" placeholder="Enter value"></label><label for="connector">Connector<select id="connector"><option value="">Choose connector</option><option value="CCS">CCS</option><option value="NACS">NACS</option><option value="CHADEMO">CHAdeMO</option></select></label></div></div><div class="vehicle-summary" id="vehicle-summary" role="status">Choose a vehicle to continue. The model catalog is not available yet.</div><p class="vehicle-warning">Design preview: these inputs do not recalculate the example timeline or map.</p></section>
 <form id="trip-form" class="trip-fields"><label for="from">From<input id="from" value="Boise, ID" required autocomplete="off"></label><label for="to">To<input id="to" value="Salt Lake City, UT" required autocomplete="off"></label><div class="actions"><button type="submit" class="primary">Update labels</button><button type="button" class="secondary" id="reset">Reset demo</button></div></form>
 <div class="notice" role="note">Editing addresses changes labels only. No address lookup, road routing, charger selection, or battery calculation runs in this design demo.</div>
+<section class="vehicle-card" aria-labelledby="conditional-title" id="conditional-panel">
+<h2 id="conditional-title">Experimental charging-path check</h2>
+<p>Optional live lookup. Uses the selected places and your custom EV estimates. It may make several road-route requests and look near only three route samples. No charger is verified.</p>
+<button type="button" class="secondary" id="conditional-plan">Check conditional path</button>
+<p role="status" id="conditional-status" aria-live="polite">No conditional path checked.</p>
+<div id="conditional-result" hidden><p id="conditional-warning" class="notice"></p><p id="conditional-overview"></p><ol id="conditional-timeline"></ol></div>
+</section>
 <hr class="rule"><div class="heading-row"><h2>Trip at a glance</h2><span>Direct route only</span></div><div class="metrics"><div class="metric"><strong>342 mi</strong><span>Illustrative distance</span></div><div class="metric"><strong>2</strong><span>Example stops</span></div><div class="metric"><strong>10%</strong><span>Example arrival</span></div></div>
 <div class="heading-row" style="margin-top:27px"><h2>Journey timeline</h2><span>Route endpoints</span></div>
 <ol class="timeline" id="route-timeline"><li><div class="stop-button"><strong id="from-label">Choose your starting place</strong><span class="detail" id="from-detail">Select a suggestion from the From field.</span></div></li><li class="destination"><div class="stop-button"><strong id="to-label">Choose your destination</strong><span class="detail" id="to-detail">Select a suggestion from the To field.</span></div></li></ol>
 </div><div class="foot">This page demonstrates layout and interaction only. The route illustration, stops, mileage and battery figures are not generated by the planner. Actual itineraries require verified road legs and a tested stop-selection model.</div></aside>
-<section class="map" aria-label="Interactive road map"><div id="real-map" role="region" aria-label="Interactive road map showing selected locations and direct driving route"></div><div class="map-head"><strong>Real road map</strong><span id="map-caption">Select two suggested places, then draw a direct driving route.</span></div><div class="map-note">Direct road route only. No charging stops or battery outcomes calculated. Map data Â© OpenStreetMap contributors.</div></section>
+<section class="map" aria-label="Interactive road map"><div id="real-map" role="region" aria-label="Interactive road map showing selected locations and direct driving route"></div><div class="map-head"><strong>Real road map</strong><span id="map-caption">Select two suggested places, then draw a direct driving route.</span></div><div class="map-note">Direct road route only. No charging stops or battery outcomes calculated. Map data Ã‚Â© OpenStreetMap contributors.</div></section>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -36,11 +43,11 @@ const map=mapReady?L.map("real-map").setView([39.5,-98.35],4):null;
 if(map){L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}).addTo(map)}else{document.getElementById("map-caption").textContent="Map library unavailable. Check your internet connection."}
 let routeLayer=null,pointLayers=[];
 const metricCards=document.querySelectorAll(".metric");
-metricCards[0].innerHTML="<strong>â€”</strong><span>Direct road distance</span>";
-metricCards[1].innerHTML="<strong>â€”</strong><span>Driving time</span>";
+metricCards[0].innerHTML="<strong>Ã¢â‚¬â€</strong><span>Direct road distance</span>";
+metricCards[1].innerHTML="<strong>Ã¢â‚¬â€</strong><span>Driving time</span>";
 metricCards[2].innerHTML="<strong>--</strong><span>Charging stops not planned</span>";
-const demoTag=document.querySelector(".demo");demoTag.textContent="DIRECT ROAD MAP Â· NO CHARGING PLAN";
-document.querySelector(".map .map-note").textContent="Direct road route only; charging stops and battery outcomes have not been calculated. Map data Â© OpenStreetMap contributors.";
+const demoTag=document.querySelector(".demo");demoTag.textContent="DIRECT ROAD MAP Ã‚Â· NO CHARGING PLAN";
+document.querySelector(".map .map-note").textContent="Direct road route only; charging stops and battery outcomes have not been calculated. Map data Ã‚Â© OpenStreetMap contributors.";
 document.querySelector(".foot").textContent="This map is for route exploration. A drawn road line is not a verified charging itinerary. Vehicle battery, charger access, availability and trip completion remain unverified.";
 document.querySelector(".notice").textContent="Choose a suggestion in each place field before drawing a direct road route. Vehicle inputs do not yet affect this map. No charging stops or battery estimates will be shown.";
 const routeButton=document.querySelector('#trip-form button[type="submit"]');routeButton.textContent="Draw road route";
@@ -49,7 +56,7 @@ document.getElementById("trip-form").addEventListener("submit",async event=>{
  const caption=document.getElementById("map-caption");
  if(!map){caption.textContent="Map library unavailable. Check your internet connection.";return}
  if(!selected||!selected.from||!selected.to){caption.textContent="Select a suggested From and To place first (typed labels alone are not enough).";return}
- routeButton.disabled=true;caption.textContent="Requesting a direct road routeâ€¦";
+ routeButton.disabled=true;caption.textContent="Requesting a direct road routeÃ¢â‚¬Â¦";
  try{
   const response=await fetch("/api/route",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({origin:selected.from,destination:selected.to})});
   const data=await response.json();if(!response.ok)throw new Error(data.error||"Road route unavailable.");
@@ -62,10 +69,97 @@ document.getElementById("trip-form").addEventListener("submit",async event=>{
   metricCards[1].querySelector("strong").textContent=`${Math.round(data.driving_minutes)} min`;
   document.getElementById("from-label").textContent=selected.from.label;document.getElementById("from-detail").textContent="Selected origin on the direct road route.";
   document.getElementById("to-label").textContent=selected.to.label;document.getElementById("to-detail").textContent="Selected destination on the direct road route.";
-  caption.textContent="Direct driving route Â· no charging stops or battery estimates calculated";
+  caption.textContent="Direct driving route Ã‚Â· no charging stops or battery estimates calculated";
  }catch(error){caption.textContent=error.message||"Road route unavailable. Try again."}finally{routeButton.disabled=false}
 });
-document.getElementById("reset").addEventListener("click",()=>{if(routeLayer){map.removeLayer(routeLayer);routeLayer=null}for(const marker of pointLayers)map.removeLayer(marker);pointLayers=[];document.getElementById("map-caption").textContent="Select two suggested places, then draw a direct driving route.";for(const card of metricCards.slice(0,2))card.querySelector("strong").textContent="â€”";document.getElementById("from-label").textContent="Choose your starting place";document.getElementById("from-detail").textContent="Select a suggestion from the From field.";document.getElementById("to-label").textContent="Choose your destination";document.getElementById("to-detail").textContent="Select a suggestion from the To field."});
+document.getElementById("reset").addEventListener("click",()=>{if(routeLayer){map.removeLayer(routeLayer);routeLayer=null}for(const marker of pointLayers)map.removeLayer(marker);pointLayers=[];document.getElementById("map-caption").textContent="Select two suggested places, then draw a direct driving route.";for(const card of metricCards.slice(0,2))card.querySelector("strong").textContent="Ã¢â‚¬â€";document.getElementById("from-label").textContent="Choose your starting place";document.getElementById("from-detail").textContent="Select a suggestion from the From field.";document.getElementById("to-label").textContent="Choose your destination";document.getElementById("to-detail").textContent="Select a suggestion from the To field."});
+</script>
+<script>
+"use strict";
+(() => {
+ const button = document.getElementById("conditional-plan");
+ const status = document.getElementById("conditional-status");
+ const result = document.getElementById("conditional-result");
+ const warning = document.getElementById("conditional-warning");
+ const overview = document.getElementById("conditional-overview");
+ const timeline = document.getElementById("conditional-timeline");
+ let revision = 0;
+ const field = id => document.getElementById(id).value;
+ function number(id, low, high) {
+   const raw = field(id).trim();
+   const value = Number(raw);
+   if (!raw || !Number.isFinite(value) || value < low || value > high) throw new Error(`Enter a valid ${id.replaceAll("-", " ")}.`);
+   return value;
+ }
+ function clear() {
+   revision++;
+   result.hidden = true;
+   timeline.replaceChildren();
+   overview.textContent = "";
+   status.textContent = "Inputs changed; check again for a new conditional estimate.";
+ }
+ for (const id of ["from", "to", "vehicle-mode", "vehicle-name", "battery-kwh", "consumption", "charge-kw", "connector", "start-percent", "reserve-percent"])
+   document.getElementById(id).addEventListener("input", clear);
+ document.getElementById("reset").addEventListener("click", clear);
+ document.getElementById("trip-form").addEventListener("submit", clear);
+ button.addEventListener("click", async () => {
+   clear();
+   const run = revision;
+   let payload;
+   try {
+     const selected = window.routewiseSelectedPlaces;
+     if (!selected || !selected.from || !selected.to ||
+         selected.from.label !== field("from") || selected.to.label !== field("to"))
+       throw new Error("Select both places from suggestions; typed labels alone are insufficient.");
+     if (field("vehicle-mode") !== "custom") throw new Error("Choose a custom vehicle for this experimental check.");
+     const name = field("vehicle-name").trim();
+     const connector = field("connector");
+     if (!name || !connector) throw new Error("Enter a vehicle name and connector.");
+     payload = {
+       origin: selected.from, destination: selected.to,
+       start_percent: number("start-percent", 0, 100),
+       vehicle: {name, connector, usable_battery_kwh: number("battery-kwh", 0.001, 10000),
+         driving_kwh_per_100_miles: number("consumption", 0.001, 10000),
+         max_dc_charge_kw: number("charge-kw", 0.001, 10000),
+         minimum_arrival_percent: number("reserve-percent", 0, 99.999)}
+     };
+   } catch (error) { status.textContent = error.message; return; }
+   button.disabled = true;
+   status.textContent = "Checking candidate sites and measured road legs; this may take time.";
+   try {
+     const response = await fetch("/api/conditional-plan", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload)});
+     const data = await response.json();
+     if (run !== revision) return;
+     if (!response.ok) throw new Error(data.error || "Conditional check unavailable.");
+     if (!data || !["conditional_energy_path", "no_feasible_path_in_supplied_graph"].includes(data.status))
+       throw new Error("Unexpected planning response.");
+     warning.textContent = String(data.disclaimer || "Unverified chargers; not a trip guarantee.");
+     if (data.status === "no_feasible_path_in_supplied_graph") {
+       overview.textContent = "No energy-feasible path found in this limited sampled graph. This does not prove the trip is impossible.";
+     } else {
+       const steps = data.itinerary && data.itinerary.timeline;
+       if (!Array.isArray(steps)) throw new Error("Planning result has no timeline.");
+       const stops = steps.filter(step => step.kind === "site");
+       overview.textContent = `${stops.length} conditional charging site(s); no connector, access, or availability verification.`;
+       for (const step of steps) {
+         if (!step || !["origin", "site", "destination"].includes(step.kind) || typeof step.name !== "string")
+           throw new Error("Invalid itinerary step.");
+         const item = document.createElement("li");
+         const arrival = typeof step.arrival_percent === "number" && Number.isFinite(step.arrival_percent)
+           ? ` | estimated arrival ${step.arrival_percent.toFixed(1)}%` : "";
+         const charge = step.kind === "site" && typeof step.energy_to_add_kwh === "number" && Number.isFinite(step.energy_to_add_kwh)
+           ? ` | estimated energy to add ${step.energy_to_add_kwh.toFixed(1)} kWh if usable` : "";
+         item.textContent = `${step.kind}: ${step.name}${arrival}${charge}`;
+         timeline.append(item);
+       }
+     }
+     result.hidden = false;
+     status.textContent = "Conditional estimate complete. Read its limitations below.";
+   } catch (error) {
+     if (run === revision) { timeline.replaceChildren(); result.hidden = true; status.textContent = error.message || "Conditional check unavailable."; }
+   } finally { button.disabled = false; }
+ });
+})();
 </script>
 <script src="place_autocomplete.js"></script>
 </body>
