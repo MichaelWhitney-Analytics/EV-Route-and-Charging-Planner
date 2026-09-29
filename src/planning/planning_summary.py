@@ -28,7 +28,8 @@ def plan_candidate_summary(
     )
     energy = assess_candidate_reachability(profile, start_percent, assessment)
     categories = {
-        "energy_feasible_if_charging_available": [],
+        "no_charging_needed": [],
+        "charging_needed_if_usable": [],
         "unreachable_with_reserve": [],
         "next_leg_exceeds_full_battery_with_reserve": [],
     }
@@ -37,8 +38,10 @@ def plan_candidate_summary(
             categories["unreachable_with_reserve"].append(candidate)
         elif candidate["next_leg_possible_from_full"] is False:
             categories["next_leg_exceeds_full_battery_with_reserve"].append(candidate)
+        elif candidate["charge_for_next_leg"] is not None and candidate["charge_for_next_leg"]["charge_needed"]:
+            categories["charging_needed_if_usable"].append(candidate)
         else:
-            categories["energy_feasible_if_charging_available"].append(candidate)
+            categories["no_charging_needed"].append(candidate)
     unassessed_count = max(
         0, assessment["distinct_reported_address_count"] - len(assessment["assessments"])
     )
