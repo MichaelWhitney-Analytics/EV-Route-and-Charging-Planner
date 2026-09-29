@@ -9,8 +9,29 @@
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
   function labelFor(feature) {
     const p = feature.properties || {};
+    const city = p.city || (p.osm_value === "city" || p.type === "city" ? p.name : null);
     const street = [p.housenumber, p.street].filter(Boolean).join(" ");
-    return [p.name && p.name !== p.city ? p.name : null, street, p.city || p.name, p.state, p.country].filter(Boolean).join(", ");
+    const name = p.name && (!city || p.name.trim().toLowerCase() !== city.trim().toLowerCase()) ? p.name : null;
+    const parts = [name, street, city || p.name, p.state].filter(Boolean);
+    return parts.filter((value, index) => !index || String(value).toLowerCase() !== String(parts[index - 1]).toLowerCase()).join(", ");
+  }
+  function uniquePlaces(features) {
+    const seen = new Set();
+    return features.filter(feature => {
+      const p = feature.properties || {};
+      const label = labelFor(feature).trim();
+      if (!label) return false;
+      const [lon, lat] = feature.geometry.coordinates;
+      const city = p.city || (p.osm_value === "city" || p.type === "city" ? p.name : null);
+      const isCity = city && !p.street && !p.housenumber &&
+        (p.osm_value === "city" || p.type === "city" ||
+         (p.name && p.name.toLowerCase() === city.toLowerCase()));
+      const key = isCity ? `city|${city.toLowerCase()}|${String(p.state || "").toLowerCase()}` :
+        `place|${label.toLowerCase()}|${lat.toFixed(3)}|${lon.toFixed(3)}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   }
   async function suggest(query, signal) {
     const key = query.toLowerCase();
@@ -21,17 +42,18 @@
     if (signal.aborted) throw new DOMException("Cancelled", "AbortError");
     const url = new URL("https://photon.komoot.io/api/");
     url.searchParams.set("q", query);
-    url.searchParams.set("limit", "8");
+    url.searchParams.set("limit", "12");
+    url.searchParams.set("countrycode", "US");
     const response = await fetch(url, {signal});
     if (!response.ok) throw new Error("Location search is temporarily unavailable.");
     const data = await response.json();
-    const results = (Array.isArray(data.features) ? data.features : [])
+    const valid = (Array.isArray(data.features) ? data.features : [])
       .filter(feature => feature.properties && String(feature.properties.countrycode || "").toUpperCase() === "US"
         && Array.isArray(feature.geometry?.coordinates)
         && feature.geometry.coordinates.length >= 2
         && Number.isFinite(feature.geometry.coordinates[0])
-        && Number.isFinite(feature.geometry.coordinates[1]))
-      .slice(0, 5);
+        && Number.isFinite(feature.geometry.coordinates[1]));
+    const results = uniquePlaces(valid).slice(0, 5);
     cache.set(key, results);
     if (cache.size > MAX_CACHE) cache.delete(cache.keys().next().value);
     return results;
