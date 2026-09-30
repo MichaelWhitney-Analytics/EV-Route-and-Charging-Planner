@@ -388,11 +388,18 @@
       );
       const candidate = matches.length === 1 ? matches[0] : null;
       const address = candidate ? stationAddress(candidate) : "Address not reported";
+      const connectorScreen = candidate ? candidate.connector_screen : null;
+      const connectorDetail =
+        connectorScreen === "reported_connector_match"
+          ? "Reported connector match; access and live usability unverified."
+          : connectorScreen === "vehicle_connector_unverified"
+            ? "Vehicle connector unverified; compatibility unknown."
+            : "Connector data unavailable; compatibility unknown.";
       const stopNumber = index + 1;
 
       addTimelineItem(
         `Charging stop ${stopNumber}`,
-        "",
+        connectorDetail,
         "site",
         address,
         site.arrival_percent

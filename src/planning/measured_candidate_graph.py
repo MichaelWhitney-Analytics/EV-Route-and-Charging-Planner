@@ -10,6 +10,7 @@ from src.ingestion.live_road_route import get_road_route
 from src.ingestion.live_stations import find_nearby_dc_stations
 from src.ingestion.route_station_candidates import decode_polyline, sample_route
 from src.planning.station_sites import group_station_sites
+from src.planning.connector_screening import CONNECTOR_LABELS
 from src.planning.stop_selection import select_fewest_stops
 
 
@@ -48,6 +49,28 @@ def _position(point, geometry):
             best = candidate
         cumulative += length
     return best
+
+
+def _site_connector_status(profile, site, records_by_id):
+    """Screen listed plugs; never claim live availability or adapter support."""
+    required = CONNECTOR_LABELS.get(profile.connector.strip().upper())
+    if required is None:
+        return "vehicle_connector_unverified"
+    labels = set()
+    for station_id in site["station_ids"]:
+        record = records_by_id.get(station_id, {})
+        reported = record.get("connector_types_reported")
+        if isinstance(reported, list):
+            labels.update(
+                label.strip().upper()
+                for label in reported
+                if isinstance(label, str) and label.strip()
+            )
+    if required in labels:
+        return "reported_connector_match"
+    if labels:
+        return "reported_connector_mismatch"
+    return "connector_not_reported"
 
 
 def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
@@ -89,7 +112,12 @@ def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
         if isinstance(item, dict) and item.get('id') is not None:
             unique.setdefault(item['id'], item)
     ranked = []
+    connector_mismatches_excluded = 0
     for site in group_station_sites(list(unique.values())):
+        connector_status = _site_connector_status(profile, site, unique)
+        if connector_status == "reported_connector_mismatch":
+            connector_mismatches_excluded += 1
+            continue
         record = site['representative']
         try:
             coordinates = _point(record['latitude'], record['longitude'])
@@ -97,7 +125,8 @@ def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
             continue
         lateral, progress = _position(coordinates, geometry)
         if lateral <= radius_miles:
-            ranked.append((lateral, progress, str(record.get('id')), site, coordinates))
+            ranked.append((lateral, progress, str(record.get('id')), site, coordinates,
+                           connector_status))
     geometry_miles = sum(
         _distance(a, b) for a, b in zip(geometry, geometry[1:])
     )
@@ -165,11 +194,13 @@ def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
             'station_records_returned': len(records),
             'unique_station_records': len(unique),
             'sites_near_route': len(ranked),
+            'sites_excluded_reported_connector_mismatch': connector_mismatches_excluded,
             'sites_measured': len(chosen),
             'additional_road_lookups': road_lookups_used,
             'additional_road_lookup_budget': road_lookup_budget,
         },
         'ordered_sites': [{'station_ids': row[3]['station_ids'], 'name': names[index + 1],
+                           'connector_screen': row[5],
                            'address': row[3]['representative'].get('address'),
                            'city': row[3]['representative'].get('city'),
                            'state': row[3]['representative'].get('state'),
