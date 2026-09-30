@@ -53,21 +53,48 @@ def _crow_flight_miles(first, second):
     return 3958.7613 * 2 * atan2(sqrt(a), sqrt(max(0, 1 - a)))
 
 
-def sample_route(points: list[tuple[float, float]]) -> list[tuple[float, float]]:
-    """Choose start, approximate half-way-by-geometry point, and end."""
+def sample_route(
+    points: list[tuple[float, float]], count: int = 3
+) -> list[tuple[float, float]]:
+    """Sample evenly by approximate geometry distance, including both ends."""
     if len(points) < 2:
         raise ValueError("route needs at least two geometry points")
-    lengths = [_crow_flight_miles(a, b) for a, b in zip(points, points[1:])]
-    halfway = sum(lengths) / 2
+    if isinstance(count, bool) or not isinstance(count, int) or not 2 <= count <= 9:
+        raise ValueError("sample count must be an integer from 2 to 9")
+
+    lengths = [
+        _crow_flight_miles(a, b)
+        for a, b in zip(points, points[1:])
+    ]
+    total = sum(lengths)
+    if total == 0:
+        return [points[0]] * (count - 1) + [points[-1]]
+
+    result = [points[0]]
+    segment = 0
     walked = 0.0
-    middle = points[0]
-    for index, length in enumerate(lengths):
-        if walked + length >= halfway:
-            fraction = (halfway - walked) / length if length else 0
-            middle = tuple(a + (b - a) * fraction for a, b in zip(points[index], points[index + 1]))
-            break
-        walked += length
-    return [points[0], middle, points[-1]]
+
+    for step in range(1, count - 1):
+        target = total * step / (count - 1)
+        while (
+            segment < len(lengths) - 1
+            and walked + lengths[segment] < target
+        ):
+            walked += lengths[segment]
+            segment += 1
+
+        length = lengths[segment]
+        fraction = (target - walked) / length if length else 0.0
+        a, b = points[segment], points[segment + 1]
+        result.append(
+            tuple(
+                first + (second - first) * fraction
+                for first, second in zip(a, b)
+            )
+        )
+
+    result.append(points[-1])
+    return result
 
 
 def find_route_station_candidates(start_lat, start_lon, end_lat, end_lon, *, radius_miles=5, limit_per_sample=10):

@@ -1,10 +1,10 @@
-﻿"""Build a bounded, measured road graph from sparsely discovered stations.
+"""Build a bounded, measured road graph from sparsely discovered stations.
 
 Offline tests inject route and station functions. This does not verify chargers or
 connect the result to the web preview. API failures are not interpreted as no path.
 """
 
-from math import atan2, cos, isfinite, radians, sin, sqrt
+from math import atan2, ceil, cos, isfinite, radians, sin, sqrt
 
 from src.ingestion.live_road_route import get_road_route
 from src.ingestion.live_stations import find_nearby_dc_stations
@@ -53,7 +53,8 @@ def _position(point, geometry):
 def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
                                    destination_name, destination, *, radius_miles=5,
                                    limit_per_sample=10, max_sites=8,
-                                   road_lookup=None, station_lookup=None):
+                                   road_lookup=None, station_lookup=None,
+                                   destination_profile=None):
     """Discover at three samples, order up to eight sites, measure all forward legs.
 
     Site ranking is by proximity to the baseline route, not charger quality.
@@ -61,6 +62,8 @@ def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
     """
     origin = _point(*origin)
     destination = _point(*destination)
+    if destination_profile is None:
+        destination_profile = profile
     if isinstance(max_sites, bool) or not isinstance(max_sites, int) or not 0 <= max_sites <= 8:
         raise ValueError('max_sites must be an integer from 0 to 8')
     if isinstance(limit_per_sample, bool) or not isinstance(limit_per_sample, int) or not 1 <= limit_per_sample <= 200:
@@ -71,9 +74,13 @@ def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
     stations = station_lookup if station_lookup is not None else find_nearby_dc_stations
     baseline = road(*origin, *destination)
     geometry = decode_polyline(baseline['encoded_geometry'])
+    sample_count = min(9, max(3, ceil(baseline['distance_miles'] / 30) + 1))
+    samples = sample_route(geometry, count=sample_count)
     records = []
-    for sample in sample_route(geometry):
-        response = stations(*sample, radius_miles=radius_miles, limit=limit_per_sample)
+    for sample in samples:
+        response = stations(
+            *sample, radius_miles=radius_miles, limit=limit_per_sample
+        )
         if not isinstance(response, dict) or not isinstance(response.get('stations'), list):
             raise RuntimeError('Station lookup returned an invalid station list')
         records.extend(response['stations'])
@@ -91,29 +98,88 @@ def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
         lateral, progress = _position(coordinates, geometry)
         if lateral <= radius_miles:
             ranked.append((lateral, progress, str(record.get('id')), site, coordinates))
-    chosen = sorted(ranked, key=lambda x: (x[0], x[1], x[2]))[:max_sites]
+    geometry_miles = sum(
+        _distance(a, b) for a, b in zip(geometry, geometry[1:])
+    )
+    remaining = list(ranked)
+    chosen = []
+    for slot in range(min(max_sites, len(remaining))):
+        target = geometry_miles * (slot + 1) / (max_sites + 1)
+        best = min(
+            remaining,
+            key=lambda item: (
+                abs(item[1] - target),
+                item[0],
+                item[2],
+            ),
+        )
+        chosen.append(best)
+        remaining.remove(best)
     chosen.sort(key=lambda x: (x[1], x[2]))
     coordinates = [origin] + [row[4] for row in chosen] + [destination]
     names = [origin_name] + [str(row[3]['representative'].get('name') or 'Station ' + row[2]) for row in chosen] + [destination_name]
     matrix = [[None] * len(coordinates) for _ in coordinates]
-    for i in range(len(coordinates)):
-        for j in range(i + 1, len(coordinates)):
-            result = baseline if (i == 0 and j == len(coordinates) - 1) else road(*coordinates[i], *coordinates[j])
-            miles = result['distance_miles']
-            if isinstance(miles, bool) or not isinstance(miles, (int, float)) or not isfinite(miles) or miles < 0:
-                raise RuntimeError('Road routing returned an invalid distance')
-            matrix[i][j] = miles
-    selection = select_fewest_stops(profile, start_percent, origin_name, names[1:-1], destination_name, matrix)
+    # Prioritize short forward hops. A long route needs a connected chain
+    # before it needs every possible shortcut between distant sites.
+    pairs = sorted(
+        ((i, j) for i in range(len(coordinates))
+         for j in range(i + 1, len(coordinates))),
+        key=lambda pair: (pair[1] - pair[0], pair[0]),
+    )
+    road_lookup_budget = 18
+    road_lookups_used = 0
+    for i, j in pairs:
+        is_baseline = i == 0 and j == len(coordinates) - 1
+        leg_profile = destination_profile if j == len(coordinates) - 1 else profile
+        available_kwh = (
+            leg_profile.usable_battery_kwh
+            * (start_percent if i == 0 else 100.0) / 100
+            - leg_profile.reserve_energy_kwh
+        )
+        straight_line_kwh = (
+            _distance(coordinates[i], coordinates[j])
+            * profile.energy_per_mile_kwh
+        )
+        if straight_line_kwh > available_kwh + 1e-9:
+            continue
+        if not is_baseline and road_lookups_used >= road_lookup_budget:
+            continue
+        if is_baseline:
+            result = baseline
+        else:
+            result = road(*coordinates[i], *coordinates[j])
+            road_lookups_used += 1
+        miles = result['distance_miles']
+        if (isinstance(miles, bool) or not isinstance(miles, (int, float))
+                or not isfinite(miles) or miles < 0):
+            raise RuntimeError('Road routing returned an invalid distance')
+        matrix[i][j] = miles
+    selection = select_fewest_stops(
+        profile, start_percent, origin_name, names[1:-1],
+        destination_name, matrix, destination_profile=destination_profile,
+    )
     return {
         'selection': selection,
+        'search_coverage': {
+            'route_samples': len(samples),
+            'station_records_returned': len(records),
+            'unique_station_records': len(unique),
+            'sites_near_route': len(ranked),
+            'sites_measured': len(chosen),
+            'additional_road_lookups': road_lookups_used,
+            'additional_road_lookup_budget': road_lookup_budget,
+        },
         'ordered_sites': [{'station_ids': row[3]['station_ids'], 'name': names[index + 1],
+                           'address': row[3]['representative'].get('address'),
+                           'city': row[3]['representative'].get('city'),
+                           'state': row[3]['representative'].get('state'),
                            'latitude': row[4][0], 'longitude': row[4][1],
                            'approximate_geometry_progress_miles': row[1],
                            'approximate_geometry_offset_miles': row[0]}
                           for index, row in enumerate(chosen)],
         'road_miles': matrix,
         'baseline_road_miles': baseline['distance_miles'],
-        'disclaimer': 'Exploratory conditional graph: three sample points and a bounded subset; '
+        'disclaimer': 'Exploratory conditional graph: at most nine route samples and a bounded subset; '
                       'geometry ordering is approximate; pairwise routes may backtrack; '
                       'connector compatibility, access, live availability, charging time, and fastest trip unverified.',
     }

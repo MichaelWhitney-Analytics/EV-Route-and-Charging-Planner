@@ -1,0 +1,17 @@
+[
+  {
+    "vehicle_id": 49612,
+    "year": 2026,
+    "make": "Audi",
+    "model": "Q4 45 e-tron",
+    "usable_battery_kwh": 77.0,
+    "max_dc_charge_kw": 175.0,
+    "connector": "CCS",
+    "source_urls": {
+      "usable_battery_kwh": "https://www.caranddriver.com/audi/q4-e-tron",
+      "max_dc_charge_kw": "https://www.audicincinnatieast.com/en/audi-q4-e-tron-model-review-cincinnati-oh/",
+      "connector": "https://www.audiusa.com/en/ev-hub/faqs/"
+    },
+    "verified_on": "2026-09-29"
+  }
+]

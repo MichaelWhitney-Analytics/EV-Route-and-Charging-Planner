@@ -16,7 +16,8 @@ def _percent(value, label):
     return float(value)
 
 
-def build_ordered_itinerary(profile: VehicleProfile, start_percent: float, origin_name: str, legs: list[dict]) -> dict:
+def build_ordered_itinerary(profile: VehicleProfile, start_percent: float, origin_name: str, legs: list[dict],
+                            *, destination_profile: VehicleProfile | None = None) -> dict:
     """Estimate arrival and minimal next-leg charge at ordered supplied sites.
 
     Each leg has name, distance_miles (measured road distance), and kind
@@ -25,6 +26,10 @@ def build_ordered_itinerary(profile: VehicleProfile, start_percent: float, origi
     """
     if not isinstance(profile, VehicleProfile):
         raise TypeError("profile must be a VehicleProfile")
+    if destination_profile is None:
+        destination_profile = profile
+    if not isinstance(destination_profile, VehicleProfile):
+        raise TypeError("destination_profile must be a VehicleProfile")
     current = _percent(start_percent, "start_percent")
     if not isinstance(origin_name, str) or not origin_name.strip():
         raise ValueError("origin_name must be nonempty")
@@ -44,9 +49,14 @@ def build_ordered_itinerary(profile: VehicleProfile, start_percent: float, origi
 
     timeline = [{"kind": "origin", "name": origin_name.strip(), "departure_percent": current}]
     for index, leg in enumerate(checked):
-        estimate = estimate_route_energy(profile, leg["distance_miles"], current)
+        leg_profile = destination_profile if leg["kind"] == "destination" else profile
+        estimate = estimate_route_energy(leg_profile, leg["distance_miles"], current)
         if not estimate.reachable_without_charging:
-            raise ValueError(f"leg {index + 1} cannot preserve the configured arrival reserve")
+            raise ValueError(
+                f"leg {index + 1} cannot preserve the configured arrival reserve "
+                f"(shortfall {estimate.shortfall_kwh:.6f} kWh; "
+                f"road distance {leg['distance_miles']:.2f} mi)"
+            )
         arrival = estimate.estimated_arrival_percent
         item = {
             "kind": leg["kind"], "name": leg["name"],
@@ -56,7 +66,12 @@ def build_ordered_itinerary(profile: VehicleProfile, start_percent: float, origi
         if leg["kind"] == "site":
             next_distance = checked[index + 1]["distance_miles"]
             try:
-                charge = calculate_charging_stop(profile, arrival, next_distance)
+                next_profile = (
+                    destination_profile
+                    if checked[index + 1]["kind"] == "destination"
+                    else profile
+                )
+                charge = calculate_charging_stop(next_profile, arrival, next_distance)
             except ValueError as exc:
                 if "cannot preserve arrival reserve" not in str(exc):
                     raise
@@ -72,7 +87,8 @@ def build_ordered_itinerary(profile: VehicleProfile, start_percent: float, origi
     return {
         "vehicle_name": profile.name,
         "start_percent": float(start_percent),
-        "arrival_reserve_percent": profile.minimum_arrival_percent,
+        "arrival_reserve_percent": destination_profile.minimum_arrival_percent,
+        "charging_stop_arrival_minimum_percent": profile.minimum_arrival_percent,
         "total_road_miles": sum(leg["distance_miles"] for leg in checked),
         "timeline": timeline,
         "disclaimer": "Ordered sites and road-leg distances are supplied inputs, not automatically chosen stops. Energy depends on the provided vehicle profile. Site access, connector compatibility in practice, availability, charge time, and actual trip feasibility remain unverified.",

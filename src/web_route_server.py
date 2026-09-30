@@ -1,4 +1,4 @@
-﻿"""Local-only static web server and limited ORS road-route proxy.
+"""Local-only static web server and limited ORS road-route proxy.
 
 Run with ORS_API_KEY set. Never commit or expose the API key to browser JS.
 """
@@ -11,7 +11,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib import error, request
 
-ORS_URL = "https://api.openrouteservice.org/v2/directions/driving-car/geojson"
+ORS_URL = "https://api.heigit.org/openrouteservice/v2/directions/driving-car/geojson"
 WEB_ROOT = Path(__file__).resolve().parents[1] / "web"
 
 
@@ -36,8 +36,14 @@ def fetch_road_route(origin, destination, key):
     try:
         with request.urlopen(req, timeout=18) as response:
             data = json.load(response)
-    except (error.HTTPError, error.URLError, TimeoutError) as exc:
-        raise RuntimeError("Road routing is unavailable. Check selected places and try again.") from exc
+    except error.HTTPError as exc:
+        if exc.code == 429:
+            raise RuntimeError("Road routing provider rate limit reached (HTTP 429). Wait before retrying.") from None
+        if exc.code in (401, 403):
+            raise RuntimeError(f"Road routing provider rejected the request (HTTP {exc.code}). Check API key or quota.") from None
+        raise RuntimeError(f"Road routing provider returned HTTP {exc.code}; route lookup did not complete.") from None
+    except (error.URLError, TimeoutError):
+        raise RuntimeError("Road routing connection failed or timed out.") from None
     features = data.get("features") if isinstance(data, dict) else None
     if not isinstance(features, list) or not features:
         raise RuntimeError("No road route was returned for these places.")
@@ -77,7 +83,10 @@ def build_conditional_plan(payload):
     if "vehicle_id" in payload:
         if "vehicle" in payload:
             raise ValueError("Provide either a catalog vehicle ID or a custom profile, not both.")
-        profile = profile_for_catalog_id(payload["vehicle_id"])
+        profile = profile_for_catalog_id(
+            payload["vehicle_id"],
+            payload.get("minimum_arrival_percent", 10.0),
+        )
     else:
         vehicle = payload.get("vehicle")
         if not isinstance(vehicle, dict):
@@ -89,18 +98,36 @@ def build_conditional_plan(payload):
     start = payload.get("start_percent")
     if isinstance(start, bool) or not isinstance(start, (int, float)) or not math.isfinite(start) or not 0 <= start <= 100:
         raise ValueError("Starting battery must be a finite percentage from 0 to 100.")
-    # Bound the synchronous API workload: 1 baseline + 5 forward routes at most.
+    # Bound the synchronous API workload: 1 baseline + 9 additional forward routes at most.
+    from dataclasses import replace
+    stop_profile = replace(profile, minimum_arrival_percent=10.0)
     result = build_measured_candidate_graph(
-        profile, start, origin["label"], (origin["latitude"], origin["longitude"]),
+        stop_profile, start, origin["label"], (origin["latitude"], origin["longitude"]),
         destination["label"], (destination["latitude"], destination["longitude"]),
-        max_sites=2,
+        radius_miles=25,
+        max_sites=8,
+        destination_profile=profile,
+    )
+    if "vehicle_id" in payload:
+        sourced_ids = read_charging_profile_ids()["vehicle_ids"]
+        profile_basis = "sourced" if payload["vehicle_id"] in sourced_ids else "estimated"
+    else:
+        profile_basis = "user_supplied"
+    estimate_warning = (
+        " Estimated profile: battery energy is derived from this model's EPA "
+        "range and electricity use with an assumed 85% wall-to-battery factor. "
+        "Actual battery capacity, road energy use, charging connector, DC speed, "
+        "and charger compatibility are unverified."
+        if profile_basis == "estimated" else ""
     )
     return {"status": result["selection"]["status"],
+            "profile_basis": profile_basis,
             "selected_site_names": result["selection"].get("selected_site_names", []),
             "itinerary": result["selection"]["itinerary"],
             "candidate_sites_considered": result["ordered_sites"],
+            "search_coverage": result.get("search_coverage", {}),
             "baseline_road_miles": result["baseline_road_miles"],
-            "disclaimer": result["disclaimer"] + " " + result["selection"]["note"]}
+            "disclaimer": result["disclaimer"] + " " + result["selection"]["note"] + estimate_warning}
 
 import csv
 
@@ -122,32 +149,32 @@ def read_vehicle_choices(path=None):
             for row in reader:
                 try:
                     use = float(row["electricity_kwh_per_100_miles"])
+                    epa_range = float(row["epa_range_miles"])
                     vehicle_id = int(row["vehicle_id"])
                     year = int(row["year"])
                     make = row["make"].strip()
                     model = row["model"].strip()
-                    if not (math.isfinite(use) and use > 0 and make and model and 1900 <= year <= 2100):
+                    if not (math.isfinite(use) and use > 0 and math.isfinite(epa_range)
+                            and epa_range > 0 and make and model and 1900 <= year <= 2100):
                         continue
                     choices.append({"vehicle_id": vehicle_id, "year": year, "make": make,
-                                    "model": model, "electricity_kwh_per_100_miles": use})
+                                    "model": model, "electricity_kwh_per_100_miles": use,
+                                    "epa_range_miles": epa_range})
                 except (ValueError, TypeError, AttributeError):
                     continue
             return {"vehicles": choices,
-                    "note": "Published consumption is a reference, not a measured trip value. Battery capacity, connector and charging power are not in this catalog; supply your own estimates."}
+                    "note": "EPA range and electricity use support exploratory estimates; battery capacity, connector and charging power are not verified for most models."}
     except OSError as exc:
         raise RuntimeError("Processed vehicle catalog unavailable; build it locally first.") from exc
 
-def profile_for_catalog_id(vehicle_id):
-    """Use an exact sourced profile; never infer charging specs from EPA range."""
+def profile_for_catalog_id(vehicle_id, minimum_arrival_percent=10.0):
+    """Use sourced specs where available, otherwise an explicitly unverified estimate."""
     if isinstance(vehicle_id, bool) or not isinstance(vehicle_id, int):
         raise ValueError("vehicle_id must be an integer catalog ID.")
 
     catalog = load_catalog(CATALOG_PATH)
     profiles_path = CATALOG_PATH.parent / "verified_vehicle_profiles.json"
     profiles = load_profiles(profiles_path, catalog)
-    if vehicle_id not in profiles:
-        raise ValueError("This vehicle is direct-route-only; no sourced charging profile.")
-
     matches = [
         row for row in read_vehicle_choices()["vehicles"]
         if row["vehicle_id"] == vehicle_id
@@ -156,14 +183,38 @@ def profile_for_catalog_id(vehicle_id):
         raise ValueError("Catalog vehicle has no unique usable consumption value.")
 
     row = matches[0]
-    sourced = profiles[vehicle_id]
+    sourced = profiles.get(vehicle_id)
+    if sourced is not None:
+        return VehicleProfile(
+            name=f'{row["year"]} {row["make"]} {row["model"]}',
+            usable_battery_kwh=sourced["usable_battery_kwh"],
+            driving_kwh_per_100_miles=row["electricity_kwh_per_100_miles"],
+            max_dc_charge_kw=sourced["max_dc_charge_kw"],
+            connector=sourced["connector"],
+            minimum_arrival_percent=minimum_arrival_percent,
+        )
+
+    # EPA electricity use is wall energy, not measured battery discharge.
+    # Apply the same assumption to use and capacity so modeled full-charge
+    # range remains this vehicle's EPA range.
+    assumed_battery_fraction = 0.85
+    estimated_use = row["electricity_kwh_per_100_miles"] * assumed_battery_fraction
+    estimated_usable = row["epa_range_miles"] * estimated_use / 100
     return VehicleProfile(
         name=f'{row["year"]} {row["make"]} {row["model"]}',
-        usable_battery_kwh=sourced["usable_battery_kwh"],
-        driving_kwh_per_100_miles=row["electricity_kwh_per_100_miles"],
-        max_dc_charge_kw=sourced["max_dc_charge_kw"],
-        connector=sourced["connector"],
+        usable_battery_kwh=estimated_usable,
+        driving_kwh_per_100_miles=estimated_use,
+        max_dc_charge_kw=50.0,  # Internal placeholder; charging time is not computed.
+        connector="Unverified",
+        minimum_arrival_percent=minimum_arrival_percent,
     )
+
+
+def read_charging_profile_ids():
+    """IDs eligible for the separate, conditional planning request."""
+    catalog = load_catalog(CATALOG_PATH)
+    registry = CATALOG_PATH.parent / "verified_vehicle_profiles.json"
+    return {"vehicle_ids": sorted(load_profiles(registry, catalog))}
 
 
 class RouteHandler(SimpleHTTPRequestHandler):
@@ -171,11 +222,15 @@ class RouteHandler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(WEB_ROOT), **kwargs)
 
     def do_GET(self):
-        if self.path != "/api/vehicles":
+        if self.path not in ("/api/vehicles", "/api/charging-profile-ids"):
             return super().do_GET()
         try:
-            body, status = read_vehicle_choices(), 200
-        except RuntimeError as exc:
+            if self.path == "/api/charging-profile-ids":
+                body = read_charging_profile_ids()
+            else:
+                body = read_vehicle_choices()
+            status = 200
+        except (RuntimeError, ValueError, OSError) as exc:
             body, status = {"error": str(exc)}, 503
         data = json.dumps(body, allow_nan=False).encode("utf-8")
         self.send_response(status)

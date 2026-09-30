@@ -28,7 +28,7 @@ def test_explicit_planning_returns_conditional_timeline(monkeypatch):
     assert result["status"] == "conditional_energy_path"
     assert result["itinerary"]["timeline"][0]["site_usable"] == "unverified"
     assert "Sparse search" in result["disclaimer"]
-    assert calls[0][1]["max_sites"] == 2
+    assert calls[0][1]["max_sites"] == 8
     assert calls[0][0][3] == (39., -105.)
 
 
@@ -85,7 +85,7 @@ def test_sourced_catalog_id_builds_opt_in_profile(monkeypatch):
     assert profile.connector == "CCS"
     assert profile.driving_kwh_per_100_miles == pytest.approx(29.4031)
     assert profile.minimum_arrival_percent == 10.0
-    assert kwargs["max_sites"] == 2
+    assert kwargs["max_sites"] == 8
 
 
 @pytest.mark.parametrize("bad_id", [True, "49612", 999999])

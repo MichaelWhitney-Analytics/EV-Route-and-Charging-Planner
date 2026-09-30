@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 
 from src.planning.measured_candidate_graph import build_measured_candidate_graph
 from src.planning.vehicle_profile import VehicleProfile
@@ -26,6 +26,9 @@ def test_measures_forward_pairs_and_selects_stop():
     result = build_measured_candidate_graph(PROFILE, 80, 'Start', (0, 0), 'End', (0, 2),
                                             radius_miles=100, road_lookup=road, station_lookup=lookup)
     assert [s['station_ids'] for s in result['ordered_sites']] == [[1], [2]]
+    assert result['ordered_sites'][0]['address'] == '1 Main'
+    assert result['ordered_sites'][0]['city'] == 'Test'
+    assert result['ordered_sites'][0]['state'] == 'CO'
     assert result['selection']['selected_site_names'] == ['Earlier']
     assert len(calls) == 6  # baseline reused; all six forward pairs measured
     assert result['road_miles'][1][0] is None
@@ -53,3 +56,62 @@ def test_invalid_bounds_rejected_before_calls():
     with pytest.raises(ValueError, match='max_sites'):
         build_measured_candidate_graph(PROFILE, 80, 'A', (0, 0), 'B', (0, 2), max_sites=9)
 
+
+
+def test_denser_samples_find_station_between_old_sample_points():
+    records = [station(10, 0.5, "Between samples")]
+    calls = []
+
+    def road(lat1, lon1, lat2, lon2):
+        return {
+            "distance_miles": 115.0 * (lon2 - lon1),
+            "encoded_geometry": GEOMETRY,
+        }
+
+    def lookup(lat, lon, **kwargs):
+        calls.append(lon)
+        found = [
+            item for item in records
+            if abs(item["longitude"] - lon) * 69 <= kwargs["radius_miles"]
+        ]
+        return {"stations": found}
+
+    result = build_measured_candidate_graph(
+        PROFILE, 80, "Start", (0, 0), "End", (0, 2),
+        radius_miles=5,
+        max_sites=1,
+        road_lookup=road,
+        station_lookup=lookup,
+    )
+    assert len(calls) > 3
+    assert result["search_coverage"]["unique_station_records"] == 1
+    assert result["selection"]["selected_site_names"] == [
+        "Between samples"
+    ]
+
+
+def test_candidates_are_spread_along_route_not_only_closest_to_line():
+    records = [
+        station(1, 0.20, "Near start 1"),
+        station(2, 0.25, "Near start 2"),
+        {**station(3, 1.0, "Middle"), "latitude": 0.02},
+        {**station(4, 1.8, "Later"), "latitude": 0.02},
+    ]
+
+    def road(lat1, lon1, lat2, lon2):
+        return {
+            "distance_miles": 140.0 * (lon2 - lon1),
+            "encoded_geometry": GEOMETRY,
+        }
+
+    result = build_measured_candidate_graph(
+        PROFILE, 80, "Start", (0, 0), "End", (0, 2),
+        radius_miles=10,
+        max_sites=2,
+        road_lookup=road,
+        station_lookup=lambda *args, **kwargs: {"stations": records},
+    )
+    chosen_names = [item["name"] for item in result["ordered_sites"]]
+    assert "Middle" in chosen_names
+    assert chosen_names != ["Near start 1", "Near start 2"]
+    assert result["selection"]["status"] == "conditional_energy_path"

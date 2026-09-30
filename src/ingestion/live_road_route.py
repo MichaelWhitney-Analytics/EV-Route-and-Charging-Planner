@@ -8,7 +8,7 @@ import os
 import requests
 
 
-URL = "https://api.openrouteservice.org/v2/directions/driving-car/json"
+URL = "https://api.heigit.org/openrouteservice/v2/directions/driving-car/json"
 
 
 def get_road_route(
@@ -48,8 +48,19 @@ def get_road_route(
         )
         response.raise_for_status()
         payload = response.json()
-    except (requests.RequestException, ValueError):
-        raise RuntimeError("Road routing failed; check connectivity, key, coordinates, or API status") from None
+    except requests.HTTPError as exc:
+        status = exc.response.status_code if exc.response is not None else None
+        if status == 429:
+            raise RuntimeError("Road routing provider rate limit reached (HTTP 429); wait before retrying") from None
+        if status in (401, 403):
+            raise RuntimeError(f"Road routing provider rejected the request (HTTP {status}); check API key and quota") from None
+        raise RuntimeError(f"Road routing provider returned HTTP {status}; route lookup did not complete") from None
+    except requests.Timeout:
+        raise RuntimeError("Road routing provider timed out") from None
+    except requests.RequestException:
+        raise RuntimeError("Road routing connection failed") from None
+    except ValueError:
+        raise RuntimeError("Road routing provider returned invalid JSON") from None
 
     routes = payload.get("routes") if isinstance(payload, dict) else None
     if not isinstance(routes, list) or not routes or not isinstance(routes[0], dict):

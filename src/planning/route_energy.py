@@ -80,7 +80,7 @@ def estimate_route_energy(
         estimated_arrival_percent=estimated_arrival_percent,
         shortfall_kwh=shortfall_kwh,
         reachable_without_charging=(
-            start_energy_kwh
+            start_energy_kwh + 1e-9
             >= energy_needed_kwh + profile.reserve_energy_kwh
         ),
     )

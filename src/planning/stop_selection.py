@@ -11,7 +11,8 @@ from src.planning.vehicle_profile import VehicleProfile
 
 
 def select_fewest_stops(profile: VehicleProfile, start_percent: float, origin: str,
-                        sites: list[str], destination: str, road_miles: list[list]) -> dict:
+                        sites: list[str], destination: str, road_miles: list[list],
+                        *, destination_profile: VehicleProfile | None = None) -> dict:
     """Choose fewest supplied sites, breaking ties by measured driving miles.
 
     Node order: origin, sites in corridor order, destination. road_miles[i][j]
@@ -20,6 +21,10 @@ def select_fewest_stops(profile: VehicleProfile, start_percent: float, origin: s
     """
     if not isinstance(profile, VehicleProfile):
         raise TypeError("profile must be a VehicleProfile")
+    if destination_profile is None:
+        destination_profile = profile
+    if not isinstance(destination_profile, VehicleProfile):
+        raise TypeError("destination_profile must be a VehicleProfile")
     if isinstance(start_percent, bool) or not isinstance(start_percent, (int, float)) or not isfinite(start_percent) or not 0 <= start_percent <= 100:
         raise ValueError("start_percent must be a finite percentage from 0 to 100")
     if not isinstance(origin, str) or not origin.strip() or not isinstance(destination, str) or not destination.strip():
@@ -44,7 +49,8 @@ def select_fewest_stops(profile: VehicleProfile, start_percent: float, origin: s
             if i not in best or road_miles[i][j] is None:
                 continue
             departure = start_percent if i == 0 else 100.0
-            estimate = estimate_route_energy(profile, road_miles[i][j], departure)
+            leg_profile = destination_profile if j == size - 1 else profile
+            estimate = estimate_route_energy(leg_profile, road_miles[i][j], departure)
             if estimate.reachable_without_charging:
                 previous = best[i]
                 choices.append((previous[0] + (j != size - 1), previous[1] + road_miles[i][j], previous[2] + [j]))
@@ -56,7 +62,10 @@ def select_fewest_stops(profile: VehicleProfile, start_percent: float, origin: s
     path = best[size - 1][2]
     legs = [{"name": names[j], "kind": "destination" if j == size - 1 else "site",
              "distance_miles": road_miles[i][j]} for i, j in zip(path, path[1:])]
-    itinerary = build_ordered_itinerary(profile, start_percent, origin, legs)
+    itinerary = build_ordered_itinerary(
+        profile, start_percent, origin, legs,
+        destination_profile=destination_profile,
+    )
     return {"status": "conditional_energy_path", "selected_site_names": [names[k] for k in path[1:-1]],
             "site_count": len(path) - 2, "itinerary": itinerary,
             "note": "Fewest supplied sites, then shortest measured road mileage; not fastest, optimal charging, or a verified usable itinerary. Selected-site access and ability to charge remain unverified."}

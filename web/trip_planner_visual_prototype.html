@@ -1,11 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Routewise | Trip planner concept</title>
 <style>
 :root{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;color:#182839;background:#edf2f5}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #f2a54a;outline-offset:3px}.topbar{height:68px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid #dde6ee}.brand{font-size:1.25rem;letter-spacing:-.045em;font-weight:850;color:#123b51}.brand b{color:#187f9e}.topbar small{color:#566a7c}.shell{height:calc(100vh - 68px);min-height:640px;display:grid;grid-template-columns:minmax(340px,420px) 1fr}.side{z-index:2;background:white;display:flex;flex-direction:column;box-shadow:8px 0 28px #20394c12;overflow:auto}.sidebar-body{padding:27px 28px}.eyebrow{font-size:.7rem;letter-spacing:.14em;font-weight:800;text-transform:uppercase;color:#16779a}.side h1{font-size:1.7rem;line-height:1.15;letter-spacing:-.04em;margin:6px 0 10px}.sub{color:#5f7080;line-height:1.45;font-size:.91rem}.demo{display:inline-flex;align-items:center;gap:7px;background:#fff2df;color:#81500c;border-radius:99px;padding:6px 11px;font-size:.75rem;font-weight:800;margin:13px 0}.demo:before{content:'';width:7px;height:7px;border-radius:50%;background:#d18a23}.trip-fields{display:grid;gap:12px;margin:14px 0 17px}.trip-fields label{display:block;color:#54697b;font-size:.74rem;font-weight:750;letter-spacing:.04em;text-transform:uppercase}.trip-fields input{display:block;width:100%;margin-top:5px;padding:12px 13px;border:1px solid #d1dee7;border-radius:9px;color:#233b4e;background:#f8fbfc}.actions{display:flex;gap:9px}.primary,.secondary{border:0;border-radius:9px;padding:11px 15px;font-weight:750}.primary{background:#146383;color:#fff}.primary:hover{background:#0c4e6b}.secondary{background:#edf4f8;color:#24526b}.notice{border:1px solid #f0dfbf;background:#fff9ee;color:#755624;padding:10px 12px;border-radius:9px;font-size:.8rem;line-height:1.4;margin-top:13px}.rule{border:0;border-top:1px solid #e4ebef;margin:24px 0}.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:14px 0}.metric{background:#f1f7fa;border-radius:10px;padding:13px 10px}.metric strong{display:block;font-size:1.13rem;letter-spacing:-.04em}.metric span{font-size:.73rem;color:#607383}.heading-row{display:flex;align-items:center;justify-content:space-between}.heading-row h2{margin:0;font-size:1.03rem}.heading-row span{font-size:.74rem;color:#697d8b}.timeline{list-style:none;padding:0;margin:18px 0 0 10px;border-left:2px dashed #b8d0da}.timeline li{position:relative;padding:0 0 16px 22px}.timeline li:last-child{padding-bottom:0}.timeline li:before{content:'';position:absolute;left:-8px;top:16px;width:12px;height:12px;border:2px solid #127397;background:#fff;border-radius:50%}.timeline li.stop:before{background:#ec8245;border-color:#ec8245}.timeline li.destination:before{background:#1c3545;border-color:#1c3545}.stop-button{border:1px solid transparent;background:transparent;text-align:left;width:100%;padding:12px;border-radius:10px;color:inherit}.stop-button:hover,.stop-button[aria-current="step"]{background:#edf6f9;border-color:#bcd8e4}.stop-button strong{display:block;font-size:.91rem}.stop-button .detail{display:block;color:#687b88;font-size:.77rem;margin-top:3px}.badge{display:inline-block;border-radius:99px;background:#e4f3ec;color:#16704a;padding:2px 7px;font-size:.7rem;font-weight:750;margin-top:7px}.badge.charge{background:#fff0e5;color:#a55325}.foot{margin-top:auto;background:#f5f8fa;padding:18px 28px;font-size:.77rem;color:#5c7080;line-height:1.5;border-top:1px solid #e4ebef}.map{position:relative;overflow:hidden;background:#e8eff0}.map svg .route{fill:none;stroke:#147eab;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.map svg .road{fill:none;stroke:#c7d4d4;stroke-width:3}.map svg .minor{fill:none;stroke:#d4dddd;stroke-width:2}.water{fill:#d9eaf1}.park{fill:#dbe8dc}.area-label{font-size:15px;letter-spacing:.14em;fill:#9ba9a9;font-weight:800}.city-label{font-size:14px;fill:#667c86;font-weight:700}.marker{cursor:pointer}.marker circle{fill:#fff;stroke:#1778a0;stroke-width:4}.marker text{font-size:13px;font-weight:800;fill:#176887;pointer-events:none}.marker.stop circle{fill:#e87741;stroke:#fff}.marker.stop text{fill:white}.marker.dest circle{fill:#1d3545;stroke:#fff}.marker.dest text{fill:white}.marker.active circle{stroke:#ffcc77;stroke-width:7}.map-head{position:absolute;top:24px;left:24px;background:#ffffffea;padding:11px 15px;border:1px solid #e1e9ed;border-radius:11px;box-shadow:0 6px 25px #344f5d13;font-size:.78rem;color:#5e7481}.map-head strong{display:block;color:#1d3442;font-size:.93rem}.map-note{position:absolute;right:20px;bottom:20px;max-width:280px;padding:10px 13px;background:#fffef5ef;border-radius:9px;color:#705a36;font-size:.73rem;box-shadow:0 4px 16px #283b411a}@media(max-width:800px){.shell{height:auto;display:flex;flex-direction:column}.side{order:2}.map{height:48vh;min-height:350px;order:1}.topbar{padding:0 18px}.map-head{top:12px;left:12px}}
-.vehicle-card{border:1px solid #dae7ed;border-radius:12px;background:#f8fbfc;padding:15px;margin:18px 0}.vehicle-card h2{font-size:1rem;margin:0 0 5px}.vehicle-card p{font-size:.76rem;color:#617583;margin:0 0 12px}.vehicle-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.vehicle-grid label{font-size:.72rem;color:#52687a;font-weight:750}.vehicle-grid input,.vehicle-grid select{display:block;width:100%;margin-top:5px;padding:9px;border:1px solid #bdced9;border-radius:7px;background:white;color:#183144}.vehicle-grid .wide{grid-column:1/-1}.vehicle-summary{font-size:.75rem;color:#2d6077;margin-top:11px}.vehicle-card .vehicle-warning{margin-top:10px;margin-bottom:0;color:#835b1d}
+.vehicle-card{border:1px solid #dae7ed;border-radius:12px;background:#f8fbfc;padding:15px;margin:18px 0}.vehicle-card h2{font-size:1rem;margin:0 0 5px}.vehicle-card p{font-size:.76rem;color:#617583;margin:0 0 12px}.vehicle-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.vehicle-grid label{font-size:.72rem;color:#52687a;font-weight:750}.vehicle-grid input,.vehicle-grid select{display:block;width:100%;margin-top:5px;padding:9px;border:1px solid #bdced9;border-radius:7px;background:white;color:#183144}.vehicle-grid .wide{grid-column:1/-1}.vehicle-summary{font-size:.75rem;color:#2d6077;margin-top:11px}.vehicle-card .vehicle-warning{margin-top:10px;margin-bottom:0;color:#835b1d}.charging-note{min-height:0;margin:12px 0 0;color:#617583;font-size:.77rem;line-height:1.45}.charging-note:empty{display:none}.charging-stop-title{color:#a4332b}.charging-stop-address{display:block;margin-top:3px}.charging-stop-battery{display:block;margin-top:4px;color:#a4332b;font-weight:750}.charging-pin{background:transparent!important;border:0!important}.charging-pin-shape{width:30px;height:30px;background:#cf3f38;border:3px solid #fff;border-radius:50% 50% 50% 0;box-shadow:0 2px 7px #40202080;transform:rotate(-45deg);position:relative}.charging-pin-shape:after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:#fff;top:8px;left:8px}.charging-pin-number{position:absolute;z-index:2;top:6px;left:0;width:30px;text-align:center;color:#fff;font-size:11px;font-weight:850;transform:rotate(45deg);text-shadow:0 1px 1px #6b1111}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <style>#real-map{width:100%;height:100%;min-height:350px}.map .map-head{pointer-events:none}.map .map-note{pointer-events:none}</style>
@@ -19,128 +19,568 @@
 <h2 id="vehicle-title">Your electric vehicle</h2>
 <p>Choose a BEV model if you wish. The direct road route does not depend on vehicle specifications.</p>
 <div class="vehicle-grid">
-<label class="wide" for="vehicle-mode">Vehicle choice<select id="vehicle-mode"><option value="" selected>Choose a vehicle (optional)</option></select></label>
+<label for="vehicle-year">Vehicle Year<select id="vehicle-year"><option value="" selected>Choose a year</option></select></label>
+<label for="vehicle-mode">Vehicle make / model<select id="vehicle-mode" disabled><option value="" selected>Choose a year first</option></select></label>
 <label for="start-percent">Start battery (%)<input id="start-percent" type="number" min="0" max="100" step="any" placeholder="Optional"></label>
-<label for="reserve-percent">Arrival reserve (%)<input id="reserve-percent" type="number" min="0" max="99" step="any" placeholder="Optional"></label>
+<label for="reserve-percent">Final Arrival Reserve (%)<input id="reserve-percent" type="number" min="0" max="99" step="any" placeholder="Optional"></label>
 </div>
 <p id="vehicle-summary" class="vehicle-summary" role="status">Loading BEV choices. You can calculate a road route without selecting a model.</p>
-<p class="vehicle-warning">Battery percentages are saved only in this form; they do not affect the direct road route. No battery or charging outcome is calculated.</p>
+<p class="vehicle-warning">Enter a starting battery for conditional charging stops. Cars without sourced battery specifications use an unverified EPA-based estimate; charger compatibility is not confirmed. Final arrival reserve defaults to 10% when blank. Charging stops use a 10% arrival minimum. The blue map line remains the direct road route.</p>
 </section>
 <form id="trip-form" class="trip-fields">
 <label for="from">From<input id="from" required autocomplete="off" placeholder="Select a starting place"></label>
 <label for="to">To<input id="to" required autocomplete="off" placeholder="Select a destination"></label>
 <div class="actions"><button type="submit" class="primary">Calculate trip distance</button><button type="button" class="secondary" id="reset">Reset</button></div>
 </form>
+<p id="charging-note" class="charging-note" role="status" aria-live="polite"></p>
 <p id="trip-status" role="status" aria-live="polite">Select both places from suggestions, then calculate direct distance and driving time.</p>
-<div class="notice" role="note">Driving time is for the direct road route only. Charging stops are not calculated; the route is not a verified charging itinerary.</div>
+
 <hr class="rule"><div class="heading-row"><h2>Trip at a glance</h2><span>Direct road route only</span></div><div class="metrics"><div class="metric"><strong>--</strong><span>Direct road distance</span></div><div class="metric"><strong>--</strong><span>Direct driving time</span></div><div class="metric"></div></div>
-<div class="heading-row" style="margin-top:27px"><h2>Route endpoints</h2><span>Direct route only</span></div>
+<div class="heading-row" style="margin-top:27px"><h2>Route</h2><span id="route-kind">Direct route</span></div>
 <ol class="timeline" id="route-timeline"><li><div class="stop-button"><strong id="from-label">Choose your starting place</strong><span class="detail" id="from-detail">Select a suggestion from the From field.</span></div></li><li class="destination"><div class="stop-button"><strong id="to-label">Choose your destination</strong><span class="detail" id="to-detail">Select a suggestion from the To field.</span></div></li></ol>
-</div><div class="foot">Direct-route driving time excludes charging and queues. Charging stops and battery outcomes are not calculated.</div></aside>
+</div><div class="foot">Charging-stop suggestions are estimates from sampled station data. Confirm station access, connector compatibility, availability, and charging conditions before departure.</div></aside>
 <section class="map" aria-label="Interactive road map"><div id="real-map" role="region" aria-label="Interactive road map showing selected locations and direct driving route"></div><div class="map-head"><strong>Real road map</strong><span id="map-caption">Select two suggested places, then calculate the trip.</span></div><div class="map-note">Direct road route only. No charging stops or battery outcomes calculated. Map data Ãƒâ€šÃ‚Â© OpenStreetMap contributors.</div></section>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 "use strict";
 (() => {
- const el = id => document.getElementById(id);
- const mode = el("vehicle-mode"), status = el("trip-status"), summary = el("vehicle-summary");
- const form = el("trip-form"), button = form.querySelector('button[type="submit"]');
- const metrics = document.querySelectorAll(".metric strong");
- const map = typeof L === "undefined" ? null : L.map("real-map").setView([39.5,-98.35],4);
- if (map) L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:19, attribution:'&copy; OpenStreetMap contributors'}).addTo(map);
- let routeLayer = null, markers = [], revision = 0;
- const field = id => el(id).value;
- function clearMap() {
-   if (map && routeLayer) map.removeLayer(routeLayer);
-   routeLayer = null;
-   for (const marker of markers) if (map) map.removeLayer(marker);
-   markers = [];
- }
- function invalidate() {
-   revision++;
-   clearMap();
-   metrics[0].textContent = "--";
-   metrics[1].textContent = "--";
-   status.textContent = "Places changed. Calculate again for an updated direct route.";
-   el("map-caption").textContent = "Select two suggested places, then calculate direct distance and time.";
- }
- for (const id of ["from","to"]) el(id).addEventListener("input", invalidate);
- mode.addEventListener("change", () => {
-   summary.textContent = mode.value && mode.value !== "custom" ?
-     `Selected: ${mode.options[mode.selectedIndex].textContent}. Model specifications are not used for direct routing.` :
-     "Direct routing does not require a vehicle. Charging planning is not available in this view.";
- });
- fetch("/api/vehicles").then(async response => {
-   const data = await response.json();
-   if (!response.ok || !Array.isArray(data.vehicles)) throw new Error(data.error || "Catalog unavailable.");
-   return data.vehicles;
- }).then(vehicles => {
-   const ids = new Set();
-   for (const record of vehicles) {
-     const key = String(record.vehicle_id);
-     if (ids.has(key)) continue;
-     ids.add(key);
-     const option = document.createElement("option");
-     option.value = key;
-     option.textContent = `${record.year} ${record.make} ${record.model}`;
-     mode.append(option);
-   }
-   summary.textContent = `${ids.size} BEV models loaded. Choose one if you like; direct routing does not depend on it.`;
- }).catch(error => {
-   summary.textContent = `${error.message} You can still calculate a direct route.`;
- });
- function showRoute(data, selected) {
-   if (!data.geometry || !Number.isFinite(data.distance_miles) || !Number.isFinite(data.driving_minutes))
-     throw new Error("Incomplete direct road route.");
-   clearMap();
-   if (map) {
-     routeLayer = L.geoJSON({type:"Feature", geometry:data.geometry, properties:{}}, {style:{color:"#137eab",weight:6,opacity:.9}}).addTo(map);
-     markers.push(L.marker([selected.from.latitude,selected.from.longitude]).addTo(map).bindPopup("Origin"));
-     markers.push(L.marker([selected.to.latitude,selected.to.longitude]).addTo(map).bindPopup("Destination"));
-     map.fitBounds(routeLayer.getBounds(), {padding:[32,32]});
-   }
-   metrics[0].textContent = `${data.distance_miles.toFixed(1)} mi`;
-   const totalMinutes = Math.round(data.driving_minutes);
-const hours = Math.floor(totalMinutes / 60);
-const minutes = totalMinutes % 60;
-metrics[1].textContent = hours ? `${hours} hr ${minutes} min` : `${minutes} min`;
-   el("from-label").textContent = selected.from.label;
-   el("from-detail").textContent = "Selected origin on the direct road route.";
-   el("to-label").textContent = selected.to.label;
-   el("to-detail").textContent = "Selected destination on the direct road route.";
-   el("map-caption").textContent = "Direct driving route; no charging stops or battery outcomes calculated.";
- }
- form.addEventListener("submit", async event => {
-   event.preventDefault();
-   const selected = window.routewiseSelectedPlaces;
-   if (!selected || !selected.from || !selected.to || selected.from.label !== field("from") || selected.to.label !== field("to")) {
-     status.textContent = "Select both locations from the suggestions; typed names alone are insufficient.";
-     return;
-   }
-   const generation = ++revision;
-   button.disabled = true;
-   status.textContent = "Calculating direct road distance and driving time...";
-   try {
-     const response = await fetch("/api/route", {method:"POST", headers:{"Content-Type":"application/json"},body:JSON.stringify({origin:selected.from,destination:selected.to})});
-     const data = await response.json();
-     if (generation !== revision) return;
-     if (!response.ok) throw new Error(data.error || "Direct road route unavailable.");
-     showRoute(data, selected);
-     status.textContent = "Direct road distance and driving time shown. Charging stops are not calculated.";
-   } catch (error) {
-     if (generation === revision) status.textContent = error.message || "Road route unavailable.";
-   } finally {button.disabled = false;}
- });
- el("reset").addEventListener("click", () => {
-   for (const id of ["from","to"]) {el(id).value = ""; el(id).dispatchEvent(new Event("input",{bubbles:true}));}
-   clearMap();
-   el("from-label").textContent = "Choose your starting place";
-   el("from-detail").textContent = "Select a suggestion from the From field.";
-   el("to-label").textContent = "Choose your destination";
-   el("to-detail").textContent = "Select a suggestion from the To field.";
-   status.textContent = "Select both places, then calculate a direct route.";
- });
+  const el = id => document.getElementById(id);
+  const mode = el("vehicle-mode");
+  const status = el("trip-status");
+  const summary = el("vehicle-summary");
+  const note = el("charging-note");
+  const routeKind = el("route-kind");
+  const form = el("trip-form");
+  const button = form.querySelector('button[type="submit"]');
+  const metrics = document.querySelectorAll(".metric strong");
+  const timeline = el("route-timeline");
+  const map = typeof L === "undefined"
+    ? null
+    : L.map("real-map").setView([39.5, -98.35], 4);
+
+  if (map) {
+    L.tileLayer(
+      "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+      }
+    ).addTo(map);
+  }
+
+  let routeLayer = null;
+  let endpointMarkers = [];
+  let chargingMarkers = [];
+  let eligibleIds = new Set();
+  let sourcedIds = new Set();
+  let catalogVehicles = [];
+  const yearMode = el("vehicle-year");
+  let revision = 0;
+
+  const field = id => el(id).value;
+
+  function removeMarkers(items) {
+    if (map) {
+      for (const marker of items) map.removeLayer(marker);
+    }
+    items.length = 0;
+  }
+
+  function clearCharging() {
+    removeMarkers(chargingMarkers);
+    note.textContent = "";
+    routeKind.textContent = "Direct route";
+  }
+
+  function clearMap() {
+    if (map && routeLayer) map.removeLayer(routeLayer);
+    routeLayer = null;
+    removeMarkers(endpointMarkers);
+    removeMarkers(chargingMarkers);
+  }
+
+  function addTimelineItem(name, detail, kind, address, battery) {
+    const item = document.createElement("li");
+    if (kind === "destination") item.className = "destination";
+    if (kind === "site") item.className = "stop";
+
+    const card = document.createElement("div");
+    card.className = "stop-button";
+
+    const title = document.createElement("strong");
+    title.textContent = name;
+    if (kind === "site") title.className = "charging-stop-title";
+    card.append(title);
+
+    if (address) {
+      const addressLine = document.createElement("span");
+      addressLine.className = "detail charging-stop-address";
+      addressLine.textContent = address;
+      card.append(addressLine);
+    }
+
+    if (Number.isFinite(battery)) {
+      const batteryLine = document.createElement("span");
+      batteryLine.className = "detail charging-stop-battery";
+      batteryLine.textContent =
+        `Estimated arrival battery: ${Math.floor(battery)}%.`;
+      card.append(batteryLine);
+    } else if (detail) {
+      const description = document.createElement("span");
+      description.className = "detail";
+      description.textContent = detail;
+      card.append(description);
+    }
+
+    item.append(card);
+    timeline.append(item);
+  }
+
+  function stationAddress(candidate) {
+    const parts = [
+      candidate.address,
+      [candidate.city, candidate.state].filter(Boolean).join(", ")
+    ].filter(Boolean);
+    return parts.join(", ") || "Address not reported";
+  }
+
+  function chargingPin(stopNumber) {
+    return L.divIcon({
+      className: "charging-pin",
+      html:
+        `<div class="charging-pin-shape">` +
+        `<span class="charging-pin-number">${stopNumber}</span>` +
+        `</div>`,
+      iconSize: [30, 42],
+      iconAnchor: [15, 39],
+      popupAnchor: [0, -38]
+    });
+  }
+
+  function showEndpoints(selected) {
+    timeline.replaceChildren();
+    addTimelineItem(
+      selected.from.label,
+      "Selected origin on the direct road route.",
+      "origin"
+    );
+    addTimelineItem(
+      selected.to.label,
+      "Selected destination on the direct road route.",
+      "destination"
+    );
+  }
+
+  function invalidate() {
+    revision++;
+    clearMap();
+    metrics[0].textContent = "--";
+    metrics[1].textContent = "--";
+    status.textContent =
+      "Places changed. Calculate again for an updated route.";
+    note.textContent = "Charging stops are not calculated for this route yet.";
+    timeline.replaceChildren();
+    el("map-caption").textContent =
+      "Select two suggested places, then calculate the route.";
+  }
+
+  for (const id of ["from", "to"]) {
+    el(id).addEventListener("input", invalidate);
+  }
+
+  mode.addEventListener("change", () => {
+    revision++;
+    clearCharging();
+    const selected = window.routewiseSelectedPlaces;
+    if (selected && selected.from && selected.to) {
+      showEndpoints(selected);
+    }
+    summary.textContent = !eligibleIds.has(mode.value)
+      ? "Select a catalog vehicle to calculate charging stops."
+      : sourcedIds.has(mode.value)
+        ? `Selected: ${mode.options[mode.selectedIndex].textContent}. Sourced vehicle profile; charger usability remains unverified.`
+        : `Selected: ${mode.options[mode.selectedIndex].textContent}. Estimated EPA-based vehicle profile; battery and charger compatibility are unverified.`;
+  });
+
+  for (let year = 2026; year >= 2014; year--) {
+    const option = document.createElement("option");
+    option.value = String(year);
+    option.textContent = String(year);
+    yearMode.append(option);
+  }
+
+  function showVehiclesForYear() {
+    mode.replaceChildren();
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = yearMode.value
+      ? "Choose a make / model"
+      : "Choose a year first";
+    mode.append(placeholder);
+    mode.value = "";
+    mode.disabled = !yearMode.value;
+
+    if (!yearMode.value) return;
+    const ids = new Set();
+    for (const record of catalogVehicles) {
+      if (String(record.year) !== yearMode.value) continue;
+      const key = String(record.vehicle_id);
+      if (ids.has(key)) continue;
+      ids.add(key);
+      const option = document.createElement("option");
+      option.value = key;
+      option.textContent = `${record.make} ${record.model}`;
+      mode.append(option);
+    }
+    summary.textContent =
+      `${ids.size} BEV models available for ${yearMode.value}. Choose a make / model.`;
+  }
+
+  yearMode.addEventListener("change", () => {
+    revision++;
+    clearCharging();
+    showVehiclesForYear();
+    const selected = window.routewiseSelectedPlaces;
+    if (selected && selected.from && selected.to) {
+      showEndpoints(selected);
+    }
+  });
+
+  for (const id of ["start-percent", "reserve-percent"]) {
+    el(id).addEventListener("input", () => {
+      revision++;
+      clearCharging();
+      const selected = window.routewiseSelectedPlaces;
+      if (selected && selected.from && selected.to) {
+        showEndpoints(selected);
+      }
+    });
+  }
+
+  fetch("/api/vehicles")
+    .then(async response => {
+      const data = await response.json();
+      if (!response.ok || !Array.isArray(data.vehicles)) {
+        throw new Error(data.error || "Catalog unavailable.");
+      }
+      return data.vehicles;
+    })
+    .then(vehicles => {
+      catalogVehicles = vehicles;
+      eligibleIds = new Set(vehicles.map(record => String(record.vehicle_id)));
+      showVehiclesForYear();
+    })
+    .catch(error => {
+      summary.textContent =
+        `${error.message} You can still calculate a direct route.`;
+    });
+
+  const eligibilityPromise = fetch("/api/charging-profile-ids")
+    .then(async response => {
+      const data = await response.json();
+      if (!response.ok || !Array.isArray(data.vehicle_ids)) {
+        throw new Error("Charging profiles unavailable.");
+      }
+      sourcedIds = new Set(data.vehicle_ids.map(String));
+      return true;
+    })
+    .catch(() => {
+      sourcedIds = new Set();
+      return true;
+    });
+
+  function showDirectRoute(data, selected) {
+    if (!data.geometry ||
+        !Number.isFinite(data.distance_miles) ||
+        !Number.isFinite(data.driving_minutes)) {
+      throw new Error("Incomplete direct road route.");
+    }
+
+    clearMap();
+    if (map) {
+      routeLayer = L.geoJSON(
+        {
+          type: "Feature",
+          geometry: data.geometry,
+          properties: {}
+        },
+        {
+          style: {
+            color: "#137eab",
+            weight: 6,
+            opacity: 0.9
+          }
+        }
+      ).addTo(map);
+
+      endpointMarkers.push(
+        L.marker([
+          selected.from.latitude,
+          selected.from.longitude
+        ]).addTo(map).bindPopup("Origin")
+      );
+      endpointMarkers.push(
+        L.marker([
+          selected.to.latitude,
+          selected.to.longitude
+        ]).addTo(map).bindPopup("Destination")
+      );
+      map.fitBounds(routeLayer.getBounds(), {padding: [32, 32]});
+    }
+
+    metrics[0].textContent =
+      `${data.distance_miles.toFixed(1)} mi`;
+
+    const totalMinutes = Math.round(data.driving_minutes);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    metrics[1].textContent = hours
+      ? `${hours} hr ${minutes} min`
+      : `${minutes} min`;
+
+    showEndpoints(selected);
+    el("map-caption").textContent =
+      "Blue line: direct road route. Charging detours are not drawn.";
+  }
+
+  function validPercent(value, max, allowBlank) {
+    if (allowBlank && value === "") return true;
+    return value !== "" &&
+      Number.isFinite(Number(value)) &&
+      Number(value) >= 0 &&
+      Number(value) <= max;
+  }
+
+  function showConditionalPlan(data, selected) {
+    if (!data.itinerary ||
+        !Array.isArray(data.itinerary.timeline) ||
+        !Array.isArray(data.selected_site_names) ||
+        !Array.isArray(data.candidate_sites_considered)) {
+      throw new Error("Incomplete charging itinerary.");
+    }
+
+    const entries = data.itinerary.timeline;
+    const sites = entries.filter(item => item.kind === "site");
+    const destination = entries.find(
+      item => item.kind === "destination"
+    );
+    if (sites.length !== data.selected_site_names.length ||
+        !destination ||
+        !Number.isFinite(destination.arrival_percent) ||
+        sites.some(
+          item => !Number.isFinite(item.arrival_percent)
+        )) {
+      throw new Error("Inconsistent charging itinerary.");
+    }
+
+    timeline.replaceChildren();
+    addTimelineItem(
+      selected.from.label,
+      "Starting battery entered: " +
+        `${Math.floor(data.itinerary.start_percent)}%.`,
+      "origin"
+    );
+
+    for (const [index, site] of sites.entries()) {
+      const matches = data.candidate_sites_considered.filter(
+        candidate => candidate.name === site.name
+      );
+      const candidate = matches.length === 1 ? matches[0] : null;
+      const address = candidate ? stationAddress(candidate) : "Address not reported";
+      const stopNumber = index + 1;
+
+      addTimelineItem(
+        `Charging stop ${stopNumber}`,
+        "",
+        "site",
+        address,
+        site.arrival_percent
+      );
+
+      if (!candidate ||
+          !Number.isFinite(candidate.latitude) ||
+          !Number.isFinite(candidate.longitude) ||
+          candidate.latitude < -90 ||
+          candidate.latitude > 90 ||
+          candidate.longitude < -180 ||
+          candidate.longitude > 180 ||
+          !map) {
+        continue;
+      }
+
+      const marker = L.marker(
+        [candidate.latitude, candidate.longitude],
+        {
+          icon: chargingPin(stopNumber),
+          riseOnHover: true
+        }
+      ).addTo(map);
+
+      const popup = document.createElement("div");
+      const title = document.createElement("strong");
+      title.textContent = `Charging stop ${stopNumber}`;
+      const addressLine = document.createElement("p");
+      addressLine.textContent = address;
+      const batteryLine = document.createElement("p");
+      batteryLine.textContent =
+        `Estimated arrival battery: ${Math.floor(site.arrival_percent)}%.`;
+      popup.append(title, addressLine, batteryLine);
+      marker.bindPopup(popup);
+      chargingMarkers.push(marker);
+    }
+
+    addTimelineItem(
+      selected.to.label,
+      "",
+      "destination",
+      "",
+      destination.arrival_percent
+    );
+
+    routeKind.textContent =
+      sites.length ? `${sites.length} charging stop${sites.length === 1 ? "" : "s"}` : "Direct route";
+    note.textContent = "";
+    el("map-caption").textContent =
+      "Blue: direct road route. Red pins: suggested charging stops.";
+  }
+
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const selected = window.routewiseSelectedPlaces;
+    if (!selected || !selected.from || !selected.to ||
+        selected.from.label !== field("from") ||
+        selected.to.label !== field("to")) {
+      status.textContent =
+        "Select both locations from the suggestions; typed names alone are insufficient.";
+      return;
+    }
+
+    const generation = ++revision;
+    button.disabled = true;
+    clearCharging();
+    status.textContent = "Calculating direct road route...";
+
+    try {
+      const response = await fetch("/api/route", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          origin: selected.from,
+          destination: selected.to
+        })
+      });
+      const route = await response.json();
+      if (generation !== revision) return;
+      if (!response.ok) {
+        throw new Error(route.error || "Direct road route unavailable.");
+      }
+
+      showDirectRoute(route, selected);
+      status.textContent = "Direct road distance and driving time shown.";
+
+      const profilesAvailable = await eligibilityPromise;
+      if (generation !== revision) return;
+
+      if (!profilesAvailable) {
+        note.textContent = "";
+        return;
+      }
+
+      if (!eligibleIds.has(mode.value)) {
+        note.textContent = "";
+        return;
+      }
+
+      const startText = field("start-percent").trim();
+      const reserveText = field("reserve-percent").trim();
+
+      if (!validPercent(startText, 100, false) ||
+          !validPercent(reserveText, 99, true)) {
+        note.textContent =
+          "Enter starting battery to calculate charging stops.";
+        return;
+      }
+
+      const start = Number(startText);
+      const reserve =
+        reserveText === "" ? 10 : Number(reserveText);
+
+      status.textContent =
+        "Direct route shown. Checking a bounded set of charging sites...";
+
+      try {
+        const planResponse = await fetch("/api/conditional-plan", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({
+            origin: selected.from,
+            destination: selected.to,
+            vehicle_id: Number(mode.value),
+            start_percent: start,
+            minimum_arrival_percent: reserve
+          })
+        });
+        const plan = await planResponse.json();
+        if (generation !== revision) return;
+        if (!planResponse.ok) {
+          throw new Error(plan.error || "Charging estimate unavailable.");
+        }
+
+        if (plan.status === "no_feasible_path_in_supplied_graph") {
+          note.textContent =
+            "Unable to establish charging stops for this route.";
+          status.textContent = "Direct road route shown.";
+          return;
+        }
+
+        showConditionalPlan(plan, selected);
+        if (plan.profile_basis === "estimated") {
+          note.textContent += " Estimated vehicle battery and charger compatibility are unverified.";
+        }
+        status.textContent = "";
+      } catch (error) {
+        if (generation === revision) {
+          note.textContent = "Charging stops are unavailable right now.";
+          status.textContent = "";
+        }
+      }
+    } catch (error) {
+      if (generation === revision) {
+        status.textContent =
+          error.message || "Road route unavailable.";
+      }
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  el("reset").addEventListener("click", () => {
+    revision++;
+    for (const id of ["from", "to"]) {
+      el(id).value = "";
+      el(id).dispatchEvent(
+        new Event("input", {bubbles: true})
+      );
+    }
+    clearMap();
+    timeline.replaceChildren();
+    addTimelineItem(
+      "Choose your starting place",
+      "Select a suggestion from the From field.",
+      "origin"
+    );
+    addTimelineItem(
+      "Choose your destination",
+      "Select a suggestion from the To field.",
+      "destination"
+    );
+    status.textContent =
+      "Select both places, then calculate a direct route.";
+    note.textContent = "";
+    routeKind.textContent = "Direct route";
+  });
 })();
 </script>
 <script src="place_autocomplete.js"></script>
