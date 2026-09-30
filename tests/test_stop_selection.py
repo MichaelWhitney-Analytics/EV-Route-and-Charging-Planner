@@ -60,3 +60,18 @@ def test_unmeasured_or_unreachable_edges_return_no_path(vehicle):
 def test_rejects_invalid_matrix(vehicle):
     with pytest.raises(ValueError, match="forward road distances"):
         select_fewest_stops(vehicle, 80, "Start", [], "End", graph(2, {(1, 0): 2}))
+
+def test_uncharged_pass_through_is_not_counted_as_charging_stop(vehicle):
+    result = select_fewest_stops(
+        vehicle, 80, "Start", ["Pass-through", "Actual charge"], "End",
+        graph(4, {(0, 1): 20, (1, 2): 80, (2, 3): 100}),
+    )
+    assert result["status"] == "conditional_energy_path"
+    assert result["site_count"] == 1
+    assert result["selected_site_names"] == ["Actual charge"]
+    sites = [item for item in result["itinerary"]["timeline"]
+             if item["kind"] == "site"]
+    assert sites[0]["name"] == "Pass-through"
+    assert sites[0]["energy_to_add_kwh"] == 0
+    assert sites[0]["charge_needed_for_next_leg"] is False
+    assert sites[1]["charge_needed_for_next_leg"] is True

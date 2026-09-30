@@ -124,7 +124,7 @@
       const batteryLine = document.createElement("span");
       batteryLine.className = "detail charging-stop-battery";
       batteryLine.textContent =
-        `Estimated arrival battery: ${Math.floor(battery)}%.`;
+        `Estimated arrival battery: ${Math.floor(battery + 1e-9)}%.`;
       card.append(batteryLine);
     } else if (detail) {
       const description = document.createElement("span");
@@ -361,7 +361,10 @@
     }
 
     const entries = data.itinerary.timeline;
-    const sites = entries.filter(item => item.kind === "site");
+    const pathSites = entries.filter(item => item.kind === "site");
+    const sites = pathSites.filter(item =>
+      item.charge_needed_for_next_leg && item.energy_to_add_kwh > 1e-9
+    );
     const destination = entries.find(
       item => item.kind === "destination"
     );
@@ -431,7 +434,7 @@
       addressLine.textContent = address;
       const batteryLine = document.createElement("p");
       batteryLine.textContent =
-        `Estimated arrival battery: ${Math.floor(site.arrival_percent)}%.`;
+        `Estimated arrival battery: ${Math.floor(site.arrival_percent + 1e-9)}%.`;
       popup.append(title, addressLine, batteryLine);
       marker.bindPopup(popup);
       chargingMarkers.push(marker);
@@ -447,7 +450,9 @@
 
     routeKind.textContent =
       sites.length ? `${sites.length} charging stop${sites.length === 1 ? "" : "s"}` : "Direct route";
-    note.textContent = "";
+    note.textContent = pathSites.length > sites.length
+      ? `${pathSites.length - sites.length} uncharged route waypoint(s) omitted from the charging-stop list; measured legs still include them.`
+      : "";
     el("map-caption").textContent =
       "Blue: direct road route. Red pins: suggested charging stops.";
   }

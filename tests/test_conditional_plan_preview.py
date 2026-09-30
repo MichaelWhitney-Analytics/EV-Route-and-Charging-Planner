@@ -15,7 +15,8 @@ def test_route_uses_numbered_charging_stops_and_red_pin_markers():
     assert 'background:#cf3f38' in text
     assert "L.marker(" in text
     assert "icon: chargingPin(stopNumber)" in text
-    assert "Math.floor(site.arrival_percent)" in text
+    assert "Math.floor(site.arrival_percent + 1e-9)" in text
+    assert "item.charge_needed_for_next_leg && item.energy_to_add_kwh > 1e-9" in text
     assert "destination.arrival_percent" in text
     assert "Blue: direct road route. Red pins" in text
     assert 'id="estimate-stops"' not in text

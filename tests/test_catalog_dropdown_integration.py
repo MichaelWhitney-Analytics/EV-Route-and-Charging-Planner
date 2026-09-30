@@ -58,4 +58,5 @@ def test_one_submit_action_keeps_direct_route_and_optional_charging():
     assert "eligibleIds.has(mode.value)" in text
     assert "L.marker(" in text
     assert "icon: chargingPin(stopNumber)" in text
-    assert "Math.floor(site.arrival_percent)" in text
+    assert "Math.floor(site.arrival_percent + 1e-9)" in text
+    assert "item.charge_needed_for_next_leg && item.energy_to_add_kwh > 1e-9" in text

@@ -154,8 +154,52 @@ def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
     pairs = [(i, i + 1) for i in range(size - 1)]
     scheduled = set(pairs)
 
-    # A one-stop plan needs both measured legs. Schedule complete plausible
-    # one-stop candidates, farthest first, before unrelated shortcuts.
+    # Approximate route progress prioritizes limited lookups; measured road
+    # distance, not this estimate, determines energy feasibility.
+    if geometry_miles > 0:
+        progress = [0.0] + [
+            row[1] / geometry_miles * baseline["distance_miles"]
+            for row in chosen
+        ] + [baseline["distance_miles"]]
+    else:
+        progress = [
+            baseline["distance_miles"] * i / (size - 1)
+            for i in range(size)
+        ]
+
+    # Prioritize a connected long-hop chain, not isolated long edges.
+    cursor = 0
+    for _ in range(size - 1):
+        next_node = None
+        for j in range(size - 1, cursor, -1):
+            leg_profile = destination_profile if j == size - 1 else profile
+            available_kwh = (
+                leg_profile.usable_battery_kwh
+                * (start_percent if cursor == 0 else 100.0) / 100
+                - leg_profile.reserve_energy_kwh
+            )
+            approximate_miles = progress[j] - progress[cursor]
+            straight_miles = _distance(coordinates[cursor], coordinates[j])
+            if (
+                approximate_miles >= 0
+                and approximate_miles * profile.energy_per_mile_kwh
+                    <= available_kwh + 1e-9
+                and straight_miles * profile.energy_per_mile_kwh
+                    <= available_kwh + 1e-9
+            ):
+                next_node = j
+                break
+        if next_node is None:
+            break
+        pair = (cursor, next_node)
+        if pair not in scheduled:
+            pairs.append(pair)
+            scheduled.add(pair)
+        cursor = next_node
+        if cursor == size - 1:
+            break
+
+    # Also test complete plausible one-stop options before other shortcuts.
     first_leg_kwh = profile.usable_battery_kwh * start_percent / 100 - profile.reserve_energy_kwh
     final_leg_kwh = destination_profile.usable_battery_kwh - destination_profile.reserve_energy_kwh
     for j in range(size - 2, 0, -1):

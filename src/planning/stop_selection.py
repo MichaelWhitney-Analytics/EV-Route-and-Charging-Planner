@@ -66,6 +66,8 @@ def select_fewest_stops(profile: VehicleProfile, start_percent: float, origin: s
         profile, start_percent, origin, legs,
         destination_profile=destination_profile,
     )
-    return {"status": "conditional_energy_path", "selected_site_names": [names[k] for k in path[1:-1]],
-            "site_count": len(path) - 2, "itinerary": itinerary,
+    charging_sites = [item for item in itinerary["timeline"]
+                      if item["kind"] == "site" and item["charge_needed_for_next_leg"]]
+    return {"status": "conditional_energy_path", "selected_site_names": [item["name"] for item in charging_sites],
+            "site_count": len(charging_sites), "itinerary": itinerary,
             "note": "Fewest supplied sites, then farther-forward stops, then shorter measured road mileage; not fastest, optimal charging, or a verified usable itinerary. Selected-site access and ability to charge remain unverified."}
