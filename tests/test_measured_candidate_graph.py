@@ -29,7 +29,7 @@ def test_measures_forward_pairs_and_selects_stop():
     assert result['ordered_sites'][0]['address'] == '1 Main'
     assert result['ordered_sites'][0]['city'] == 'Test'
     assert result['ordered_sites'][0]['state'] == 'CO'
-    assert result['selection']['selected_site_names'] == ['Earlier']
+    assert result['selection']['selected_site_names'] == ['Later']
     assert len(calls) == 6  # baseline reused; all six forward pairs measured
     assert result['road_miles'][1][0] is None
 
@@ -115,3 +115,29 @@ def test_candidates_are_spread_along_route_not_only_closest_to_line():
     assert "Middle" in chosen_names
     assert chosen_names != ["Near start 1", "Near start 2"]
     assert result["selection"]["status"] == "conditional_energy_path"
+
+
+def test_bounded_graph_measures_farther_feasible_one_stop_skip():
+    records = [
+        station(index, index * 0.2, f"Site {index}")
+        for index in range(1, 9)
+    ]
+
+    def road(lat1, lon1, lat2, lon2):
+        return {
+            "distance_miles": 140.0 * (lon2 - lon1),
+            "encoded_geometry": GEOMETRY,
+        }
+
+    result = build_measured_candidate_graph(
+        PROFILE, 80, "Start", (0, 0), "End", (0, 2),
+        radius_miles=100,
+        max_sites=8,
+        road_lookup=road,
+        station_lookup=lambda *args, **kwargs: {"stations": records},
+    )
+
+    assert result["selection"]["status"] == "conditional_energy_path"
+    assert result["selection"]["site_count"] == 1
+    assert result["selection"]["selected_site_names"] == ["Site 6"]
+    assert result["search_coverage"]["additional_road_lookups"] <= 18

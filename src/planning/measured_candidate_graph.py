@@ -148,13 +148,32 @@ def build_measured_candidate_graph(profile, start_percent, origin_name, origin,
     coordinates = [origin] + [row[4] for row in chosen] + [destination]
     names = [origin_name] + [str(row[3]['representative'].get('name') or 'Station ' + row[2]) for row in chosen] + [destination_name]
     matrix = [[None] * len(coordinates) for _ in coordinates]
-    # Prioritize short forward hops. A long route needs a connected chain
-    # before it needs every possible shortcut between distant sites.
-    pairs = sorted(
-        ((i, j) for i in range(len(coordinates))
-         for j in range(i + 1, len(coordinates))),
-        key=lambda pair: (pair[1] - pair[0], pair[0]),
-    )
+    # Measure adjacent hops first to preserve a chain, then prioritize long skips
+    # within the remaining bounded road-lookup budget.
+    size = len(coordinates)
+    pairs = [(i, i + 1) for i in range(size - 1)]
+    scheduled = set(pairs)
+
+    # A one-stop plan needs both measured legs. Schedule complete plausible
+    # one-stop candidates, farthest first, before unrelated shortcuts.
+    first_leg_kwh = profile.usable_battery_kwh * start_percent / 100 - profile.reserve_energy_kwh
+    final_leg_kwh = destination_profile.usable_battery_kwh - destination_profile.reserve_energy_kwh
+    for j in range(size - 2, 0, -1):
+        first = _distance(coordinates[0], coordinates[j]) * profile.energy_per_mile_kwh
+        last = _distance(coordinates[j], coordinates[-1]) * profile.energy_per_mile_kwh
+        if first > first_leg_kwh + 1e-9 or last > final_leg_kwh + 1e-9:
+            continue
+        for pair in ((0, j), (j, size - 1)):
+            if pair not in scheduled:
+                pairs.append(pair)
+                scheduled.add(pair)
+
+    for pair in sorted(
+        ((i, j) for i in range(size) for j in range(i + 1, size)
+         if (i, j) not in scheduled),
+        key=lambda pair: (-(pair[1] - pair[0]), pair[0]),
+    ):
+        pairs.append(pair)
     road_lookup_budget = 18
     road_lookups_used = 0
     for i, j in pairs:

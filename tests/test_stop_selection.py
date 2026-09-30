@@ -32,12 +32,22 @@ def test_long_route_uses_one_supplied_site(vehicle):
     assert "unverified" in result["note"]
 
 
-def test_fewer_stops_preferred_to_shorter_miles(vehicle):
+def test_equal_stop_paths_prefer_further_progress_over_shorter_miles(vehicle):
     result = select_fewest_stops(vehicle, 80, "Start", ["A", "B"], "End",
                                 graph(4, {(0, 1): 100, (1, 2): 20, (2, 3): 100,
                                           (0, 2): 150, (1, 3): 110, (0, 3): 300}))
     assert result["site_count"] == 1
-    assert result["selected_site_names"] == ["A"]
+    assert result["selected_site_names"] == ["B"]
+
+
+def test_equal_stop_paths_prefer_further_first_stop(vehicle):
+    result = select_fewest_stops(
+        vehicle, 80, "Start", ["Earlier", "Later"], "End",
+        graph(4, {(0, 1): 100, (1, 3): 100,
+                  (0, 2): 170, (2, 3): 40}),
+    )
+    assert result["selected_site_names"] == ["Later"]
+    assert result["site_count"] == 1
 
 
 def test_unmeasured_or_unreachable_edges_return_no_path(vehicle):
