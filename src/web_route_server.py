@@ -301,7 +301,7 @@ def build_conditional_plan(payload):
         "limit_per_sample": 10,
         "max_sites": 8,
         "max_route_samples": 9,
-        "road_lookup_budget": 18,
+        "road_lookup_budget": 12,
         "destination_profile": profile,
     }
 
@@ -337,10 +337,10 @@ def build_conditional_plan(payload):
         destination["label"],
         (destination["latitude"], destination["longitude"]),
         radius_miles=35,
-        limit_per_sample=20,
-        max_sites=16,
-        max_route_samples=18,
-        road_lookup_budget=36,
+        limit_per_sample=15,
+        max_sites=12,
+        max_route_samples=12,
+        road_lookup_budget=20,
         destination_profile=profile,
     )
 

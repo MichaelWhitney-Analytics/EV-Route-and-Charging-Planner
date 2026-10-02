@@ -133,7 +133,7 @@ def test_conditional_plan_retries_with_expanded_coverage_after_standard_failure(
                 "baseline_road_miles": 900.0,
                 "search_coverage": {
                     "sites_measured": 8,
-                    "additional_road_lookup_budget": 18,
+                    "additional_road_lookup_budget": 12,
                 },
                 "disclaimer": "Standard bounded search.",
             }
@@ -170,8 +170,8 @@ def test_conditional_plan_retries_with_expanded_coverage_after_standard_failure(
             ],
             "baseline_road_miles": 900.0,
             "search_coverage": {
-                "sites_measured": 16,
-                "additional_road_lookup_budget": 36,
+                "sites_measured": 12,
+                "additional_road_lookup_budget": 20,
             },
             "disclaimer": "Expanded bounded search.",
         }
@@ -187,10 +187,10 @@ def test_conditional_plan_retries_with_expanded_coverage_after_standard_failure(
     assert len(calls) == 2
     assert calls[0]["max_sites"] == 8
     assert calls[0]["max_route_samples"] == 9
-    assert calls[0]["road_lookup_budget"] == 18
-    assert calls[1]["max_sites"] == 16
-    assert calls[1]["max_route_samples"] == 18
-    assert calls[1]["road_lookup_budget"] == 36
+    assert calls[0]["road_lookup_budget"] == 12
+    assert calls[1]["max_sites"] == 12
+    assert calls[1]["max_route_samples"] == 12
+    assert calls[1]["road_lookup_budget"] == 20
     assert result["status"] == "conditional_energy_path"
     assert result["search_mode"] == "expanded_recovery"
     assert result["recovery_attempted"] is True
