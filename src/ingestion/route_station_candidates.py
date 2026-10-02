@@ -59,8 +59,8 @@ def sample_route(
     """Sample evenly by approximate geometry distance, including both ends."""
     if len(points) < 2:
         raise ValueError("route needs at least two geometry points")
-    if isinstance(count, bool) or not isinstance(count, int) or not 2 <= count <= 9:
-        raise ValueError("sample count must be an integer from 2 to 9")
+    if isinstance(count, bool) or not isinstance(count, int) or not 2 <= count <= 18:
+        raise ValueError("sample count must be an integer from 2 to 18")
 
     lengths = [
         _crow_flight_miles(a, b)
