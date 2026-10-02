@@ -520,7 +520,7 @@
         reserveText === "" ? 10 : Number(reserveText);
 
       status.textContent =
-        "Direct route shown. Checking a bounded set of charging sites...";
+        "Direct route shown. Searching for a charge-feasible plan along the direct route...";
 
       try {
         const planResponse = await fetch("/api/conditional-plan", {
@@ -541,17 +541,32 @@
         }
 
         if (plan.status === "no_feasible_path_in_supplied_graph") {
-          note.textContent =
-            "Unable to establish charging stops for this route.";
-          status.textContent = "Direct road route shown.";
-          return;
-        }
+  if (plan.search_mode === "expanded_recovery_no_path") {
+    note.textContent =
+      "The direct road route was found, but the planner could not verify a reserve-safe charging sequence after standard and expanded charger searches. This does not prove the trip is impossible; confirm current charger access, compatibility, and availability before travel.";
+  } else {
+    note.textContent =
+      "The direct road route was found, but the planner could not verify a reserve-safe charging sequence from the sampled charging sites. This does not prove the trip is impossible.";
+  }
 
-        showConditionalPlan(plan, selected);
-        if (plan.profile_basis === "estimated") {
-          note.textContent += " Estimated vehicle battery and charger compatibility are unverified.";
-        }
-        status.textContent = "";
+  status.textContent = "Direct road route shown.";
+  return;
+}
+
+showConditionalPlan(plan, selected);
+
+if (plan.search_mode === "expanded_recovery") {
+  note.textContent =
+    "A charge-feasible plan was found after expanding the charger search along the direct road route. "
+    + note.textContent;
+}
+
+if (plan.profile_basis === "estimated") {
+  note.textContent +=
+    " Estimated vehicle battery and charger compatibility are unverified.";
+}
+
+status.textContent = "";
       } catch (error) {
         if (generation === revision) {
           note.textContent = "Charging stops are unavailable right now.";

@@ -112,3 +112,125 @@ def test_cannot_override_sourced_catalog_profile(monkeypatch):
     payload["vehicle_id"] = 49612
     with pytest.raises(ValueError, match="either"):
         server.build_conditional_plan(payload)
+
+def test_conditional_plan_retries_with_expanded_coverage_after_standard_failure(
+    monkeypatch,
+):
+    calls = []
+
+    def fake_graph(*args, **kwargs):
+        calls.append(kwargs)
+
+        if len(calls) == 1:
+            return {
+                "selection": {
+                    "status": "no_feasible_path_in_supplied_graph",
+                    "selected_site_names": [],
+                    "itinerary": None,
+                    "note": "Standard graph did not connect.",
+                },
+                "ordered_sites": [],
+                "baseline_road_miles": 900.0,
+                "search_coverage": {
+                    "sites_measured": 8,
+                    "additional_road_lookup_budget": 18,
+                },
+                "disclaimer": "Standard bounded search.",
+            }
+
+        return {
+            "selection": {
+                "status": "conditional_energy_path",
+                "selected_site_names": ["Recovery charger"],
+                "itinerary": {
+                    "timeline": [
+                        {
+                            "kind": "site",
+                            "name": "Recovery charger",
+                            "arrival_percent": 14.0,
+                            "charge_needed_for_next_leg": True,
+                            "energy_to_add_kwh": 20.0,
+                        },
+                        {
+                            "kind": "destination",
+                            "name": "B",
+                            "arrival_percent": 15.0,
+                        },
+                    ],
+                },
+                "note": "Expanded graph found a path.",
+            },
+            "ordered_sites": [
+                {
+                    "name": "Recovery charger",
+                    "station_ids": [123],
+                    "latitude": 41.0,
+                    "longitude": -104.0,
+                },
+            ],
+            "baseline_road_miles": 900.0,
+            "search_coverage": {
+                "sites_measured": 16,
+                "additional_road_lookup_budget": 36,
+            },
+            "disclaimer": "Expanded bounded search.",
+        }
+
+    monkeypatch.setattr(
+        server,
+        "build_measured_candidate_graph",
+        fake_graph,
+    )
+
+    result = server.build_conditional_plan(request())
+
+    assert len(calls) == 2
+    assert calls[0]["max_sites"] == 8
+    assert calls[0]["max_route_samples"] == 9
+    assert calls[0]["road_lookup_budget"] == 18
+    assert calls[1]["max_sites"] == 16
+    assert calls[1]["max_route_samples"] == 18
+    assert calls[1]["road_lookup_budget"] == 36
+    assert result["status"] == "conditional_energy_path"
+    assert result["search_mode"] == "expanded_recovery"
+    assert result["recovery_attempted"] is True
+    assert result["selected_site_names"] == ["Recovery charger"]
+
+def test_conditional_plan_reports_expanded_failure_after_both_passes(
+    monkeypatch,
+):
+    calls = []
+
+    def fake_graph(*args, **kwargs):
+        calls.append(kwargs)
+
+        return {
+            "selection": {
+                "status": "no_feasible_path_in_supplied_graph",
+                "selected_site_names": [],
+                "itinerary": None,
+                "note": "No graph path.",
+            },
+            "ordered_sites": [],
+            "baseline_road_miles": 900.0,
+            "search_coverage": {
+                "sites_measured": kwargs["max_sites"],
+                "additional_road_lookup_budget": kwargs[
+                    "road_lookup_budget"
+                ],
+            },
+            "disclaimer": "Bounded search.",
+        }
+
+    monkeypatch.setattr(
+        server,
+        "build_measured_candidate_graph",
+        fake_graph,
+    )
+
+    result = server.build_conditional_plan(request())
+
+    assert len(calls) == 2
+    assert result["status"] == "no_feasible_path_in_supplied_graph"
+    assert result["search_mode"] == "expanded_recovery_no_path"
+    assert result["recovery_attempted"] is True

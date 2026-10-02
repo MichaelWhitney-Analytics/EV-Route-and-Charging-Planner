@@ -53,8 +53,38 @@ def test_route_failures_are_not_silently_marked_unreachable():
 
 
 def test_invalid_bounds_rejected_before_calls():
-    with pytest.raises(ValueError, match='max_sites'):
-        build_measured_candidate_graph(PROFILE, 80, 'A', (0, 0), 'B', (0, 2), max_sites=9)
+    with pytest.raises(ValueError, match="max_sites"):
+        build_measured_candidate_graph(
+            PROFILE,
+            80,
+            "A",
+            (0, 0),
+            "B",
+            (0, 2),
+            max_sites=17,
+        )
+
+    with pytest.raises(ValueError, match="max_route_samples"):
+        build_measured_candidate_graph(
+            PROFILE,
+            80,
+            "A",
+            (0, 0),
+            "B",
+            (0, 2),
+            max_route_samples=19,
+        )
+
+    with pytest.raises(ValueError, match="road_lookup_budget"):
+        build_measured_candidate_graph(
+            PROFILE,
+            80,
+            "A",
+            (0, 0),
+            "B",
+            (0, 2),
+            road_lookup_budget=49,
+        )
 
 
 
